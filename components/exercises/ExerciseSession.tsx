@@ -75,7 +75,7 @@ export function ExerciseSession({
   };
 
   const header = (
-    <div ref={topRef} className="sticky top-0 z-20 -mx-4 mb-4 bg-bg/95 px-4 pb-3 pt-2 backdrop-blur">
+    <div ref={topRef} className="sticky top-0 z-20 -mx-4 mb-4 bg-bg/80 px-4 pb-3 pt-2 backdrop-blur-xl backdrop-saturate-150">
       <div className="flex items-center gap-3">
         <button
           type="button"
@@ -99,10 +99,10 @@ export function ExerciseSession({
     return (
       <div>
         {header}
-        <h2 className="text-2xl font-bold">Sesión terminada</h2>
+        <h2 className="text-[34px] font-bold leading-tight tracking-[-0.03em]">Sesión terminada.</h2>
         <p className="mt-1 text-ink-2">{title}</p>
-        <div className="mt-5 rounded-2xl border border-line bg-surface p-5 text-center">
-          <p className="text-4xl font-bold tabular-nums">
+        <div className="mt-6 rounded-3xl bg-surface p-8 text-center shadow-card">
+          <p className="text-[56px] font-bold leading-none tracking-[-0.04em] tabular-nums">
             {correct}/{results.length}
           </p>
           <p className="mt-1 text-ink-2">respuestas correctas</p>
@@ -112,7 +112,7 @@ export function ExerciseSession({
             <h3 className="mb-2 font-semibold">Para repasar</h3>
             <ul className="space-y-2">
               {wrong.map(({ item, result }) => (
-                <li key={item.id} className="rounded-2xl border border-line bg-surface p-3 text-sm">
+                <li key={item.id} className="rounded-2xl bg-surface shadow-card p-3 text-sm">
                   <p className="text-ink-2">Tu respuesta: <span lang="pt-PT">{result.answer}</span></p>
                   {result.model && (
                     <p className="mt-0.5 font-medium" lang="pt-PT">
@@ -136,8 +136,8 @@ export function ExerciseSession({
   return (
     <div>
       {header}
-      <p className="text-xs font-semibold uppercase tracking-wide text-brand">{TYPE_LABEL[item.type]}</p>
-      <h2 className="mb-4 mt-1 text-lg font-semibold leading-snug">{item.instruction}</h2>
+      <p className="text-[13px] font-semibold uppercase tracking-[0.06em] text-ink-2">{TYPE_LABEL[item.type]}</p>
+      <h2 className="mb-5 mt-1 text-[24px] font-bold leading-[1.15] tracking-[-0.03em]">{item.instruction}</h2>
       <ExerciseView key={item.id + index} exercise={item} locked={!!result} onSubmit={onSubmit} hideTranslations={hideTranslations} />
       {result && <Feedback item={item} result={result} />}
       {result && (
@@ -151,19 +151,19 @@ export function ExerciseSession({
 
 function Feedback({ item, result }: { item: SessionItem; result: AnswerResult }) {
   const tone = {
-    correct: { box: "border-ok bg-ok-soft", title: "¡Correcto!", color: "text-ok" },
-    "accepted-with-note": { box: "border-ok bg-ok-soft", title: "Correcto, con una observación", color: "text-ok" },
-    "self-assessed": { box: "border-line bg-surface", title: "Autoevaluación registrada", color: "text-ink" },
-    close: { box: "border-warn bg-warn-soft", title: "Casi: se entiende, pero…", color: "text-warn" },
-    incorrect: { box: "border-bad bg-bad-soft", title: "No es correcto", color: "text-bad" },
+    correct: { box: "bg-ok-soft", title: "Correcto.", color: "text-ok" },
+    "accepted-with-note": { box: "bg-ok-soft", title: "Correcto, con una observación.", color: "text-ok" },
+    "self-assessed": { box: "bg-surface shadow-card", title: "Autoevaluación registrada.", color: "text-ink" },
+    close: { box: "bg-warn-soft", title: "Casi. Se entiende, pero…", color: "text-warn" },
+    incorrect: { box: "bg-bad-soft", title: "No es correcto.", color: "text-bad" },
   }[result.status];
   const showModel = result.model && result.status !== "correct" && item.type !== "choice";
   const others =
     "accepted" in item ? item.accepted.filter((a) => a !== result.model).slice(0, 3) : [];
 
   return (
-    <div id="feedback" role="status" aria-live="polite" className={`mt-5 rounded-2xl border-2 p-4 ${tone.box}`}>
-      <p className={`flex items-center gap-2 text-lg font-bold ${tone.color}`}>
+    <div id="feedback" role="status" aria-live="polite" className={`mt-6 rounded-3xl p-5 ${tone.box}`}>
+      <p className={`flex items-center gap-2 text-[20px] font-bold tracking-[-0.025em] ${tone.color}`}>
         {result.isCorrect ? <IconCheck width={22} height={22} /> : <IconAlert width={22} height={22} />}
         {tone.title}
       </p>
@@ -172,7 +172,7 @@ function Feedback({ item, result }: { item: SessionItem; result: AnswerResult })
       )}
       {result.feedback && result.status !== "self-assessed" && <p className="mt-2">{result.feedback}</p>}
       {showModel && (
-        <div className="mt-3 rounded-xl bg-surface p-3">
+        <div className="mt-4 rounded-2xl bg-surface p-4">
           {item.type !== "free" && (
             <p className="text-sm text-ink-2">
               Tu respuesta: <span lang="pt-PT">{result.answer}</span>

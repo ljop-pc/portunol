@@ -38,7 +38,7 @@ export function ConversationIndex() {
         })}
       </ul>
       <SectionTitle>Próximamente</SectionTitle>
-      <ul className="space-y-1.5 rounded-2xl border border-dashed border-line p-4 text-ink-2">
+      <ul className="space-y-2 rounded-2xl bg-surface-2/60 p-5 text-[15px] text-ink-2">
         {UPCOMING.map((u) => (
           <li key={u}>· {u}</li>
         ))}

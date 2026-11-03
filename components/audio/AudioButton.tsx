@@ -32,7 +32,7 @@ export function AudioButton({ text, file, slow = false, size = "md" }: AudioRef 
           <IconSpeakerOff width={18} height={18} />
         </button>
         {showInfo && (
-          <span role="status" className="absolute right-0 top-full z-30 mt-1 w-56 rounded-xl border border-line bg-surface p-3 text-xs text-ink-2 shadow-lg">
+          <span role="status" className="absolute right-0 top-full z-30 mt-1 w-56 rounded-xl bg-surface shadow-card p-3 text-xs text-ink-2 shadow-lg">
             Sin audio: este dispositivo no tiene una voz de portugués de Portugal. No usamos voces de Brasil como sustituto. Más información en «Progreso → Audio».
           </span>
         )}

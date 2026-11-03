@@ -1,41 +1,52 @@
 @import "tailwindcss";
 
-/* Paleta inspirada en el azulejo portugués: azul profundo sobre fondo cálido. */
+/*
+ * Lenguaje visual: limpio y sobrio, con mucho aire.
+ * - Fondo gris muy claro, tarjetas blancas sin bordes y sombra apenas perceptible.
+ * - Tipografía del sistema (en iPhone, la propia del sistema), titulares grandes y compactos.
+ * - Un único color de acción (azul), botones en píldora y barras translúcidas.
+ */
 :root {
-  --bg: #f7f5f0;
+  --bg: #f5f5f7;
   --surface: #ffffff;
-  --surface-2: #efece4;
-  --ink: #1c1f26;
-  --ink-2: #5a5f6b;
-  --line: #e2ded3;
-  --brand: #1f4e9c;
+  --surface-2: #ececf0;
+  --ink: #1d1d1f;
+  --ink-2: #6e6e73;
+  --line: #e3e3e8;
+  --brand: #0071e3;
   --brand-ink: #ffffff;
-  --brand-soft: #e3ebf8;
-  --ok: #1d7a4e;
-  --ok-soft: #e1f3e9;
-  --warn: #9a5b00;
-  --warn-soft: #fbefd9;
-  --bad: #b3261e;
-  --bad-soft: #fbe4e2;
+  --brand-soft: #e9f2fd;
+  --ok: #1f8a3b;
+  --ok-soft: #e9f6ec;
+  --warn: #b25000;
+  --warn-soft: #fff3e3;
+  --bad: #d70015;
+  --bad-soft: #fdebed;
+  --hero: #1d1d1f;
+  --hero-ink: #f5f5f7;
+  --bar: rgba(250, 250, 252, 0.78);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #121418;
-    --surface: #1b1e24;
-    --surface-2: #252932;
-    --ink: #eceef2;
-    --ink-2: #a3a9b6;
-    --line: #2f343e;
-    --brand: #7aa5ec;
-    --brand-ink: #0d1626;
-    --brand-soft: #1e2a40;
-    --ok: #5fcf95;
-    --ok-soft: #173326;
-    --warn: #f0b354;
-    --warn-soft: #3a2a10;
-    --bad: #f2867f;
-    --bad-soft: #3d1a18;
+    --bg: #000000;
+    --surface: #1c1c1e;
+    --surface-2: #2c2c2e;
+    --ink: #f5f5f7;
+    --ink-2: #98989d;
+    --line: #38383a;
+    --brand: #2997ff;
+    --brand-ink: #ffffff;
+    --brand-soft: #0f2742;
+    --ok: #30d158;
+    --ok-soft: #0f2a17;
+    --warn: #ff9f0a;
+    --warn-soft: #33230a;
+    --bad: #ff453a;
+    --bad-soft: #3a1210;
+    --hero: #1c1c1e;
+    --hero-ink: #f5f5f7;
+    --bar: rgba(22, 22, 23, 0.78);
   }
 }
 
@@ -55,7 +66,15 @@
   --color-warn-soft: var(--warn-soft);
   --color-bad: var(--bad);
   --color-bad-soft: var(--bad-soft);
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --color-hero: var(--hero);
+  --color-hero-ink: var(--hero-ink);
+  --color-bar: var(--bar);
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* Esquinas más generosas y sombras casi invisibles. */
+  --radius-xl: 0.875rem;
+  --radius-2xl: 1.125rem;
+  --radius-3xl: 1.75rem;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 html {
@@ -67,16 +86,49 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
+  font-size: 17px;
+  letter-spacing: -0.012em;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior-y: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* En oscuro las sombras no aportan: se sustituyen por un filete sutil. */
+  .shadow-card {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+}
+
+/* Titular con degradado, para la portada. */
+.text-gradient {
+  background: linear-gradient(90deg, #0071e3 0%, #6e4ff6 55%, #c2459a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@media (prefers-color-scheme: dark) {
+  .text-gradient {
+    background: linear-gradient(90deg, #2997ff 0%, #a78bfa 55%, #f472b6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
 }
 
 /* Inputs a 16px como mínimo: evita el zoom automático de Safari en iOS. */
 input,
 textarea,
 select {
-  font-size: 16px;
+  font-size: 17px;
+  letter-spacing: -0.012em;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
 }
 
 .pb-safe {

@@ -32,7 +32,7 @@ export function GrammarTables({ topic }: { topic: GrammarTopic }) {
       {topic.conjugations.length > 0 && (
         <div className="grid gap-3 sm:grid-cols-2">
           {topic.conjugations.map((c) => (
-            <div key={c.verb} className="rounded-2xl border border-line bg-surface p-3">
+            <div key={c.verb} className="rounded-2xl bg-surface shadow-card p-3">
               <p className="font-bold" lang="pt-PT">
                 {c.verb} <span className="font-normal text-ink-2">· {c.meaning}</span>
               </p>
@@ -54,7 +54,7 @@ export function GrammarTables({ topic }: { topic: GrammarTopic }) {
         </div>
       )}
       {topic.table && (
-        <div className="overflow-x-auto rounded-2xl border border-line bg-surface">
+        <div className="overflow-x-auto rounded-2xl bg-surface shadow-card">
           <table className="w-full text-[15px]">
             <caption className="px-3 pt-3 text-left text-sm font-semibold text-ink-2">{topic.table.caption}</caption>
             <thead>
@@ -86,7 +86,7 @@ export function GrammarTables({ topic }: { topic: GrammarTopic }) {
 
 export function GrammarExamples({ topic }: { topic: GrammarTopic }) {
   return (
-    <div className="divide-y divide-line rounded-2xl border border-line bg-surface px-4">
+    <div className="divide-y divide-line rounded-2xl bg-surface shadow-card px-4">
       {topic.examples.map((e) => (
         <PtText key={e.pt} example={e} />
       ))}
@@ -97,15 +97,15 @@ export function GrammarExamples({ topic }: { topic: GrammarTopic }) {
 export function GrammarContrast({ topic }: { topic: GrammarTopic }) {
   return (
     <div className="space-y-4">
-      <div className="rounded-2xl border border-line bg-surface p-4">
-        <p className="mb-2 font-semibold">🇪🇸 → 🇵🇹 Comparación con el español</p>
+      <div className="rounded-2xl bg-surface shadow-card p-4">
+        <p className="mb-2 font-semibold">Comparación con el español</p>
         <ul className="list-disc space-y-1.5 pl-5 text-[16px] leading-relaxed">
           {topic.contrastEs.map((c) => (
             <li key={c}>{c}</li>
           ))}
         </ul>
       </div>
-      <div className="rounded-2xl border border-line bg-surface p-4">
+      <div className="rounded-2xl bg-surface shadow-card p-4">
         <p className="mb-2 font-semibold">Errores frecuentes</p>
         <ul className="space-y-3">
           {topic.commonErrors.map((e) => (

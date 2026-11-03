@@ -4,27 +4,28 @@ import { IconBack, IconChevron } from "./icons";
 
 type Variant = "primary" | "secondary" | "ghost";
 
+/** Botón en píldora. Un solo color de acción; el resto, discreto. */
 export function Button({
   variant = "primary",
   className = "",
   ...props
 }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant }) {
   const styles: Record<Variant, string> = {
-    primary: "bg-brand text-brand-ink active:opacity-85 disabled:opacity-40",
-    secondary: "bg-surface text-ink border border-line active:bg-surface-2 disabled:opacity-40",
-    ghost: "text-brand active:bg-brand-soft disabled:opacity-40",
+    primary: "bg-brand text-brand-ink active:brightness-90 disabled:opacity-35",
+    secondary: "bg-surface-2 text-ink active:brightness-95 disabled:opacity-35",
+    ghost: "text-brand active:opacity-60 disabled:opacity-35",
   };
   return (
     <button
       type="button"
-      className={`min-h-[48px] rounded-2xl px-5 text-[16px] font-semibold transition-colors ${styles[variant]} ${className}`}
+      className={`min-h-[50px] rounded-full px-6 text-[17px] font-medium tracking-[-0.016em] transition ${styles[variant]} ${className}`}
       {...props}
     />
   );
 }
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`rounded-2xl border border-line bg-surface p-4 ${className}`}>{children}</div>;
+  return <div className={`rounded-3xl bg-surface p-5 shadow-card ${className}`}>{children}</div>;
 }
 
 export function LinkCard({
@@ -43,34 +44,35 @@ export function LinkCard({
   return (
     <Link
       href={href}
-      className={`flex items-center gap-3 rounded-2xl border border-line bg-surface p-4 active:bg-surface-2 ${className}`}
+      className={`flex items-center gap-3 rounded-2xl bg-surface px-4 py-4 shadow-card transition active:scale-[0.99] active:opacity-80 ${className}`}
     >
       <div className="min-w-0 flex-1">
-        <div className="font-semibold leading-snug">{title}</div>
-        {subtitle && <div className="mt-0.5 text-sm text-ink-2">{subtitle}</div>}
+        <div className="text-[17px] font-semibold leading-snug tracking-[-0.02em]">{title}</div>
+        {subtitle && <div className="mt-0.5 text-[15px] leading-snug text-ink-2">{subtitle}</div>}
       </div>
       {right}
-      <IconChevron width={18} height={18} className="shrink-0 text-ink-2" />
+      <IconChevron width={16} height={16} strokeWidth={2.2} className="shrink-0 text-ink-2/50" />
     </Link>
   );
 }
 
+/** Título grande al estilo de las apps del sistema. */
 export function PageHeader({ title, subtitle, back }: { title: string; subtitle?: ReactNode; back?: string }) {
   return (
-    <header className="mb-5">
+    <header className="mb-7 pt-2">
       {back && (
-        <Link href={back} className="-ml-2 mb-2 inline-flex min-h-[44px] items-center gap-1 px-2 text-brand">
-          <IconBack width={18} height={18} /> Volver
+        <Link href={back} className="-ml-1.5 mb-1 inline-flex min-h-[44px] items-center gap-0.5 pr-2 text-[17px] text-brand">
+          <IconBack width={20} height={20} strokeWidth={2.2} /> Volver
         </Link>
       )}
-      <h1 className="text-[28px] font-bold leading-tight tracking-tight">{title}</h1>
-      {subtitle && <p className="mt-1 text-ink-2">{subtitle}</p>}
+      <h1 className="text-[34px] font-bold leading-[1.08] tracking-[-0.03em]">{title}</h1>
+      {subtitle && <p className="mt-2 text-[17px] leading-relaxed text-ink-2">{subtitle}</p>}
     </header>
   );
 }
 
 export function SectionTitle({ children }: { children: ReactNode }) {
-  return <h2 className="mb-2 mt-7 text-[13px] font-semibold uppercase tracking-wide text-ink-2">{children}</h2>;
+  return <h2 className="mb-3 mt-10 text-[22px] font-bold tracking-[-0.025em]">{children}</h2>;
 }
 
 export function Badge({ children, tone = "neutral" }: { children: ReactNode; tone?: "neutral" | "brand" | "ok" | "warn" | "bad" }) {
@@ -81,7 +83,7 @@ export function Badge({ children, tone = "neutral" }: { children: ReactNode; ton
     warn: "bg-warn-soft text-warn",
     bad: "bg-bad-soft text-bad",
   };
-  return <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${tones[tone]}`}>{children}</span>;
+  return <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[12px] font-semibold ${tones[tone]}`}>{children}</span>;
 }
 
 export function ProgressBar({ value, label }: { value: number; label?: string }) {
@@ -93,17 +95,17 @@ export function ProgressBar({ value, label }: { value: number; label?: string })
       aria-valuemin={0}
       aria-valuemax={100}
       aria-label={label}
-      className="h-2 w-full overflow-hidden rounded-full bg-surface-2"
+      className="h-1.5 w-full overflow-hidden rounded-full bg-surface-2"
     >
-      <div className="h-full rounded-full bg-brand transition-[width]" style={{ width: `${pct}%` }} />
+      <div className="h-full rounded-full bg-brand transition-[width] duration-500 ease-out" style={{ width: `${pct}%` }} />
     </div>
   );
 }
 
 export function ReviewNote() {
   return (
-    <p className="mt-6 text-xs text-ink-2">
-      Contenido en portugués europeo (PT-PT) <span className="whitespace-nowrap">· pendiente de revisión por un hablante nativo</span>
+    <p className="mt-10 text-center text-[12px] leading-relaxed text-ink-2">
+      Portugués europeo (PT-PT) · pendiente de revisión por un hablante nativo
     </p>
   );
 }

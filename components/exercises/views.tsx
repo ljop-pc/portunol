@@ -36,7 +36,7 @@ export function ChoiceView({ exercise: e, locked, onSubmit }: ExerciseViewProps<
         {order.map((i) => {
           const isAnswer = i === e.answer;
           const isPicked = i === picked;
-          let style = "border-line bg-surface active:bg-surface-2";
+          let style = "border-transparent bg-surface shadow-card active:scale-[0.99]";
           if (locked && isAnswer) style = "border-ok bg-ok-soft";
           else if (locked && isPicked) style = "border-bad bg-bad-soft";
           return (
@@ -54,7 +54,7 @@ export function ChoiceView({ exercise: e, locked, onSubmit }: ExerciseViewProps<
                     model: e.options[e.answer],
                   });
                 }}
-                className={`w-full min-h-[52px] rounded-2xl border-2 px-4 py-3 text-left text-[17px] ${style}`}
+                className={`w-full min-h-[56px] rounded-2xl border-2 px-5 py-3.5 text-left text-[17px] transition ${style}`}
               >
                 {e.options[i]}
               </button>
@@ -110,7 +110,7 @@ function TextAnswer({
         spellCheck={false}
         placeholder={placeholder}
         aria-label="Tu respuesta"
-        className="w-full resize-none rounded-2xl border-2 border-line bg-surface px-4 py-3 text-[17px] outline-none focus:border-brand disabled:opacity-80"
+        className="w-full resize-none rounded-2xl bg-surface px-4 py-3.5 text-[17px] shadow-card outline-none transition focus:ring-4 focus:ring-brand/20 disabled:opacity-80"
       />
       <p className="mt-1.5 text-xs text-ink-2">
         Consejo: activa el teclado portugués en el iPhone para escribir ã, ç, ê… (Ajustes → General → Teclado).
@@ -151,7 +151,7 @@ export function FillView({ exercise: e, locked, onSubmit, hideTranslations }: Ex
             autoComplete="off"
             spellCheck={false}
             aria-label="Palabra que falta"
-            className="mx-1 inline-block w-32 rounded-lg border-b-2 border-brand bg-surface px-2 py-0.5 text-center text-xl font-semibold outline-none"
+            className="mx-1 inline-block w-32 rounded-lg border-b-2 border-brand bg-surface px-2 py-0.5 text-center text-xl font-semibold outline-none focus:ring-4 focus:ring-brand/20"
           />
           {after}
         </p>
@@ -178,7 +178,7 @@ export function BuildView({ exercise: e, locked, onSubmit }: ExerciseViewProps<O
       <p className="mb-3 text-lg font-medium text-ink-2">«{e.translation}»</p>
       <div
         aria-label="Tu frase"
-        className="mb-4 flex min-h-[64px] flex-wrap gap-2 rounded-2xl border-2 border-dashed border-line p-3"
+        className="mb-5 flex min-h-[68px] flex-wrap gap-2 rounded-2xl bg-surface-2/70 p-3"
       >
         {chosen.length === 0 && <span className="self-center text-ink-2">Toca las palabras en orden</span>}
         {chosen.map((i, pos) => (
@@ -188,7 +188,7 @@ export function BuildView({ exercise: e, locked, onSubmit }: ExerciseViewProps<O
             lang="pt-PT"
             disabled={locked}
             onClick={() => setChosen((c) => c.filter((_, p) => p !== pos))}
-            className="min-h-[44px] rounded-xl bg-brand-soft px-3 text-[17px] font-medium text-brand"
+            className="min-h-[44px] rounded-full bg-brand px-4 text-[17px] font-medium text-white"
           >
             {e.tokens[i]}
           </button>
@@ -197,7 +197,7 @@ export function BuildView({ exercise: e, locked, onSubmit }: ExerciseViewProps<O
       <div className="flex flex-wrap gap-2">
         {tokens.map(({ t, i }) =>
           chosen.includes(i) ? (
-            <span key={i} className="min-h-[44px] rounded-xl border border-dashed border-line px-3 opacity-0" aria-hidden>
+            <span key={i} className="min-h-[44px] rounded-full px-4 opacity-0" aria-hidden>
               {t}
             </span>
           ) : (
@@ -207,7 +207,7 @@ export function BuildView({ exercise: e, locked, onSubmit }: ExerciseViewProps<O
               lang="pt-PT"
               disabled={locked}
               onClick={() => setChosen((c) => [...c, i])}
-              className="min-h-[44px] rounded-xl border border-line bg-surface px-3 text-[17px] font-medium active:bg-surface-2"
+              className="min-h-[44px] rounded-full bg-surface px-4 text-[17px] font-medium shadow-card transition active:scale-95"
             >
               {t}
             </button>
@@ -239,7 +239,7 @@ export function TranslateView({ exercise: e, locked, onSubmit }: ExerciseViewPro
 export function FixView({ exercise: e, locked, onSubmit }: ExerciseViewProps<Of<"fix">>) {
   return (
     <div>
-      <div className="mb-4 rounded-2xl border-2 border-bad/40 bg-bad-soft p-4">
+      <div className="mb-4 rounded-2xl bg-bad-soft p-4">
         <p className="text-xs font-semibold uppercase tracking-wide text-bad">Frase con error</p>
         <p lang="pt-PT" className="mt-1 text-xl font-semibold leading-snug">
           {e.wrong}
@@ -276,7 +276,7 @@ export function DialogueView({ exercise: e, locked, onSubmit, hideTranslations }
           </div>
         ))}
       </div>
-      <p className="mb-3 rounded-xl bg-brand-soft p-3 font-medium text-brand">Tu turno: {e.task}</p>
+      <p className="mb-4 rounded-2xl bg-brand-soft p-4 font-medium text-brand">Tu turno: {e.task}</p>
       <TextAnswer locked={locked} onCheck={(v) => onSubmit(check(e, v))} placeholder="Responde en portugués…" />
     </div>
   );
@@ -293,7 +293,7 @@ export function FreeView({ exercise: e, locked, onSubmit }: ExerciseViewProps<Of
       </div>
       <TextAnswer locked={written !== null} multiline onCheck={(v) => setWritten(v)} placeholder="Escribe tu respuesta…" />
       {written !== null && (
-        <div className="mt-4 rounded-2xl border border-line bg-surface p-4">
+        <div className="mt-4 rounded-2xl bg-surface shadow-card p-4">
           <p className="text-xs font-semibold uppercase tracking-wide text-ink-2">Respuestas modelo</p>
           <ul className="mt-2 space-y-1.5">
             {e.modelAnswers.map((m) => (

@@ -26,7 +26,7 @@ export function masteryBadge(m: ItemMastery | undefined) {
 export function VocabCard({ entry, mastery, showTopic }: { entry: VocabEntry; mastery?: ItemMastery; showTopic?: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <li className="rounded-2xl border border-line bg-surface">
+    <li className="rounded-2xl bg-surface shadow-card">
       <div className="flex items-center gap-2 p-3">
         <button type="button" onClick={() => setOpen((v) => !v)} aria-expanded={open} className="min-w-0 flex-1 text-left">
           <p className="text-[17px] font-semibold" lang="pt-PT">
@@ -50,10 +50,10 @@ export function VocabCard({ entry, mastery, showTopic }: { entry: VocabEntry; ma
             <AudioButton text={entry.exPt} size="sm" />
           </div>
           <p className="text-ink-2">{entry.exEs}</p>
-          {entry.note && <p className="mt-2 text-sm">💡 {entry.note}</p>}
+          {entry.note && <p className="mt-2 text-sm">{entry.note}</p>}
           {entry.ptBr && (
             <p className="mt-1 text-sm text-ink-2">
-              🇧🇷 En Brasil: <span lang="pt-BR">{entry.ptBr}</span>
+              En Brasil: <span lang="pt-BR">{entry.ptBr}</span>
             </p>
           )}
         </div>

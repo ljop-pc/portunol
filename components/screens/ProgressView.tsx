@@ -132,11 +132,11 @@ export function ProgressView() {
             return (
               <li key={`${e.category}|${e.topic}`}>
                 {href ? (
-                  <Link href={href} className="block rounded-2xl border border-line bg-surface p-3 active:bg-surface-2">
+                  <Link href={href} className="block rounded-2xl bg-surface shadow-card p-3 active:bg-surface-2">
                     {body}
                   </Link>
                 ) : (
-                  <div className="rounded-2xl border border-line bg-surface p-3">{body}</div>
+                  <div className="rounded-2xl bg-surface shadow-card p-3">{body}</div>
                 )}
               </li>
             );
@@ -183,7 +183,7 @@ export function ProgressView() {
       <Card>
         {audio.syntheticAvailable ? (
           <p className="text-[15px]">
-            ✅ Voz sintética de portugués europeo detectada: <strong>{audio.voiceName}</strong>. Es una voz del sistema, no una grabación nativa.
+            Voz sintética de portugués europeo detectada: <strong>{audio.voiceName}</strong>. Es una voz del sistema, no una grabación nativa.
           </p>
         ) : (
           <div className="text-[15px]">
@@ -301,7 +301,7 @@ export function ProgressView() {
 
 function Stat({ value, label, hint }: { value: string; label: string; hint?: string }) {
   return (
-    <div className="rounded-2xl border border-line bg-surface p-4">
+    <div className="rounded-2xl bg-surface shadow-card p-4">
       <p className="text-2xl font-bold tabular-nums">{value}</p>
       <p className="text-sm text-ink-2">{label}</p>
       {hint && <p className="mt-0.5 text-[11px] text-ink-2">{hint}</p>}

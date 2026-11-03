@@ -21,7 +21,7 @@ export function InstallHint() {
   const [dismissed, setDismissed] = useState(false);
   if (!initial || dismissed) return null;
   return (
-    <div className="mt-4 rounded-2xl border border-line bg-surface p-4 text-sm">
+    <div className="mt-4 rounded-2xl bg-surface shadow-card p-4 text-sm">
       <p className="font-semibold">Instálala en tu iPhone</p>
       <p className="mt-1 text-ink-2">
         En Safari, toca <strong>Compartir</strong> → <strong>Añadir a pantalla de inicio</strong>. Se abrirá a pantalla completa y es

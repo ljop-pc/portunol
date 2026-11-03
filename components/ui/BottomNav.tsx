@@ -12,6 +12,7 @@ const TABS = [
   { href: "/progreso/", label: "Progreso", Icon: IconProgress, match: (p: string) => p.startsWith("/progreso") },
 ];
 
+/** Barra inferior translúcida, como las del sistema. */
 export function BottomNav() {
   const pathname = usePathname() ?? "/";
   const focused = useIsFocused();
@@ -19,7 +20,7 @@ export function BottomNav() {
   return (
     <nav
       aria-label="Navegación principal"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 backdrop-blur pb-safe"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-line/60 bg-bar pb-safe backdrop-blur-xl backdrop-saturate-150"
     >
       <ul className="mx-auto flex max-w-xl">
         {TABS.map(({ href, label, Icon, match }) => {
@@ -29,11 +30,11 @@ export function BottomNav() {
               <Link
                 href={href}
                 aria-current={active ? "page" : undefined}
-                className={`flex min-h-[56px] flex-col items-center justify-center gap-0.5 text-[11px] font-medium ${
+                className={`flex min-h-[52px] flex-col items-center justify-center gap-0.5 pt-1 text-[10.5px] font-medium tracking-normal ${
                   active ? "text-brand" : "text-ink-2"
                 }`}
               >
-                <Icon width={24} height={24} strokeWidth={active ? 2.2 : 1.8} />
+                <Icon width={25} height={25} strokeWidth={active ? 2.1 : 1.7} />
                 {label}
               </Link>
             </li>

@@ -44,7 +44,7 @@ export function FalseFriendsView() {
       </Button>
       <ul className="mt-5 space-y-3">
         {falseFriends.map((f) => (
-          <li key={f.id} className="rounded-2xl border border-line bg-surface p-4">
+          <li key={f.id} className="rounded-2xl bg-surface shadow-card p-4">
             <div className="flex items-start gap-2">
               <div className="min-w-0 flex-1">
                 <p className="text-xl font-bold" lang="pt-PT">
@@ -69,7 +69,7 @@ export function FalseFriendsView() {
               </div>
               <p className="text-ink-2">{f.exEs}</p>
             </div>
-            {f.note && <p className="mt-2 text-sm text-ink-2">💡 {f.note}</p>}
+            {f.note && <p className="mt-2 text-sm text-ink-2">{f.note}</p>}
           </li>
         ))}
       </ul>

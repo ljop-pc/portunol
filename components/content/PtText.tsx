@@ -24,7 +24,7 @@ export function PtText({ example, big = false }: { example: Example; big?: boole
         >
           {show ? example.es : "Ver traducción"}
         </button>
-        {example.note && show && <p className="mt-1 text-sm text-ink-2">💡 {example.note}</p>}
+        {example.note && show && <p className="mt-1 text-sm text-ink-2">{example.note}</p>}
       </div>
       <AudioButton text={example.pt} />
     </div>

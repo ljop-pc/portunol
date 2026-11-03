@@ -31,7 +31,7 @@ export function VocabIndex() {
         aria-label="Buscar vocabulario"
         autoCorrect="off"
         autoCapitalize="none"
-        className="w-full rounded-2xl border border-line bg-surface px-4 py-3 outline-none focus:border-brand"
+        className="w-full rounded-xl bg-surface-2 px-4 py-3 outline-none placeholder:text-ink-2 focus:ring-4 focus:ring-brand/20"
       />
       {q.trim().length >= 2 && (
         <div className="mt-3">
@@ -47,9 +47,10 @@ export function VocabIndex() {
         </div>
       )}
 
-      <Link href="/vocabulario/ojo/" className="mt-5 block rounded-3xl border-2 border-warn bg-warn-soft p-5 active:opacity-90">
-        <p className="text-lg font-bold text-warn">⚠️ Ojo con esta palabra</p>
-        <p className="mt-1 text-[15px]">
+      <Link href="/vocabulario/ojo/" className="mt-6 block rounded-3xl bg-hero p-6 text-hero-ink shadow-card transition active:scale-[0.99]">
+        <p className="text-[13px] font-semibold uppercase tracking-[0.06em] text-warn">Falsos amigos</p>
+        <p className="mt-1 text-[26px] font-bold leading-tight tracking-[-0.03em]">Ojo con esta palabra.</p>
+        <p className="mt-2 text-[15px] text-hero-ink/65">
           {falseFriends.length} falsos amigos: palabras que parecen españolas pero significan otra cosa (esquisito, polvo, apelido…).
         </p>
       </Link>

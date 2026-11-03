@@ -59,7 +59,7 @@ export function LessonPlayer({ lessonId }: { lessonId: string }) {
 
   return (
     <div>
-      <div className="sticky top-0 z-20 -mx-4 mb-4 bg-bg/95 px-4 pb-3 pt-2 backdrop-blur">
+      <div className="sticky top-0 z-20 -mx-4 mb-4 bg-bg/80 px-4 pb-3 pt-2 backdrop-blur-xl backdrop-saturate-150">
         <div className="flex items-center gap-3">
           <button
             type="button"
@@ -71,15 +71,15 @@ export function LessonPlayer({ lessonId }: { lessonId: string }) {
           </button>
           <ProgressBar value={step / SUMMARY} label="Progreso de la lección" />
         </div>
-        <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-brand">
+        <p className="mt-2 text-[13px] font-semibold uppercase tracking-[0.06em] text-ink-2">
           Lección {lesson.order} · {STEPS[step]}
         </p>
       </div>
 
       {step === 0 && (
         <div>
-          <h1 className="text-[28px] font-bold leading-tight">{lesson.title}</h1>
-          <div className="mt-4 rounded-2xl bg-brand-soft p-4">
+          <h1 className="text-[34px] font-bold leading-[1.08] tracking-[-0.03em]">{lesson.title}</h1>
+          <div className="mt-6 rounded-3xl bg-brand-soft p-5">
             <p className="text-sm font-semibold text-brand">Al terminar sabrás…</p>
             <p className="mt-1 text-[17px] leading-relaxed">{lesson.goal}</p>
           </div>
@@ -90,33 +90,33 @@ export function LessonPlayer({ lessonId }: { lessonId: string }) {
       )}
       {step === 1 && (
         <div className="space-y-4">
-          <h1 className="text-2xl font-bold">{topic.title}</h1>
+          <h1 className="text-[28px] font-bold leading-tight tracking-[-0.03em]">{topic.title}</h1>
           <GrammarRule topic={topic} />
           <GrammarTables topic={topic} />
         </div>
       )}
       {step === 2 && (
         <div>
-          <h1 className="mb-1 text-2xl font-bold">Ejemplos en portugués de Portugal</h1>
+          <h1 className="mb-1 text-[28px] font-bold leading-tight tracking-[-0.03em]">Ejemplos en portugués de Portugal</h1>
           <p className="mb-4 text-ink-2">Lee cada frase e intenta entenderla antes de ver la traducción.</p>
           <GrammarExamples topic={topic} />
         </div>
       )}
       {step === 3 && (
         <div>
-          <h1 className="mb-4 text-2xl font-bold">Cuándo el español ayuda… y cuándo engaña</h1>
+          <h1 className="mb-5 text-[28px] font-bold leading-tight tracking-[-0.03em]">Cuándo el español ayuda… y cuándo engaña</h1>
           <GrammarContrast topic={topic} />
         </div>
       )}
       {step === SUMMARY && (
         <div>
-          <h1 className="text-[28px] font-bold leading-tight">Lección completada</h1>
+          <h1 className="text-[34px] font-bold leading-[1.08] tracking-[-0.03em]">Lección completada.</h1>
           {summary && (
             <p className="mt-1 text-ink-2">
               {summary.correct} de {summary.total} respuestas correctas.
             </p>
           )}
-          <div className="mt-4 rounded-2xl border border-line bg-surface p-4">
+          <div className="mt-4 rounded-2xl bg-surface shadow-card p-4">
             <p className="mb-2 font-semibold">Lo que te llevas</p>
             <ul className="list-disc space-y-1.5 pl-5 text-[16px] leading-relaxed">
               {lesson.takeaways.map((t) => (

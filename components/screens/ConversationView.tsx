@@ -113,7 +113,7 @@ export function ConversationView({ conversationId }: { conversationId: string })
               return (
                 <li key={i} className={`flex ${mine ? "justify-end" : "justify-start"}`}>
                   <div
-                    className={`max-w-[88%] rounded-2xl p-3 ${mine ? "rounded-tr-md bg-brand-soft" : "rounded-tl-md bg-surface border border-line"} ${
+                    className={`max-w-[88%] rounded-2xl p-3 ${mine ? "rounded-tr-md bg-brand-soft" : "rounded-tl-md bg-surface shadow-card"} ${
                       playingAll === i ? "ring-2 ring-brand" : ""
                     }`}
                   >
@@ -135,7 +135,7 @@ export function ConversationView({ conversationId }: { conversationId: string })
                             ))}
                           </ul>
                         )}
-                        {t.note && <p className="mt-1 text-ink-2">💡 {t.note}</p>}
+                        {t.note && <p className="mt-1 text-ink-2">{t.note}</p>}
                       </details>
                     )}
                   </div>
@@ -148,7 +148,7 @@ export function ConversationView({ conversationId }: { conversationId: string })
           </div>
 
           <SectionTitle>Expresiones clave</SectionTitle>
-          <div className="divide-y divide-line rounded-2xl border border-line bg-surface px-4">
+          <div className="divide-y divide-line rounded-2xl bg-surface shadow-card px-4">
             {c.expressions.map((e) => (
               <PtText key={e.pt} example={e} />
             ))}
@@ -157,7 +157,7 @@ export function ConversationView({ conversationId }: { conversationId: string })
           {c.grammarNotes.length > 0 && (
             <>
               <SectionTitle>Gramática que aparece</SectionTitle>
-              <div className="rounded-2xl border border-line bg-surface p-4">
+              <div className="rounded-2xl bg-surface shadow-card p-4">
                 <ul className="list-disc space-y-1 pl-5 text-[15px]">
                   {c.grammarNotes.map((n) => (
                     <li key={n}>{n}</li>
