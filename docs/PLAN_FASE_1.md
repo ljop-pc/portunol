@@ -21,7 +21,7 @@
 | Área | Decisión | Por qué | Alternativa descartada |
 |---|---|---|---|
 | Framework | **Next.js 16 (App Router) + TypeScript** | Lo sugiere la especificación y, sobre todo, la Fase 4 (tutor IA) necesitará un backend seguro: Next ofrece *route handlers* sin cambiar de stack. | Vite + React: más ligero hoy, pero obligaría a añadir un backend aparte en la Fase 4. |
-| Despliegue Fase 1 | **Exportación estática** (`output: 'export'`) | Sin servidor ni costes; se puede alojar en Vercel, Netlify o GitHub Pages. Cuando llegue la IA se quita esta opción y se despliega en Vercel con funciones de servidor. | SSR desde el día 1: complejidad sin beneficio. |
+| Despliegue Fase 1 | **Exportación estática** (`output: 'export'`) | Sin servidor ni costes. **Alojamiento elegido: Cloudflare Pages** (el propietario ya tiene cuenta; plan gratuito, admite repositorio privado y uso comercial). Cuando llegue la IA (Fase 4), las llamadas irán a un Cloudflare Worker con la clave guardada como secreto, nunca en el frontend. | SSR desde el día 1: complejidad sin beneficio. |
 | Estilos | **Tailwind CSS 4** | Rápido, sin hoja de estilos que mantener, tokens de color claros (modo claro/oscuro). | Biblioteca de componentes completa (MUI, Chakra): peso innecesario. |
 | Componentes | Propios, accesibles, mínimos (botón, tarjeta, barra inferior, hoja de feedback) | Pocas piezas; evitar dependencias. | shadcn/Radix: se puede añadir más tarde si hace falta un diálogo complejo. |
 | Estado / persistencia | **`localStorage` detrás de una interfaz `ProgressStore`** con esquema versionado y migraciones | Cumple "guardar y recuperar progreso" sin cuentas. La interfaz permite cambiar a sincronización en la nube sin tocar la UI. | IndexedDB: más potente pero innecesario para el volumen de la Fase 1. |
@@ -267,8 +267,8 @@ desde un iPhone, cerrar la app y recuperar el progreso.
   sesión "Repaso de hoy", detección de patrones de error (p. ej. ser/estar)
   → micro-explicación + ejercicios nuevos + repaso programado.
 - **Fase 3 – Audio**: grabaciones nativas o TTS con `pt-PT` explícito
-  (Azure / Google / Polly vía backend), velocidad lenta, diálogos.
-- **Fase 4 – Tutor IA**: route handler en servidor (claves nunca en el
+  (Azure / Google / Polly vía Cloudflare Worker), velocidad lenta, diálogos.
+- **Fase 4 – Tutor IA**: Cloudflare Worker (claves nunca en el
   frontend), conversación semiguiada con corrección por categorías.
 - **Fase 5 – Consolidación**: accesibilidad, rendimiento, offline real con
   service worker probado.
@@ -283,5 +283,5 @@ desde un iPhone, cerrar la app y recuperar el progreso.
 | Voz PT-PT ausente en el iPhone | Detección real + mensaje claro; nunca sustituir por PT-BR. |
 | `localStorage` en Safari: iOS puede borrar datos de webs no usadas en ~7 días **si se usa en el navegador**; instalada en pantalla de inicio el riesgo es menor. | Recomendar instalar la PWA; exportar/importar progreso (JSON) como copia de seguridad sencilla. |
 | Corrección limitada sin IA | Errores previstos redactados a mano + mensajes honestos; la IA llega en la Fase 4. |
-| Exportación estática impide API | Asumido conscientemente; se cambia al llegar la Fase 4. |
+| Exportación estática impide API | Asumido conscientemente; en la Fase 4 se añade un Cloudflare Worker para la API. |
 | Teclado iOS (autocorrector en español) | `autocapitalize="off"`, `autocorrect="off"`, `spellcheck=false`, `lang="pt-PT"` en los campos de respuesta. |
