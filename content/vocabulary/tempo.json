@@ -1,0 +1,31 @@
+{
+  "topic": "tempo", "order": 7, "title": "El tiempo y las estaciones",
+  "description": "Hablar del tiempo: el tema de conversación universal.",
+  "entries": [
+    { "pt": "o tempo", "es": "el tiempo", "pos": "sustantivo", "gender": "m", "exPt": "Como está o tempo aí?", "exEs": "¿Qué tiempo hace ahí?" },
+    { "pt": "está calor", "es": "hace calor", "pos": "expresión", "exPt": "Hoje está muito calor.", "exEs": "Hoy hace mucho calor.", "note": "También «faz calor»." },
+    { "pt": "está frio", "es": "hace frío", "pos": "expresión", "exPt": "Leva um casaco, está frio.", "exEs": "Llévate un abrigo, hace frío." },
+    { "pt": "estar a chover", "es": "estar lloviendo", "pos": "expresión", "exPt": "Está a chover muito.", "exEs": "Está lloviendo mucho." },
+    { "pt": "chover", "es": "llover", "pos": "verbo", "exPt": "Amanhã vai chover.", "exEs": "Mañana va a llover." },
+    { "pt": "a chuva", "es": "la lluvia", "pos": "sustantivo", "gender": "f", "exPt": "Não gosto de chuva.", "exEs": "No me gusta la lluvia." },
+    { "pt": "o sol", "es": "el sol", "pos": "sustantivo", "gender": "m", "exPt": "Hoje está sol.", "exEs": "Hoy hace sol." },
+    { "pt": "o vento", "es": "el viento", "pos": "sustantivo", "gender": "m", "exPt": "Está muito vento na praia.", "exEs": "Hace mucho viento en la playa." },
+    { "pt": "a nuvem", "es": "la nube", "pos": "sustantivo", "gender": "f", "exPt": "O céu está cheio de nuvens.", "exEs": "El cielo está lleno de nubes." },
+    { "pt": "nublado", "es": "nublado", "pos": "adjetivo", "exPt": "Está nublado, mas não chove.", "exEs": "Está nublado, pero no llueve." },
+    { "pt": "o nevoeiro", "es": "la niebla", "pos": "sustantivo", "gender": "m", "exPt": "Há muito nevoeiro na ponte.", "exEs": "Hay mucha niebla en el puente.", "difficulty": 2 },
+    { "pt": "a trovoada", "es": "la tormenta", "pos": "sustantivo", "gender": "f", "exPt": "Esta noite houve trovoada.", "exEs": "Esta noche ha habido tormenta.", "difficulty": 2 },
+    { "pt": "a neve", "es": "la nieve", "pos": "sustantivo", "gender": "f", "exPt": "Na Serra da Estrela há neve.", "exEs": "En la Serra da Estrela hay nieve." },
+    { "pt": "o guarda-chuva", "es": "el paraguas", "pos": "sustantivo", "gender": "m", "exPt": "Não te esqueças do guarda-chuva.", "exEs": "No te olvides del paraguas." },
+    { "pt": "a previsão do tempo", "es": "la previsión del tiempo", "pos": "sustantivo", "gender": "f", "exPt": "Viste a previsão do tempo?", "exEs": "¿Has visto la previsión del tiempo?" },
+    { "pt": "os graus", "es": "los grados", "pos": "sustantivo", "gender": "m", "exPt": "Estão trinta graus.", "exEs": "Hace treinta grados." },
+    { "pt": "abafado", "es": "bochornoso", "pos": "adjetivo", "exPt": "Está um tempo abafado.", "exEs": "Hace un tiempo bochornoso.", "difficulty": 2 },
+    { "pt": "húmido", "es": "húmedo", "pos": "adjetivo", "exPt": "Lisboa é húmida no inverno.", "exEs": "Lisboa es húmeda en invierno.", "ptBr": "úmido" },
+    { "pt": "está um dia lindo", "es": "hace un día precioso", "pos": "expresión", "exPt": "Está um dia lindo, vamos passear!", "exEs": "¡Hace un día precioso, vamos a pasear!" },
+    { "pt": "a primavera", "es": "la primavera", "pos": "sustantivo", "gender": "f", "exPt": "Na primavera tudo fica verde.", "exEs": "En primavera todo se pone verde." },
+    { "pt": "o verão", "es": "el verano", "pos": "sustantivo", "gender": "m", "exPt": "No verão vamos para o Algarve.", "exEs": "En verano nos vamos al Algarve." },
+    { "pt": "o outono", "es": "el otoño", "pos": "sustantivo", "gender": "m", "exPt": "Gosto das cores do outono.", "exEs": "Me gustan los colores del otoño." },
+    { "pt": "o inverno", "es": "el invierno", "pos": "sustantivo", "gender": "m", "exPt": "O inverno aqui é chuvoso.", "exEs": "El invierno aquí es lluvioso." },
+    { "pt": "aquecer", "es": "calentar; subir la temperatura", "pos": "verbo", "exPt": "À tarde vai aquecer.", "exEs": "Por la tarde va a hacer más calor.", "difficulty": 2 },
+    { "pt": "arrefecer", "es": "enfriar; bajar la temperatura", "pos": "verbo", "exPt": "À noite arrefece muito.", "exEs": "Por la noche refresca mucho.", "difficulty": 2 }
+  ]
+}

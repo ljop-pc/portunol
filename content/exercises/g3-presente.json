@@ -1,0 +1,70 @@
+[
+  {
+    "id": "g3-01", "type": "fill", "skill": "gramatica", "topic": "presente-regular",
+    "instruction": "Conjuga el verbo «falar».",
+    "sentence": "Nós ___ espanhol em casa.", "translation": "Hablamos español en casa.", "hint": "falar",
+    "accepted": ["falamos"],
+    "explanation": "Nós falamos. La 1.ª persona del plural es igual que en español."
+  },
+  {
+    "id": "g3-02", "type": "fill", "skill": "gramatica", "topic": "presente-regular",
+    "instruction": "Conjuga el verbo «comer».",
+    "sentence": "Eles ___ muito peixe.", "translation": "Ellos comen mucho pescado.", "hint": "comer",
+    "accepted": ["comem"],
+    "expectedErrors": [{ "answers": ["comen"], "category": "interferencia-es", "feedback": "En portugués la 3.ª persona del plural termina en -m: comem." }],
+    "explanation": "Eles comem, vocês comem."
+  },
+  {
+    "id": "g3-03", "type": "fill", "skill": "gramatica", "topic": "presente-regular",
+    "instruction": "Conjuga el verbo «morar» (vivir).",
+    "sentence": "Tu ___ perto daqui?", "translation": "¿Vives cerca de aquí?", "hint": "morar",
+    "accepted": ["moras"],
+    "expectedErrors": [{ "answers": ["vives"], "category": "vocabulario", "acceptable": true, "feedback": "«Vives» también es correcto (verbo «viver»). Para hablar de dónde vive alguien, en Portugal se usa mucho «morar»: «moras»." }],
+    "explanation": "«Morar» = vivir en un sitio. Tu moras."
+  },
+  {
+    "id": "g3-04", "type": "translate", "skill": "produccion", "topic": "presente-regular",
+    "instruction": "Traduce al portugués de Portugal.",
+    "es": "Me gusta mucho el café.",
+    "accepted": ["Gosto muito de café", "Eu gosto muito de café", "Gosto muito do café", "Eu gosto muito do café", "Adoro café"],
+    "expectedErrors": [
+      { "answers": ["Me gusta muito o café", "Me gosta muito o café", "Me gosta muito café"], "category": "interferencia-es", "feedback": "En portugués no existe «me gusta». Se dice «Eu gosto de…»: la persona es el sujeto." },
+      { "answers": ["Gosto muito o café", "Eu gosto muito o café", "Gosto o café muito"], "category": "gramatica", "feedback": "«Gostar» siempre lleva «de»: «Gosto muito de café» (o «do café»)." }
+    ],
+    "explanation": "«Gosto de café» habla del café en general; «Gosto do café» (de + o) suele referirse a un café concreto."
+  },
+  {
+    "id": "g3-05", "type": "choice", "skill": "gramatica", "topic": "presente-regular",
+    "instruction": "Quieres decir: «Vosotros habláis muy deprisa».",
+    "prompt": "Vosotros habláis muy deprisa.", "promptLang": "es",
+    "options": ["Vocês falam muito depressa.", "Vocês falais muito depressa.", "Vós falam muito depressa."],
+    "answer": 0,
+    "explanation": "«Vocês» va con la 3.ª persona del plural: vocês falam."
+  },
+  {
+    "id": "g3-06", "type": "fix", "skill": "gramatica", "topic": "presente-regular",
+    "instruction": "Corrige la frase.",
+    "wrong": "Eu gosto o fado.",
+    "accepted": ["Eu gosto de fado", "Eu gosto do fado", "Gosto de fado", "Gosto do fado"],
+    "explanation": "Gostar + de. «De + o» se contrae en «do»."
+  },
+  {
+    "id": "g3-07", "type": "build", "skill": "comprension", "topic": "presente-regular",
+    "instruction": "Ordena las palabras.",
+    "translation": "La farmacia abre a las nueve.",
+    "tokens": ["A", "farmácia", "abre", "às", "nove", "abro"],
+    "accepted": ["A farmácia abre às nove"],
+    "explanation": "Ela abre (3.ª persona). «Às» = a + as (a las)."
+  },
+  {
+    "id": "g3-08", "type": "dialogue", "skill": "produccion", "topic": "presente-regular",
+    "instruction": "Responde en la conversación.",
+    "context": [{ "speaker": "Miguel", "pt": "Gostas de cozinhar?", "es": "¿Te gusta cocinar?" }],
+    "task": "Responde que sí, que te gusta mucho cocinar.",
+    "accepted": ["Gosto muito de cozinhar", "Sim, gosto muito de cozinhar", "Gosto muito", "Sim, gosto muito", "Adoro cozinhar", "Sim, adoro cozinhar", "Gosto, gosto muito de cozinhar", "Eu gosto muito de cozinhar", "Sim, eu gosto muito de cozinhar"],
+    "expectedErrors": [
+      { "answers": ["Sim, me gusta muito", "Me gusta muito cozinhar", "Sim, me gosta muito cozinhar"], "category": "interferencia-es", "feedback": "En portugués: «Gosto muito (de cozinhar)». Lo natural es responder repitiendo el verbo." }
+    ],
+    "explanation": "En Portugal es muy natural responder repitiendo el verbo: «Gosto muito!»."
+  }
+]

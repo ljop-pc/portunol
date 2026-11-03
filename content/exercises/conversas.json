@@ -1,0 +1,196 @@
+[
+  {
+    "id": "c1-01", "type": "choice", "skill": "comprension", "topic": "cumprimentar",
+    "instruction": "Rita te pregunta «Tudo bem?». ¿Cuál es la respuesta más natural?",
+    "prompt": "Tudo bem?", "promptLang": "pt",
+    "options": ["Tudo bem, obrigado. E contigo?", "Todo bem, gracias. E tu?", "Estou bem, de nada."],
+    "answer": 0,
+    "explanation": "«Tudo bem, obrigado. E contigo?» devuelve la pregunta de forma natural. «De nada» es la respuesta a «obrigado»."
+  },
+  {
+    "id": "c1-02", "type": "fill", "skill": "vocabulario", "topic": "cumprimentar",
+    "instruction": "Completa la fórmula de cortesía portuguesa.",
+    "sentence": "Um copo de água, se ___ favor.", "translation": "Un vaso de agua, por favor.",
+    "accepted": ["faz"],
+    "explanation": "«Se faz favor» es muy habitual en Portugal. «Por favor» también se usa."
+  },
+  {
+    "id": "c1-03", "type": "choice", "skill": "comprension", "topic": "cumprimentar",
+    "instruction": "¿Qué significa?",
+    "prompt": "Como correu a viagem?", "promptLang": "pt",
+    "options": ["¿Qué tal fue el viaje?", "¿Corriste durante el viaje?", "¿Cuándo es el viaje?"],
+    "answer": 0,
+    "explanation": "«Correr» se usa para preguntar cómo ha ido algo: «Como correu o dia / o exame / a reunião?»."
+  },
+  {
+    "id": "c1-04", "type": "translate", "skill": "produccion", "topic": "cumprimentar",
+    "instruction": "Traduce al portugués de Portugal.",
+    "es": "Estoy un poco cansado.",
+    "accepted": ["Estou um bocadinho cansado", "Estou um pouco cansado", "Estou um bocado cansado", "Estou meio cansado"],
+    "expectedErrors": [{ "answers": ["Sou um pouco cansado", "Sou um bocadinho cansado"], "category": "gramatica", "feedback": "El cansancio es un estado temporal: «estou cansado», no «sou»." }],
+    "explanation": "«Um bocadinho» (un poquito) es muy portugués."
+  },
+  {
+    "id": "c1-05", "type": "dialogue", "skill": "produccion", "topic": "cumprimentar",
+    "instruction": "Reto: responde sin ver el modelo.",
+    "context": [{ "speaker": "Rita", "pt": "Olá, Javier! Tudo bem?", "es": "¡Hola, Javier! ¿Qué tal?" }],
+    "task": "Responde que todo bien, gracias, y pregúntale cómo está ella.",
+    "accepted": ["Tudo bem, obrigado. E contigo?", "Tudo bem, obrigado. E tu?", "Tudo, obrigado. E contigo?", "Tudo, obrigado. E tu?", "Estou bem, obrigado. E tu?", "Estou bem, obrigado. E contigo?", "Olá, Rita! Tudo bem, obrigado. E contigo?", "Olá, Rita! Tudo bem, obrigado. E tu?", "Olá! Tudo bem, obrigado. E tu?", "Olá! Tudo bem, obrigado. E contigo?", "Tudo bem, e contigo?", "Tudo bem, e tu?", "Tudo bem, obrigado. E tu, como estás?"],
+    "expectedErrors": [
+      { "answers": ["Tudo bem, gracias. E tu?", "Todo bem, obrigado. E tu?", "Tudo bem, gracias. E contigo?"], "category": "interferencia-es", "feedback": "«Gracias» = «obrigado»; «todo» = «tudo»." },
+      { "answers": ["Tudo bem, obrigado. E você?", "Tudo bem. E você?"], "category": "registro", "feedback": "Entre cuñados que se tutean, lo natural es «E tu?» o «E contigo?». «Você» puede sonar distante en Portugal." }
+    ],
+    "explanation": "Modelo: «Tudo bem, obrigado. E contigo?»."
+  },
+  {
+    "id": "c1-06", "type": "dialogue", "skill": "produccion", "topic": "cumprimentar",
+    "instruction": "Reto: responde sin ver el modelo.",
+    "context": [{ "speaker": "Rita", "pt": "Queres beber alguma coisa?", "es": "¿Quieres beber algo?" }],
+    "task": "Pide un café, por favor.",
+    "accepted": ["Um café, se faz favor", "Um café, por favor", "Queria um café, se faz favor", "Queria um café, por favor", "Sim, um café, se faz favor", "Sim, um café, por favor", "Quero um café, por favor", "Quero um café, se faz favor", "Sim, queria um café, por favor", "Sim, quero um café, por favor", "Pode ser um café, por favor", "Pode ser um café"],
+    "expectedErrors": [{ "answers": ["Um café, por favour", "Un café, por favor"], "category": "ortografia", "feedback": "«Un» se escribe «um» en portugués." }],
+    "explanation": "«Queria um café» (con el imperfecto) es una forma educada muy común de pedir. «Pode ser um café» también es muy natural."
+  },
+  {
+    "id": "c1-07", "type": "dialogue", "skill": "produccion", "topic": "cumprimentar",
+    "instruction": "Reto: responde sin ver el modelo.",
+    "context": [{ "speaker": "Rita", "pt": "Então, como correu a viagem?", "es": "Bueno, ¿qué tal el viaje?" }],
+    "task": "Di que fue bien, pero que estás un poco cansado.",
+    "accepted": ["Correu bem, mas estou um bocadinho cansado", "Correu bem, mas estou um pouco cansado", "Correu bem, mas estou um bocado cansado", "Foi boa, mas estou um pouco cansado", "Foi boa, mas estou um bocadinho cansado", "Correu bem, mas estou cansado", "Correu muito bem, mas estou um bocadinho cansado", "Correu muito bem, mas estou um pouco cansado", "Foi bem, mas estou um pouco cansado"],
+    "expectedErrors": [
+      { "answers": ["Correu bem, mas sou um pouco cansado", "Foi bem, mas sou um pouco cansado"], "category": "gramatica", "feedback": "Estado temporal → «estou cansado»." },
+      { "answers": ["Foi bem, pero estou um pouco cansado", "Correu bem, pero estou um pouco cansado"], "category": "interferencia-es", "feedback": "«Pero» en portugués es «mas»." }
+    ],
+    "explanation": "Modelo: «Correu bem, mas estou um bocadinho cansado.»"
+  },
+
+  {
+    "id": "c2-01", "type": "choice", "skill": "comprension", "topic": "almoco-familia",
+    "instruction": "Tu suegra te dice: «Serve-te à vontade». ¿Qué quiere decir?",
+    "prompt": "Serve-te à vontade.", "promptLang": "pt",
+    "options": ["Sírvete lo que quieras, con confianza.", "Sírvete a tu voluntad, pero poco.", "Ayúdame a servir."],
+    "answer": 0,
+    "explanation": "«À vontade» = con confianza, sin cortarse. «Estar à vontade» = estar cómodo."
+  },
+  {
+    "id": "c2-02", "type": "fill", "skill": "vocabulario", "topic": "almoco-familia",
+    "instruction": "Completa con la palabra «postre» en portugués.",
+    "sentence": "De ___ há arroz-doce.", "translation": "De postre hay arroz con leche.",
+    "accepted": ["sobremesa"],
+    "expectedErrors": [{ "answers": ["postre"], "category": "vocabulario", "feedback": "El postre es «a sobremesa» (¡falso amigo!)." }],
+    "explanation": "«Sobremesa» = postre. Lo que en español llamamos «sobremesa» sería «a conversa depois da refeição»."
+  },
+  {
+    "id": "c2-03", "type": "translate", "skill": "produccion", "topic": "almoco-familia",
+    "instruction": "Traduce al portugués.",
+    "es": "¡Huele muy bien!",
+    "accepted": ["Cheira muito bem", "Cheira tão bem", "Que bem que cheira", "Que cheiro bom", "Cheira mesmo bem"],
+    "expectedErrors": [{ "answers": ["Huele muito bem", "Olha muito bem", "Ole muito bem"], "category": "vocabulario", "feedback": "«Oler» = «cheirar»: «Cheira muito bem!». (Ojo: «olhar» significa «mirar»)." }],
+    "explanation": "Cheirar = oler. O cheiro = el olor."
+  },
+  {
+    "id": "c2-04", "type": "choice", "skill": "comprension", "topic": "almoco-familia",
+    "instruction": "Quieres saber qué hay de comer. ¿Qué preguntas?",
+    "prompt": "¿Qué hay de comer?", "promptLang": "es",
+    "options": ["O que há para o almoço?", "O que tem a comida?", "Que há de comida?"],
+    "answer": 0,
+    "explanation": "«O que há para o almoço / jantar?». En familia también se oye «O que é o almoço?»."
+  },
+  {
+    "id": "c2-05", "type": "dialogue", "skill": "produccion", "topic": "almoco-familia",
+    "instruction": "Reto: responde sin ver el modelo.",
+    "context": [{ "speaker": "Fernanda", "pt": "Queres mais um bocadinho?", "es": "¿Quieres un poquito más?" }],
+    "task": "Di que no, gracias, que ya es suficiente y que estaba buenísimo.",
+    "accepted": ["Não, obrigado, já chega. Estava delicioso", "Já chega, obrigado. Estava delicioso", "Não, obrigado. Estava delicioso, mas já chega", "Não, obrigado, já chega. Estava ótimo", "Não, obrigado, já chega. Estava muito bom", "Não, obrigado, estou satisfeito. Estava delicioso", "Não, obrigado, já chega. Estava uma delícia", "Estava delicioso, mas já chega, obrigado", "Não, obrigado, já chega. Estava muito bom mesmo"],
+    "expectedErrors": [
+      { "answers": ["Não, obrigado, já chega. Era delicioso", "Não, obrigado, já chega. Foi delicioso"], "category": "poco-natural", "feedback": "Para valorar la comida que acabas de comer, lo natural es «Estava delicioso»." },
+      { "answers": ["Não, gracias, já chega. Estava delicioso", "Não, gracias, estava delicioso"], "category": "vocabulario", "feedback": "«Gracias» = «obrigado / obrigada»." }
+    ],
+    "explanation": "Modelo: «Não, obrigado, já chega. Estava delicioso.»"
+  },
+  {
+    "id": "c2-06", "type": "dialogue", "skill": "produccion", "topic": "almoco-familia",
+    "instruction": "Reto: responde sin ver el modelo.",
+    "context": [{ "speaker": "Fernanda", "pt": "O almoço está pronto!", "es": "¡La comida está lista!" }],
+    "task": "Di que huele muy bien y pregunta qué hay de comer.",
+    "accepted": ["Cheira muito bem! O que há para o almoço?", "Cheira muito bem! O que é o almoço?", "Cheira muito bem! O que temos para o almoço?", "Cheira tão bem! O que há para o almoço?", "Que bem que cheira! O que há para o almoço?", "Que bem que cheira! O que é o almoço?", "Cheira muito bem! O que é que há para o almoço?", "Cheira muito bem! O que temos hoje?", "Cheira muito bem! O que há?"],
+    "expectedErrors": [{ "answers": ["Cheira muito bem! O que tem para o almoço?", "Cheira muito bem! O que tem de comida?"], "category": "variante-br", "feedback": "Para «hay», en Portugal: «O que há para o almoço?»." }],
+    "explanation": "Modelo: «Cheira muito bem! O que há para o almoço?»"
+  },
+  {
+    "id": "c2-07", "type": "free", "skill": "produccion", "topic": "almoco-familia",
+    "instruction": "Producción libre (autoevaluación).",
+    "prompt": "Tu suegra te pregunta qué te gusta comer. Responde con una o dos frases.",
+    "modelAnswers": ["Gosto muito de bacalhau com natas.", "Gosto de peixe grelhado com batatas e salada.", "Adoro arroz de marisco, mas também gosto muito de carne."],
+    "explanation": "Usa «gosto de…» o «adoro…». Esta respuesta no se corrige automáticamente: compárala con los modelos."
+  },
+
+  {
+    "id": "c3-01", "type": "choice", "skill": "comprension", "topic": "fim-de-semana",
+    "instruction": "¿Qué significa?",
+    "prompt": "Vamos buscar-te a casa.", "promptLang": "pt",
+    "options": ["Te recogemos en casa.", "Vamos a buscarte una casa.", "Vamos a tu casa a buscar algo."],
+    "answer": 0,
+    "explanation": "«Ir buscar alguém» = ir a recoger a alguien."
+  },
+  {
+    "id": "c3-02", "type": "fill", "skill": "gramatica", "topic": "fim-de-semana",
+    "instruction": "Completa con la contracción (a + a).",
+    "sentence": "No sábado vamos ___ praia.", "translation": "El sábado vamos a la playa.",
+    "accepted": ["à"],
+    "expectedErrors": [{ "answers": ["a la", "a a", "para la"], "category": "gramatica", "feedback": "A + a = «à»." }],
+    "explanation": "A + a = à. También se dice «vamos para a praia»."
+  },
+  {
+    "id": "c3-03", "type": "choice", "skill": "vocabulario", "topic": "fim-de-semana",
+    "instruction": "¿Qué significa «connosco»?",
+    "prompt": "Queres vir connosco?", "promptLang": "pt",
+    "options": ["con nosotros", "con vosotros", "contigo"],
+    "answer": 0,
+    "explanation": "Connosco = con nosotros (en Brasil: conosco). Contigo = contigo. Convosco = con vosotros (poco usado)."
+  },
+  {
+    "id": "c3-04", "type": "translate", "skill": "produccion", "topic": "fim-de-semana",
+    "instruction": "Traduce al portugués.",
+    "es": "¿A qué hora salís?",
+    "accepted": ["A que horas saem?", "A que horas é que saem?", "A que horas vocês saem?", "A que horas é que vocês saem?"],
+    "expectedErrors": [{ "answers": ["A que horas saís?", "A que hora saís?"], "category": "gramatica", "feedback": "Para «vosotros» se usa la 3.ª persona del plural: «saem»." }],
+    "explanation": "En portugués se pregunta «a que horas» (en plural)."
+  },
+  {
+    "id": "c3-05", "type": "dialogue", "skill": "produccion", "topic": "fim-de-semana",
+    "instruction": "Reto: responde sin ver el modelo.",
+    "context": [{ "speaker": "Miguel", "pt": "Então, o que vais fazer no fim de semana?", "es": "Bueno, ¿qué vas a hacer el fin de semana?" }],
+    "task": "Di que todavía no lo sabes y pregúntale si él tiene planes.",
+    "accepted": ["Ainda não sei. E tu, tens planos?", "Ainda não sei. E tu?", "Ainda não sei. Tens planos?", "Ainda não sei. E tu, já tens planos?", "Não sei ainda. E tu, tens planos?", "Ainda não sei. E tu, o que vais fazer?", "Ainda não sei. Tu tens planos?", "Ainda não sei, e tu tens planos?"],
+    "expectedErrors": [
+      { "answers": ["Todavia não sei. E tu, tens planos?", "Todavia não sei. E tu?", "Todavía não sei. E tu, tens planos?"], "category": "vocabulario", "feedback": "¡Falso amigo! «Todavia» significa «sin embargo». «Todavía» = «ainda»." },
+      { "answers": ["Ainda não sei. E você, tem planos?", "Ainda não sei. E você?"], "category": "registro", "feedback": "Entre amigos, lo natural es «E tu, tens planos?»." }
+    ],
+    "explanation": "Modelo: «Ainda não sei. E tu, tens planos?»"
+  },
+  {
+    "id": "c3-06", "type": "dialogue", "skill": "produccion", "topic": "fim-de-semana",
+    "instruction": "Reto: responde sin ver el modelo.",
+    "context": [{ "speaker": "Miguel", "pt": "Vamos à praia no sábado. Queres vir connosco?", "es": "Vamos a la playa el sábado. ¿Quieres venir con nosotros?" }],
+    "task": "Acepta: di que es buena idea y pregunta a qué hora salen.",
+    "accepted": ["Boa ideia! A que horas saem?", "Boa ideia! A que horas é que saem?", "Sim, boa ideia! A que horas saem?", "Quero! A que horas saem?", "Claro! A que horas saem?", "Boa ideia! A que horas vocês saem?", "Quero, boa ideia! A que horas saem?", "Que boa ideia! A que horas saem?"],
+    "expectedErrors": [
+      { "answers": ["Buena ideia! A que horas saem?", "Boa idea! A que horas saem?"], "category": "ortografia", "feedback": "Se escribe «boa ideia»." },
+      { "answers": ["Boa ideia! A que hora saem?"], "category": "poco-natural", "acceptable": true, "feedback": "Se entiende, pero lo habitual es «a que horas» (en plural)." }
+    ],
+    "explanation": "Modelo: «Boa ideia! A que horas saem?»"
+  },
+  {
+    "id": "c3-07", "type": "dialogue", "skill": "produccion", "topic": "fim-de-semana",
+    "instruction": "Reto: responde sin ver el modelo.",
+    "context": [{ "speaker": "Miguel", "pt": "Por volta das dez. Vamos buscar-te a casa.", "es": "Sobre las diez. Te recogemos en casa." }],
+    "task": "Di «de acuerdo, hasta el sábado».",
+    "accepted": ["Combinado! Até sábado", "Combinado, até sábado", "Está combinado, até sábado", "Está bem, até sábado", "Ok, até sábado", "Combinado! Até sábado, então", "Perfeito, até sábado", "Combinado, obrigado! Até sábado"],
+    "expectedErrors": [
+      { "answers": ["De acordo, até sábado", "De acuerdo, até sábado"], "category": "poco-natural", "acceptable": true, "feedback": "«De acordo» es correcto, pero para quedar con alguien lo más natural es «Combinado!» o «Está bem»." },
+      { "answers": ["Combinado! Hasta sábado", "Combinado, hasta el sábado"], "category": "interferencia-es", "feedback": "«Hasta» = «até»: «Até sábado!»." }
+    ],
+    "explanation": "Modelo: «Combinado! Até sábado.»"
+  }
+]

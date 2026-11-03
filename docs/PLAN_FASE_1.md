@@ -1,8 +1,14 @@
 # Português de Bolso — Propuesta de arquitectura y plan de la Fase 1
 
-> Estado: **propuesta pendiente de validación**. No se ha escrito código de
-> aplicación todavía. La especificación completa está en
-> [`ESPECIFICACION.md`](./ESPECIFICACION.md).
+> Estado: **Fase 1 implementada** (plan validado por el propietario). La
+> especificación completa está en [`ESPECIFICACION.md`](./ESPECIFICACION.md).
+>
+> Cambios respecto a la propuesta inicial:
+> - Contenido ampliado a petición del propietario: 7 lecciones/fichas (en lugar de 5),
+>   421 entradas de vocabulario en 12 temas, 27 falsos amigos y 74 ejercicios redactados.
+> - Alojamiento: Cloudflare Pages (ver README).
+> - Pruebas e2e con Chromium en viewport de iPhone (en este entorno no hay WebKit);
+>   conviene probar también en un iPhone real.
 
 ---
 

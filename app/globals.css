@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* Paleta inspirada en el azulejo portugués: azul profundo sobre fondo cálido. */
+:root {
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --surface-2: #efece4;
+  --ink: #1c1f26;
+  --ink-2: #5a5f6b;
+  --line: #e2ded3;
+  --brand: #1f4e9c;
+  --brand-ink: #ffffff;
+  --brand-soft: #e3ebf8;
+  --ok: #1d7a4e;
+  --ok-soft: #e1f3e9;
+  --warn: #9a5b00;
+  --warn-soft: #fbefd9;
+  --bad: #b3261e;
+  --bad-soft: #fbe4e2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121418;
+    --surface: #1b1e24;
+    --surface-2: #252932;
+    --ink: #eceef2;
+    --ink-2: #a3a9b6;
+    --line: #2f343e;
+    --brand: #7aa5ec;
+    --brand-ink: #0d1626;
+    --brand-soft: #1e2a40;
+    --ok: #5fcf95;
+    --ok-soft: #173326;
+    --warn: #f0b354;
+    --warn-soft: #3a2a10;
+    --bad: #f2867f;
+    --bad-soft: #3d1a18;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-soft: var(--brand-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+/* Inputs a 16px como mínimo: evita el zoom automático de Safari en iOS. */
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

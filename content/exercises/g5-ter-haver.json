@@ -1,0 +1,67 @@
+[
+  {
+    "id": "g5-01", "type": "fill", "skill": "gramatica", "topic": "ter-haver",
+    "instruction": "Completa la pregunta (¿hay…?).",
+    "sentence": "___ uma farmácia aqui perto?", "translation": "¿Hay una farmacia cerca de aquí?",
+    "accepted": ["Há"],
+    "expectedErrors": [
+      { "answers": ["Tem"], "category": "variante-br", "feedback": "En Brasil se dice «tem», pero en Portugal «hay» es «há»." },
+      { "answers": ["Hay", "Ai"], "category": "interferencia-es", "feedback": "«Hay» en portugués es «há»." }
+    ],
+    "explanation": "Há = hay."
+  },
+  {
+    "id": "g5-02", "type": "fill", "skill": "gramatica", "topic": "ter-haver",
+    "instruction": "Conjuga el verbo «ter».",
+    "sentence": "Eu ___ três irmãos.", "translation": "Tengo tres hermanos.", "hint": "ter",
+    "accepted": ["tenho"],
+    "expectedErrors": [{ "answers": ["tengo"], "category": "interferencia-es", "feedback": "En portugués es «tenho» (con nh, que suena como la ñ)." }],
+    "explanation": "Eu tenho. «Nh» suena parecido a la «ñ» española."
+  },
+  {
+    "id": "g5-03", "type": "fill", "skill": "gramatica", "topic": "ter-haver",
+    "instruction": "Conjuga el verbo «ter» en plural.",
+    "sentence": "Eles ___ uma casa grande.", "translation": "Ellos tienen una casa grande.", "hint": "ter",
+    "accepted": ["têm"],
+    "expectedErrors": [{ "answers": ["tienen", "tenem"], "category": "interferencia-es", "feedback": "Ellos tienen = eles têm." }],
+    "explanation": "Singular «tem», plural «têm» (con acento circunflejo)."
+  },
+  {
+    "id": "g5-04", "type": "translate", "skill": "produccion", "topic": "ter-haver",
+    "instruction": "Traduce al portugués de Portugal.",
+    "es": "Vivo aquí desde hace cinco años.",
+    "accepted": ["Moro aqui há cinco anos", "Vivo aqui há cinco anos", "Eu moro aqui há cinco anos", "Eu vivo aqui há cinco anos", "Há cinco anos que moro aqui", "Há cinco anos que vivo aqui"],
+    "expectedErrors": [
+      { "answers": ["Moro aqui faz cinco anos", "Vivo aqui faz cinco anos"], "category": "variante-br", "feedback": "«Faz cinco anos» se usa en Brasil. En Portugal: «há cinco anos»." },
+      { "answers": ["Moro aqui hace cinco anos", "Vivo aqui hace cinco anos", "Moro aqui desde há cinco anos"], "category": "interferencia-es", "feedback": "«Desde hace + tiempo» se dice simplemente «há + tiempo»: «Moro aqui há cinco anos»." }
+    ],
+    "explanation": "Há + tiempo = hace + tiempo."
+  },
+  {
+    "id": "g5-05", "type": "choice", "skill": "gramatica", "topic": "ter-haver",
+    "instruction": "¿Cómo dices «Tengo que trabajar mañana»?",
+    "prompt": "Tengo que trabajar mañana.", "promptLang": "es",
+    "options": ["Tenho de trabalhar amanhã.", "Tenho trabalhar amanhã.", "Há de trabalhar amanhã."],
+    "answer": 0,
+    "explanation": "Ter de + infinitivo = tener que. «Tenho que trabalhar» también se oye, pero «ter de» es la forma más recomendada en Portugal."
+  },
+  {
+    "id": "g5-06", "type": "fix", "skill": "gramatica", "topic": "ter-haver",
+    "instruction": "Corrige la interferencia del español.",
+    "wrong": "Hace muito tempo que não te vejo.",
+    "accepted": ["Há muito tempo que não te vejo", "Há muito tempo que não te via"],
+    "explanation": "«Hace mucho tiempo» = «há muito tempo»."
+  },
+  {
+    "id": "g5-07", "type": "dialogue", "skill": "produccion", "topic": "ter-haver",
+    "instruction": "Responde en la conversación.",
+    "context": [{ "speaker": "Miguel", "pt": "Há alguma coisa para comer?", "es": "¿Hay algo para comer?" }],
+    "task": "Responde que hay sopa y pan.",
+    "accepted": ["Há sopa e pão", "Sim, há sopa e pão", "Temos sopa e pão", "Sim, temos sopa e pão", "Há pão e sopa", "Sim, há pão e sopa"],
+    "expectedErrors": [
+      { "answers": ["Tem sopa e pão", "Sim, tem sopa e pão"], "category": "variante-br", "feedback": "Para «hay» en Portugal se usa «há»: «Há sopa e pão»." },
+      { "answers": ["Hay sopa e pão", "Hay sopa y pan"], "category": "interferencia-es", "feedback": "«Hay» = «há»; «pan» = «pão»." }
+    ],
+    "explanation": "«Há sopa e pão» o, si es tu casa, «Temos sopa e pão»."
+  }
+]

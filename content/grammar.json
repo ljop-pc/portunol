@@ -1,0 +1,326 @@
+[
+  {
+    "id": "pronomes",
+    "order": 1,
+    "unit": 1,
+    "title": "Pronombres personales y tratamiento",
+    "summary": "Quién es quién: eu, tu, ele, nós, vocês… y cómo tratar de forma educada en Portugal.",
+    "rule": [
+      "Los pronombres sujeto son: eu (yo), tu (tú), ele / ela (él / ella), nós (nosotros), vocês (vosotros y ustedes), eles / elas (ellos / ellas).",
+      "Como en español, el pronombre sujeto se omite a menudo porque el verbo ya indica la persona: «Falo português» = «(Yo) hablo portugués».",
+      "«Tu» es lo normal con familia, amigos, gente joven y compañeros de confianza. El verbo va en 2.ª persona: tu falas, tu és, tu tens.",
+      "Para tratar con respeto (equivalente a «usted»), en Portugal se usa «o senhor» / «a senhora» con el verbo en 3.ª persona, o simplemente el verbo en 3.ª persona sin pronombre: «Quer um café?». También es muy habitual usar el nombre: «A Ana quer um café?».",
+      "«Você» existe y se usa, pero en Portugal puede sonar distante o poco cortés según la situación. Muchas personas prefieren evitarlo y usar las fórmulas anteriores.",
+      "En plural, «vocês» sirve tanto para vosotros (informal) como para ustedes (formal), siempre con el verbo en 3.ª persona del plural: «Vocês falam».",
+      "En portugués europeo los pronombres átonos (me, te, se…) suelen ir DETRÁS del verbo y unidos con guion: «Chamo-me Javier», «Como te chamas?» (aquí el pronombre va delante porque la pregunta empieza por «como»)."
+    ],
+    "pattern": "tu + verbo en 2.ª persona · o senhor / a senhora + verbo en 3.ª persona · vocês + verbo en 3.ª plural",
+    "conjugations": [
+      {
+        "verb": "chamar-se",
+        "meaning": "llamarse",
+        "forms": { "eu": "chamo-me", "tu": "chamas-te", "ele": "chama-se", "nos": "chamamo-nos", "eles": "chamam-se" },
+        "note": "En «chamamo-nos» se pierde la -s final de «chamamos» antes de «-nos»."
+      }
+    ],
+    "table": {
+      "caption": "Pronombres sujeto",
+      "headers": ["Portugués", "Español", "Uso"],
+      "rows": [
+        ["eu", "yo", ""],
+        ["tu", "tú", "familia, amigos, confianza"],
+        ["ele / ela", "él / ella", ""],
+        ["o senhor / a senhora", "usted", "respeto; verbo en 3.ª persona"],
+        ["você", "usted / tú", "existe, pero puede sonar distante en Portugal"],
+        ["nós", "nosotros/as", ""],
+        ["vocês", "vosotros/as y ustedes", "verbo en 3.ª plural"],
+        ["eles / elas", "ellos / ellas", ""]
+      ]
+    },
+    "examples": [
+      { "pt": "Como te chamas?", "es": "¿Cómo te llamas?", "register": "informal" },
+      { "pt": "Como se chama?", "es": "¿Cómo se llama (usted)?", "register": "formal" },
+      { "pt": "Chamo-me Javier.", "es": "Me llamo Javier." },
+      { "pt": "A senhora precisa de ajuda?", "es": "¿(Usted) necesita ayuda?", "register": "formal" },
+      { "pt": "Vocês vêm jantar?", "es": "¿Venís a cenar? / ¿Vienen a cenar?" },
+      { "pt": "O Pedro também vem?", "es": "¿Pedro también viene?", "note": "En Portugal es muy común poner artículo delante de los nombres de persona: o Pedro, a Ana." }
+    ],
+    "contrastEs": [
+      "«Usted» no tiene un equivalente único: se usa «o senhor / a senhora» o se omite el pronombre y se usa el verbo en 3.ª persona.",
+      "«Vosotros» y «ustedes» se dicen igual: «vocês». La forma «vós» es antigua o regional; no la necesitas para hablar.",
+      "Los pronombres «me, te, se» van detrás del verbo con guion mucho más a menudo que en español: «Chamo-me», «Levanto-me cedo».",
+      "El artículo delante del nombre propio (o Pedro, a Ana) es normal y no suena vulgar como puede sonar en algunas zonas de habla hispana."
+    ],
+    "commonErrors": [
+      { "wrong": "Me chamo Javier.", "right": "Chamo-me Javier.", "why": "En portugués europeo una frase no empieza con un pronombre átono. «Me chamo» es la forma de Brasil." },
+      { "wrong": "Você quer café? (a tu suegra)", "right": "A senhora quer café? / Quer café?", "why": "Con personas mayores o a las que debes respeto, «você» puede sonar brusco en Portugal. Es más seguro usar «a senhora» o solo el verbo." },
+      { "wrong": "Vós falais português?", "right": "Vocês falam português?", "why": "Para «vosotros» se usa «vocês» con el verbo en 3.ª persona del plural." }
+    ],
+    "exerciseIds": ["g1-01", "g1-02", "g1-04", "g1-05"],
+    "review": "pendiente-nativo",
+    "reviewNotes": [
+      "Confirmar con un nativo hasta qué punto «você» resulta distante o descortés según edad y región; la explicación se ha redactado con prudencia."
+    ]
+  },
+  {
+    "id": "artigos-genero",
+    "order": 2,
+    "unit": 1,
+    "title": "Género, número y artículos",
+    "summary": "o, a, os, as · um, uma · plurales en -ões, -ães, -ns, -is… y palabras que cambian de género respecto al español.",
+    "rule": [
+      "Artículos definidos: o (el), a (la), os (los), as (las). Indefinidos: um (un), uma (una), uns (unos), umas (unas).",
+      "El plural se forma casi siempre añadiendo -s: a casa → as casas.",
+      "Terminación -m → -ns: o homem → os homens, o jardim → os jardins.",
+      "Terminación -l → -is: o animal → os animais, o papel → os papéis, o hotel → os hotéis.",
+      "Terminación -r, -z → -es: a mulher → as mulheres, a luz → as luzes.",
+      "Terminación -ão: tiene tres plurales posibles y hay que aprenderlos con la palabra: a mão → as mãos, o pão → os pães, o limão → os limões, o cão → os cães.",
+      "Con los posesivos, en Portugal se usa casi siempre el artículo: «a minha casa», «o meu carro», «os nossos filhos»."
+    ],
+    "table": {
+      "caption": "Palabras con género distinto al español",
+      "headers": ["Portugués", "Español"],
+      "rows": [
+        ["o leite", "la leche"],
+        ["o sal", "la sal"],
+        ["o mel", "la miel"],
+        ["o sangue", "la sangre"],
+        ["o nariz", "la nariz"],
+        ["o costume", "la costumbre"],
+        ["a viagem", "el viaje"],
+        ["a mensagem", "el mensaje"],
+        ["a garagem", "el garaje"],
+        ["a cor", "el color"],
+        ["a dor", "el dolor"],
+        ["a árvore", "el árbol"],
+        ["a ponte", "el puente"]
+      ]
+    },
+    "examples": [
+      { "pt": "O leite está frio.", "es": "La leche está fría." },
+      { "pt": "A viagem foi ótima.", "es": "El viaje fue estupendo." },
+      { "pt": "Queres um café?", "es": "¿Quieres un café?", "register": "informal" },
+      { "pt": "Comprei dois pães e uns limões.", "es": "He comprado dos panes y unos limones." },
+      { "pt": "A minha casa é pequena.", "es": "Mi casa es pequeña." },
+      { "pt": "Os hotéis no centro são caros.", "es": "Los hoteles del centro son caros." }
+    ],
+    "contrastEs": [
+      "Las palabras en -agem son femeninas (a viagem, a mensagem), aunque en español las de -aje son masculinas.",
+      "Varios alimentos cambian de género: o leite, o sal, o mel. Es un error muy típico decir «a leite».",
+      "«A minha casa» con artículo es lo natural en Portugal; «minha casa» sin artículo se oye más en Brasil."
+    ],
+    "commonErrors": [
+      { "wrong": "A leite está quente.", "right": "O leite está quente.", "why": "«Leite» es masculino en portugués." },
+      { "wrong": "O viagem foi longo.", "right": "A viagem foi longa.", "why": "Las palabras en -agem son femeninas, y el adjetivo concuerda: longa." },
+      { "wrong": "Os pãos", "right": "Os pães", "why": "El plural de las palabras en -ão no es regular: pão → pães, mão → mãos, limão → limões." }
+    ],
+    "exerciseIds": ["g2-01", "g2-03", "g2-05", "g2-07"],
+    "review": "pendiente-nativo"
+  },
+  {
+    "id": "presente-regular",
+    "order": 3,
+    "unit": 1,
+    "title": "Presente de indicativo: verbos regulares",
+    "summary": "falar, comer, abrir… y el verbo gostar, que funciona al revés que «gustar».",
+    "rule": [
+      "Hay tres grupos: -ar (falar), -er (comer) e -ir (abrir). Las terminaciones se parecen mucho al español.",
+      "La 3.ª persona del plural termina en -m, no en -n: falam, comem, abrem.",
+      "«Vocês» usa la misma forma que «eles»: vocês falam, eles falam.",
+      "«Gostar» es un verbo regular, pero se construye de forma distinta a «gustar»: la persona es el sujeto y lo que gusta va con «de». «Gosto de café» = Me gusta el café. «De + o» se contrae en «do»: «Gosto do teu bolo» (me gusta tu bizcocho).",
+      "Para responder «sí» a una pregunta, en Portugal es muy natural repetir el verbo: «— Gostas de fado? — Gosto!»."
+    ],
+    "pattern": "eu -o · tu -as/-es · ele -a/-e · nós -amos/-emos/-imos · eles -am/-em",
+    "conjugations": [
+      { "verb": "falar", "meaning": "hablar", "forms": { "eu": "falo", "tu": "falas", "ele": "fala", "nos": "falamos", "eles": "falam" } },
+      { "verb": "comer", "meaning": "comer", "forms": { "eu": "como", "tu": "comes", "ele": "come", "nos": "comemos", "eles": "comem" } },
+      { "verb": "abrir", "meaning": "abrir", "forms": { "eu": "abro", "tu": "abres", "ele": "abre", "nos": "abrimos", "eles": "abrem" } },
+      { "verb": "gostar (de)", "meaning": "gustar", "forms": { "eu": "gosto", "tu": "gostas", "ele": "gosta", "nos": "gostamos", "eles": "gostam" }, "note": "Siempre con «de»: gosto de, gostas do, gosta da…" }
+    ],
+    "examples": [
+      { "pt": "Falo um pouco de português.", "es": "Hablo un poco de portugués." },
+      { "pt": "Ao domingo comemos em casa dos meus sogros.", "es": "Los domingos comemos en casa de mis suegros." },
+      { "pt": "Gosto muito de bacalhau.", "es": "Me gusta mucho el bacalao." },
+      { "pt": "Vocês moram em Lisboa?", "es": "¿Vivís en Lisboa? / ¿Viven en Lisboa?", "note": "«Morar» = vivir (en un sitio)." },
+      { "pt": "A farmácia abre às nove.", "es": "La farmacia abre a las nueve." },
+      { "pt": "— Gostas de cozinhar? — Gosto muito!", "es": "— ¿Te gusta cocinar? — ¡Me gusta mucho!", "register": "informal" }
+    ],
+    "contrastEs": [
+      "«Me gusta el café» → «Gosto de café». No existe «me gusta» en portugués: el sujeto es quien siente el gusto.",
+      "Final -m y no -n: «eles comem» (no «comen»).",
+      "Para «vosotros habláis» se usa «vocês falam» (3.ª persona del plural)."
+    ],
+    "commonErrors": [
+      { "wrong": "Me gusta o café.", "right": "Gosto de café. / Gosto do café.", "why": "En portugués se dice «eu gosto de…». La persona es el sujeto." },
+      { "wrong": "Eu gosto o fado.", "right": "Eu gosto de fado. / Eu gosto do fado.", "why": "«Gostar» siempre lleva «de»." },
+      { "wrong": "Eles comen muito.", "right": "Eles comem muito.", "why": "La 3.ª persona del plural termina en -m." }
+    ],
+    "exerciseIds": ["g3-01", "g3-04", "g3-06", "g3-08"],
+    "review": "pendiente-nativo"
+  },
+  {
+    "id": "ser-estar",
+    "order": 4,
+    "unit": 2,
+    "title": "Ser y estar (y «estar a + infinitivo»)",
+    "summary": "Casi como en español, con dos diferencias clave: «ficar» para ubicar lugares y «estou a fazer» en vez de gerundio.",
+    "rule": [
+      "SER: identidad, origen, profesión, nacionalidad, características: «Sou espanhol», «A Ana é médica», «É simpático».",
+      "ESTAR: estados temporales y ubicación de personas y objetos que se mueven: «Estou cansado», «O Pedro está em casa», «As chaves estão na mesa».",
+      "Para ubicar lugares fijos (edificios, calles, ciudades) es muy habitual «ficar»: «Onde fica a estação?» = ¿Dónde está la estación? También se oye «Onde é…?».",
+      "Para acciones en curso, en Portugal se usa ESTAR A + INFINITIVO, no el gerundio: «Estou a trabalhar» = Estoy trabajando. «Estou trabalhando» se entiende, pero es la forma de Brasil.",
+      "Para hablar de la hora se usa «ser»: «São três horas», «É uma hora»."
+    ],
+    "pattern": "estar a + infinitivo = estar + gerundio",
+    "conjugations": [
+      { "verb": "ser", "meaning": "ser", "forms": { "eu": "sou", "tu": "és", "ele": "é", "nos": "somos", "eles": "são" } },
+      { "verb": "estar", "meaning": "estar", "forms": { "eu": "estou", "tu": "estás", "ele": "está", "nos": "estamos", "eles": "estão" } },
+      { "verb": "ficar", "meaning": "quedar(se), estar situado", "forms": { "eu": "fico", "tu": "ficas", "ele": "fica", "nos": "ficamos", "eles": "ficam" } }
+    ],
+    "examples": [
+      { "pt": "Sou espanhol, de Madrid.", "es": "Soy español, de Madrid." },
+      { "pt": "A Rita é muito simpática.", "es": "Rita es muy simpática." },
+      { "pt": "Hoje estou muito cansado.", "es": "Hoy estoy muy cansado." },
+      { "pt": "Onde fica a farmácia?", "es": "¿Dónde está la farmacia?" },
+      { "pt": "Estou a cozinhar o jantar.", "es": "Estoy cocinando la cena." },
+      { "pt": "O que estás a fazer?", "es": "¿Qué estás haciendo?", "register": "informal" }
+    ],
+    "contrastEs": [
+      "El reparto entre ser y estar es casi igual que en español: tu intuición funciona bien aquí.",
+      "La gran diferencia es el gerundio: «estoy comiendo» → «estou a comer».",
+      "Para lugares fijos, piensa en «ficar» cuando en español dirías «¿dónde está…?»."
+    ],
+    "commonErrors": [
+      { "wrong": "Estou cozinhando.", "right": "Estou a cozinhar.", "why": "En Portugal la acción en curso se expresa con «estar a + infinitivo». El gerundio es típico de Brasil (y de algunas zonas del sur de Portugal)." },
+      { "wrong": "Eu estou espanhol.", "right": "Eu sou espanhol.", "why": "La nacionalidad y el origen van con «ser», igual que en español." },
+      { "wrong": "A minha mãe está professora.", "right": "A minha mãe é professora.", "why": "La profesión se expresa con «ser»." }
+    ],
+    "exerciseIds": ["g4-01", "g4-02", "g4-03", "g4-06"],
+    "review": "pendiente-nativo",
+    "reviewNotes": [
+      "El gerundio se usa también en partes del sur de Portugal (Alentejo, Algarve); se menciona como matiz, pero la forma enseñada es «estar a + infinitivo»."
+    ]
+  },
+  {
+    "id": "ter-haver",
+    "order": 5,
+    "unit": 2,
+    "title": "Tener (ter) y haber (haver)",
+    "summary": "tenho, tens, tem, temos, têm · «há» para «hay» y para «hace (tiempo)» · «ter de» para obligación.",
+    "rule": [
+      "TER = tener (posesión, edad, sensaciones): «Tenho dos filhos», «Tenho fome».",
+      "Ojo a la tilde: «ele tem» (singular) y «eles têm» (plural). Se pronuncian de forma distinta y la tilde los diferencia en la escritura.",
+      "HÁ = hay: «Há pão em casa?» = ¿Hay pan en casa? En Portugal, para «hay» se usa «há». Usar «tem» con ese sentido es típico de Brasil.",
+      "HÁ + tiempo = hace + tiempo: «Moro aqui há cinco anos» = Vivo aquí desde hace cinco años.",
+      "TER DE + infinitivo = tener que: «Tenho de sair» = Tengo que salir. En Portugal «ter de» es la forma más recomendada; «ter que» también se oye."
+    ],
+    "pattern": "ter de + infinitivo · há + sustantivo · há + tiempo",
+    "conjugations": [
+      { "verb": "ter", "meaning": "tener", "forms": { "eu": "tenho", "tu": "tens", "ele": "tem", "nos": "temos", "eles": "têm" } }
+    ],
+    "examples": [
+      { "pt": "Tenho dois filhos.", "es": "Tengo dos hijos." },
+      { "pt": "Há pão em casa?", "es": "¿Hay pan en casa?" },
+      { "pt": "Tenho de sair às sete.", "es": "Tengo que salir a las siete." },
+      { "pt": "Moro em Madrid há dez anos.", "es": "Vivo en Madrid desde hace diez años." },
+      { "pt": "Não há problema.", "es": "No hay problema." },
+      { "pt": "Eles têm uma casa no Algarve.", "es": "Ellos tienen una casa en el Algarve." }
+    ],
+    "contrastEs": [
+      "«Hay» → «há» (con h y tilde). «Hace dos años» → «há dois anos». Es la misma palabra para las dos cosas.",
+      "«Tener que» → preferiblemente «ter de».",
+      "«Tengo hambre / sed / frío» funciona igual: «tenho fome / sede / frio»."
+    ],
+    "commonErrors": [
+      { "wrong": "Tem muita gente aqui.", "right": "Há muita gente aqui.", "why": "Para «hay», en Portugal se usa «há». «Tem» con ese sentido es brasileño." },
+      { "wrong": "Hace dois anos.", "right": "Há dois anos.", "why": "«Hace + tiempo» se dice «há + tiempo»." },
+      { "wrong": "Eles tem uma casa.", "right": "Eles têm uma casa.", "why": "En plural se escribe «têm», con acento circunflejo." }
+    ],
+    "exerciseIds": ["g5-01", "g5-02", "g5-04", "g5-06"],
+    "review": "pendiente-nativo"
+  },
+  {
+    "id": "contracoes",
+    "order": 6,
+    "unit": 2,
+    "title": "Preposiciones y contracciones",
+    "summary": "do, da, no, na, ao, à, pelo, num… obligatorias y mucho más frecuentes que «al» y «del».",
+    "rule": [
+      "En portugués las preposiciones de, em, a y por se unen con el artículo. Es obligatorio: no se dice «em o», sino «no».",
+      "DE + o / a / os / as → do, da, dos, das: «a casa dos meus pais» (la casa de mis padres).",
+      "EM + o / a / os / as → no, na, nos, nas: «O telemóvel está na mesa» (el móvil está en la mesa).",
+      "A + o / a / os / as → ao, à, aos, às: «Vamos ao cinema», «Chego às oito». Fíjate en el acento grave de «à» y «às».",
+      "POR + o / a / os / as → pelo, pela, pelos, pelas: «Passeamos pelo parque».",
+      "EM + um / uma → num, numa: «Trabalha num banco». En Portugal es lo más natural; «em um» suena a Brasil.",
+      "También se contraen con demostrativos: de + este = deste, em + esse = nesse."
+    ],
+    "table": {
+      "caption": "Contracciones con el artículo definido",
+      "headers": ["", "o", "a", "os", "as"],
+      "rows": [
+        ["de", "do", "da", "dos", "das"],
+        ["em", "no", "na", "nos", "nas"],
+        ["a", "ao", "à", "aos", "às"],
+        ["por", "pelo", "pela", "pelos", "pelas"]
+      ]
+    },
+    "examples": [
+      { "pt": "A Rita é do Porto.", "es": "Rita es de Oporto.", "note": "«O Porto» lleva artículo; Lisboa y Madrid no." },
+      { "pt": "Sou de Espanha, de Madrid.", "es": "Soy de España, de Madrid.", "note": "En Portugal, «Espanha» suele usarse sin artículo: de Espanha, em Espanha." },
+      { "pt": "O livro está na mesa.", "es": "El libro está en la mesa." },
+      { "pt": "Vamos ao supermercado.", "es": "Vamos al supermercado." },
+      { "pt": "O jantar é às oito.", "es": "La cena es a las ocho." },
+      { "pt": "Ele trabalha num restaurante.", "es": "Él trabaja en un restaurante." }
+    ],
+    "contrastEs": [
+      "En español solo contraemos «al» y «del». En portugués casi todas las combinaciones de preposición y artículo se contraen.",
+      "«En el / en la» → «no / na». Ojo: «no» aquí NO es negación (la negación es «não»).",
+      "«A las ocho» → «às oito». «A la una» → «à uma».",
+      "«Em casa» y «a casa» se usan sin artículo cuando se trata de tu propia casa: «Estou em casa», «Vou para casa»."
+    ],
+    "commonErrors": [
+      { "wrong": "Vou a o mercado.", "right": "Vou ao mercado.", "why": "A + o se contrae siempre en «ao»." },
+      { "wrong": "Estou em o carro.", "right": "Estou no carro.", "why": "Em + o = no." },
+      { "wrong": "Ele trabalha em um banco.", "right": "Ele trabalha num banco.", "why": "En Portugal lo natural es contraer: num, numa." }
+    ],
+    "exerciseIds": ["g6-01", "g6-03", "g6-05", "g6-07"],
+    "review": "pendiente-nativo",
+    "reviewNotes": ["Confirmar la preferencia «de Espanha» (sin artículo) en el uso actual de Portugal."]
+  },
+  {
+    "id": "negacao-perguntas",
+    "order": 7,
+    "unit": 2,
+    "title": "Negación y preguntas",
+    "summary": "não antes del verbo · «é que» en las preguntas · porque / porquê · responder repitiendo el verbo.",
+    "rule": [
+      "La negación «não» va delante del verbo: «Não sei», «Não percebo». Para contestar «no» se repite: «Não, não sei».",
+      "Otras palabras negativas: nada, nunca, ninguém (nadie), nenhum / nenhuma (ningún / ninguna).",
+      "Las preguntas sí/no tienen el mismo orden que la frase afirmativa; solo cambia la entonación: «Queres café?».",
+      "En Portugal es muy frecuente añadir «é que» después del interrogativo: «Onde é que moras?», «O que é que queres?». No cambia el significado; suena natural y coloquial.",
+      "Interrogativos: o que (qué), quem (quién), onde (dónde), quando (cuándo), como (cómo), quanto (cuánto), qual (cuál).",
+      "¿Por qué?: al principio «Porque é que…?» o «Porque…?»; al final o solo, «Porquê?». La respuesta «porque» (sin tilde) = porque.",
+      "Para responder «sí» se suele repetir el verbo: «— Queres mais? — Quero, obrigado.»"
+    ],
+    "examples": [
+      { "pt": "Desculpe, não percebo.", "es": "Perdone, no entiendo.", "note": "«Perceber» es el verbo más habitual en Portugal para «entender»." },
+      { "pt": "Onde é que moras?", "es": "¿Dónde vives?", "register": "informal" },
+      { "pt": "O que é que queres comer?", "es": "¿Qué quieres comer?", "register": "informal" },
+      { "pt": "Porque é que não vens?", "es": "¿Por qué no vienes?" },
+      { "pt": "— Vens connosco? — Porquê?", "es": "— ¿Vienes con nosotros? — ¿Por qué?" },
+      { "pt": "— Queres mais arroz? — Não, obrigado, já chega.", "es": "— ¿Quieres más arroz? — No, gracias, ya es suficiente." }
+    ],
+    "contrastEs": [
+      "«¿Por qué?» se escribe junto en Portugal: «porque» / «porquê». La forma separada «por que» es típica de Brasil.",
+      "La estructura «é que» no existe en español; no es obligatoria, pero oírla es constante.",
+      "«Entender» existe, pero «perceber» es más frecuente en Portugal para «entender»."
+    ],
+    "commonErrors": [
+      { "wrong": "Por que não vens?", "right": "Porque é que não vens? / Porque não vens?", "why": "En Portugal se escribe junto: «porque». La forma separada es de Brasil." },
+      { "wrong": "Porquê não vens?", "right": "Porque é que não vens?", "why": "«Porquê» (con tilde) va al final o solo. Al principio de la pregunta es «porque»." },
+      { "wrong": "Não, gracias.", "right": "Não, obrigado. / Não, obrigada.", "why": "«Gracias» es «obrigado» si lo dice un hombre y «obrigada» si lo dice una mujer." }
+    ],
+    "exerciseIds": ["g7-01", "g7-02", "g7-04", "g7-05"],
+    "review": "pendiente-nativo"
+  }
+]

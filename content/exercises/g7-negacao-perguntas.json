@@ -1,0 +1,61 @@
+[
+  {
+    "id": "g7-01", "type": "fill", "skill": "gramatica", "topic": "negacao-perguntas",
+    "instruction": "Completa con el verbo «perceber» (entender).",
+    "sentence": "Desculpe, não ___.", "translation": "Perdone, no entiendo.", "hint": "perceber",
+    "accepted": ["percebo"],
+    "expectedErrors": [{ "answers": ["entendo"], "category": "vocabulario", "acceptable": true, "feedback": "«Não entendo» también es correcto, pero en Portugal lo más habitual es «não percebo»." }],
+    "explanation": "Perceber = entender (en Portugal). Eu percebo, tu percebes."
+  },
+  {
+    "id": "g7-02", "type": "choice", "skill": "gramatica", "topic": "negacao-perguntas",
+    "instruction": "¿Cómo preguntas «¿Por qué no vienes?» en Portugal?",
+    "prompt": "¿Por qué no vienes?", "promptLang": "es",
+    "options": ["Porque é que não vens?", "Por qué não vens?", "Porquê não vens?"],
+    "answer": 0,
+    "explanation": "Al principio de la pregunta: «Porque é que…?» o «Porque…?». «Porquê» (con tilde) solo va al final o solo."
+  },
+  {
+    "id": "g7-03", "type": "build", "skill": "gramatica", "topic": "negacao-perguntas",
+    "instruction": "Ordena las palabras (pregunta coloquial con «é que»).",
+    "translation": "¿Dónde vives?",
+    "tokens": ["Onde", "é", "que", "moras", "quê"],
+    "accepted": ["Onde é que moras"],
+    "explanation": "«Onde é que moras?» es muy habitual en Portugal. «Onde moras?» también es correcto."
+  },
+  {
+    "id": "g7-04", "type": "translate", "skill": "produccion", "topic": "negacao-perguntas",
+    "instruction": "Traduce al portugués.",
+    "es": "No lo sé.",
+    "accepted": ["Não sei", "Eu não sei", "Não o sei", "Sei lá"],
+    "expectedErrors": [{ "answers": ["Não lo sei", "No sei", "Não lo sé"], "category": "interferencia-es", "feedback": "«No» = «não». Y normalmente no hace falta el pronombre: «Não sei»." }],
+    "explanation": "«Não sei» es lo más natural. «Sei lá» es coloquial (≈ «yo qué sé»)."
+  },
+  {
+    "id": "g7-05", "type": "dialogue", "skill": "produccion", "topic": "negacao-perguntas",
+    "instruction": "Responde en la conversación.",
+    "context": [{ "speaker": "Fernanda", "pt": "Queres mais arroz?", "es": "¿Quieres más arroz?" }],
+    "task": "Di que no, gracias, que ya es suficiente.",
+    "accepted": ["Não, obrigado, já chega", "Já chega, obrigado", "Não, obrigado, chega", "Não, obrigado, estou satisfeito", "Não, obrigado, já estou satisfeito", "Não, obrigado, já comi muito", "Não, obrigado. Já chega"],
+    "expectedErrors": [
+      { "answers": ["Não, gracias", "Não, gracias, já chega", "No, gracias"], "category": "vocabulario", "feedback": "«Gracias» es «obrigado» (si lo dice un hombre) u «obrigada» (si lo dice una mujer)." },
+      { "answers": ["Não, obrigado"], "category": "poco-natural", "acceptable": true, "feedback": "Correcto. Para decir que ya es suficiente, añade «já chega»." }
+    ],
+    "explanation": "«Já chega» = ya es suficiente / ya basta. Es muy útil en las comidas familiares."
+  },
+  {
+    "id": "g7-06", "type": "fix", "skill": "gramatica", "topic": "negacao-perguntas",
+    "instruction": "Corrige la pregunta.",
+    "wrong": "Porquê não vens?",
+    "accepted": ["Porque é que não vens?", "Porque não vens?"],
+    "explanation": "Al principio: «Porque (é que)…?». «Porquê» va al final: «Não vens? Porquê?»."
+  },
+  {
+    "id": "g7-07", "type": "choice", "skill": "comprension", "topic": "negacao-perguntas",
+    "instruction": "¿Qué significa?",
+    "prompt": "— Queres vir? — Quero!", "promptLang": "pt",
+    "options": ["— ¿Quieres venir? — ¡Sí!", "— ¿Quieres venir? — ¡Te quiero!", "— ¿Puedes venir? — ¡No quiero!"],
+    "answer": 0,
+    "explanation": "En Portugal se responde «sí» repitiendo el verbo: «Quero!» = ¡Sí (quiero)!"
+  }
+]

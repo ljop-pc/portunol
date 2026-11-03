@@ -1,0 +1,29 @@
+{
+  "topic": "restaurante", "order": 5, "title": "Restaurantes y cafés",
+  "description": "Pedir, preguntar y pagar en un restaurante o una pastelería.",
+  "entries": [
+    { "pt": "a ementa", "es": "la carta, el menú", "pos": "sustantivo", "gender": "f", "exPt": "Pode trazer a ementa?", "exEs": "¿Puede traer la carta?", "ptBr": "o cardápio" },
+    { "pt": "o prato do dia", "es": "el plato del día", "pos": "sustantivo", "gender": "m", "exPt": "Qual é o prato do dia?", "exEs": "¿Cuál es el plato del día?" },
+    { "pt": "o empregado", "es": "el camarero", "pos": "sustantivo", "gender": "m", "exPt": "O empregado já vem.", "exEs": "El camarero ya viene.", "note": "También «empregado de mesa». Para llamarlo: «Desculpe!» o «Se faz favor!»." },
+    { "pt": "reservar uma mesa", "es": "reservar una mesa", "pos": "expresión", "exPt": "Queria reservar uma mesa para quatro.", "exEs": "Querría reservar una mesa para cuatro." },
+    { "pt": "a dose", "es": "la ración", "pos": "sustantivo", "gender": "f", "exPt": "Uma dose dá para duas pessoas.", "exEs": "Una ración da para dos personas.", "note": "«Meia dose» = media ración, muy común en Portugal." },
+    { "pt": "a entrada", "es": "el entrante", "pos": "sustantivo", "gender": "f", "exPt": "De entrada, queremos uns pastéis de bacalhau.", "exEs": "De entrante, queremos unos buñuelos de bacalao." },
+    { "pt": "o couvert", "es": "el aperitivo de mesa (pan, aceitunas…)", "pos": "sustantivo", "gender": "m", "exPt": "O couvert não está incluído.", "exEs": "El aperitivo de mesa no está incluido.", "note": "Lo que traen al sentarte (pan, mantequilla, aceitunas) normalmente se paga si lo comes.", "difficulty": 2 },
+    { "pt": "o petisco", "es": "la tapa, el picoteo", "pos": "sustantivo", "gender": "m", "exPt": "Vamos petiscar qualquer coisa?", "exEs": "¿Vamos a picar algo?" },
+    { "pt": "queria…", "es": "querría…, quisiera…", "pos": "expresión", "exPt": "Queria um galão e uma torrada.", "exEs": "Querría un café con leche y una tostada.", "note": "La forma más educada y habitual de pedir." },
+    { "pt": "para mim…", "es": "para mí…", "pos": "expresión", "exPt": "Para mim, o bacalhau à Brás.", "exEs": "Para mí, el bacalao à Brás." },
+    { "pt": "a conta", "es": "la cuenta", "pos": "sustantivo", "gender": "f", "exPt": "A conta, se faz favor.", "exEs": "La cuenta, por favor." },
+    { "pt": "a gorjeta", "es": "la propina", "pos": "sustantivo", "gender": "f", "exPt": "Deixamos gorjeta?", "exEs": "¿Dejamos propina?", "note": "«Propina» en portugués es la tasa universitaria." },
+    { "pt": "pagar", "es": "pagar", "pos": "verbo", "exPt": "Posso pagar com cartão?", "exEs": "¿Puedo pagar con tarjeta?" },
+    { "pt": "a pastelaria", "es": "la cafetería-pastelería", "pos": "sustantivo", "gender": "f", "exPt": "Encontramo-nos na pastelaria da esquina.", "exEs": "Nos vemos en la cafetería de la esquina." },
+    { "pt": "a esplanada", "es": "la terraza (de un bar)", "pos": "sustantivo", "gender": "f", "exPt": "Vamos sentar-nos na esplanada.", "exEs": "Vamos a sentarnos en la terraza.", "difficulty": 2 },
+    { "pt": "saboroso", "es": "sabroso", "pos": "adjetivo", "exPt": "Muito saboroso, parabéns ao cozinheiro!", "exEs": "¡Muy sabroso, felicidades al cocinero!" },
+    { "pt": "estar ótimo", "es": "estar buenísimo", "pos": "expresión", "exPt": "Está ótimo!", "exEs": "¡Está buenísimo!" },
+    { "pt": "picante", "es": "picante", "pos": "adjetivo", "exPt": "Tem piri-piri? Gosto de picante.", "exEs": "¿Tiene piri-piri? Me gusta el picante." },
+    { "pt": "sem glúten", "es": "sin gluten", "pos": "expresión", "exPt": "Têm pratos sem glúten?", "exEs": "¿Tienen platos sin gluten?" },
+    { "pt": "da casa", "es": "de la casa", "pos": "expresión", "exPt": "Um jarro de vinho da casa.", "exEs": "Una jarra de vino de la casa." },
+    { "pt": "está tudo bem?", "es": "¿todo bien? (camarero)", "pos": "expresión", "exPt": "— Está tudo bem? — Está tudo ótimo, obrigado.", "exEs": "— ¿Está todo bien? — Todo buenísimo, gracias." },
+    { "pt": "para levar", "es": "para llevar", "pos": "expresión", "exPt": "É para levar.", "exEs": "Es para llevar." },
+    { "pt": "para comer aqui", "es": "para tomar aquí", "pos": "expresión", "exPt": "É para comer aqui.", "exEs": "Es para tomar aquí." }
+  ]
+}

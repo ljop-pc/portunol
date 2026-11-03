@@ -1,0 +1,78 @@
+[
+  {
+    "id": "g6-01", "type": "fill", "skill": "gramatica", "topic": "contracoes",
+    "instruction": "Completa con la contracción correcta (em + a).",
+    "sentence": "O telemóvel está ___ mesa.", "translation": "El móvil está en la mesa.",
+    "accepted": ["na"],
+    "expectedErrors": [{ "answers": ["em a", "en la", "em la"], "category": "gramatica", "feedback": "Em + a se contrae siempre: «na»." }],
+    "explanation": "Em + a = na. Y fíjate: en Portugal el móvil es «o telemóvel»."
+  },
+  {
+    "id": "g6-02", "type": "fill", "skill": "gramatica", "topic": "contracoes",
+    "instruction": "Completa (a + o).",
+    "sentence": "Vamos ___ cinema logo à noite?", "translation": "¿Vamos al cine esta noche?",
+    "accepted": ["ao"],
+    "expectedErrors": [{ "answers": ["a o", "al"], "category": "gramatica", "feedback": "A + o = «ao»." }],
+    "explanation": "A + o = ao. «Logo à noite» = esta noche (más tarde, hoy)."
+  },
+  {
+    "id": "g6-03", "type": "fill", "skill": "gramatica", "topic": "contracoes",
+    "instruction": "Completa con la hora (a + as).",
+    "sentence": "O jantar é ___ oito.", "translation": "La cena es a las ocho.",
+    "accepted": ["às"],
+    "expectedErrors": [{ "answers": ["a las", "a as"], "category": "gramatica", "feedback": "A + as = «às» (con acento grave)." }],
+    "explanation": "Às oito, às nove… pero «à uma» (a la una)."
+  },
+  {
+    "id": "g6-04", "type": "fill", "skill": "gramatica", "topic": "contracoes",
+    "instruction": "Completa (de + os).",
+    "sentence": "Esta é a casa ___ meus pais.", "translation": "Esta es la casa de mis padres.",
+    "accepted": ["dos"],
+    "expectedErrors": [{ "answers": ["de", "de os"], "category": "gramatica", "feedback": "Delante de «os meus pais» hay artículo, así que de + os = «dos»." }],
+    "explanation": "De + os = dos."
+  },
+  {
+    "id": "g6-05", "type": "choice", "skill": "gramatica", "topic": "contracoes",
+    "instruction": "¿Cómo se dice «Paseamos por el parque»?",
+    "prompt": "Paseamos por el parque.", "promptLang": "es",
+    "options": ["Passeamos pelo parque.", "Passeamos por o parque.", "Passeamos pela parque."],
+    "answer": 0,
+    "explanation": "Por + o = pelo; por + a = pela. «Parque» es masculino."
+  },
+  {
+    "id": "g6-06", "type": "translate", "skill": "produccion", "topic": "contracoes",
+    "instruction": "Traduce al portugués.",
+    "es": "Estoy en la cocina.",
+    "accepted": ["Estou na cozinha", "Eu estou na cozinha"],
+    "expectedErrors": [
+      { "answers": ["Estou em a cozinha"], "category": "gramatica", "feedback": "Em + a = na: «Estou na cozinha»." },
+      { "answers": ["Estou na cocina", "Estou en la cozinha"], "category": "vocabulario", "feedback": "«Cocina» = «cozinha»; «en la» = «na»." }
+    ],
+    "explanation": "Estou na cozinha."
+  },
+  {
+    "id": "g6-07", "type": "fix", "skill": "gramatica", "topic": "contracoes",
+    "instruction": "Corrige la frase.",
+    "wrong": "O meu irmão trabalha em o hospital.",
+    "accepted": ["O meu irmão trabalha no hospital"],
+    "explanation": "Em + o = no."
+  },
+  {
+    "id": "g6-08", "type": "build", "skill": "gramatica", "topic": "contracoes",
+    "instruction": "Ordena las palabras.",
+    "translation": "La llave está en el coche.",
+    "tokens": ["A", "chave", "está", "no", "carro", "em"],
+    "accepted": ["A chave está no carro"],
+    "explanation": "Em + o = no. «Carro» = coche."
+  },
+  {
+    "id": "g6-09", "type": "translate", "skill": "produccion", "topic": "contracoes",
+    "instruction": "Traduce al portugués de Portugal.",
+    "es": "Mi hermana trabaja en un banco.",
+    "accepted": ["A minha irmã trabalha num banco", "Minha irmã trabalha num banco"],
+    "expectedErrors": [
+      { "answers": ["A minha irmã trabalha em um banco", "Minha irmã trabalha em um banco"], "category": "variante-br", "feedback": "Se entiende, pero en Portugal se contrae: «num banco»." }
+    ],
+    "explanation": "Em + um = num; em + uma = numa."
+  }
+]

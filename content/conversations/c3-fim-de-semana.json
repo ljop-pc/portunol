@@ -1,0 +1,40 @@
+{
+  "id": "fim-de-semana",
+  "order": 3,
+  "title": "Planes para el fin de semana",
+  "context": "Hablas con tu amigo Miguel un jueves por la tarde. Él propone ir a la playa el sábado.",
+  "goal": "Preguntar y contar planes, aceptar una invitación y quedar a una hora.",
+  "characters": [
+    { "name": "Miguel", "role": "tu amigo" },
+    { "name": "Javier", "role": "tú" }
+  ],
+  "turns": [
+    { "speaker": "Miguel", "pt": "Então, o que vais fazer no fim de semana?", "es": "Bueno, ¿qué vas a hacer el fin de semana?", "note": "Ir + infinitivo = futuro próximo, como en español (sin «a»)." },
+    { "speaker": "Javier", "pt": "Ainda não sei. E tu, tens planos?", "es": "Todavía no lo sé. ¿Y tú, tienes planes?", "note": "«Ainda» = todavía. ¡Ojo! «Todavia» en portugués significa «sin embargo»." },
+    { "speaker": "Miguel", "pt": "No sábado vamos à praia, se não chover.", "es": "El sábado vamos a la playa, si no llueve.", "note": "«Se não chover» usa el futuro de subjuntivo; de momento apréndelo como expresión." },
+    { "speaker": "Javier", "pt": "Que bom! Para onde vão?", "es": "¡Qué bien! ¿Adónde vais?" },
+    { "speaker": "Miguel", "pt": "Para a Costa da Caparica. Queres vir connosco?", "es": "A la Costa da Caparica. ¿Quieres venir con nosotros?", "note": "«Connosco» = con nosotros (en Brasil se escribe «conosco»)." },
+    { "speaker": "Javier", "pt": "Boa ideia! A que horas saem?", "es": "¡Buena idea! ¿A qué hora salís?", "alternatives": ["Quero! A que horas é que saem?"] },
+    { "speaker": "Miguel", "pt": "Por volta das dez. Vamos buscar-te a casa.", "es": "Sobre las diez. Te recogemos en casa.", "note": "«Ir buscar alguém» = ir a recoger a alguien." },
+    { "speaker": "Javier", "pt": "Combinado! Até sábado.", "es": "¡De acuerdo! Hasta el sábado.", "note": "«Combinado» = trato hecho, quedamos así." },
+    { "speaker": "Miguel", "pt": "Até sábado!", "es": "¡Hasta el sábado!" }
+  ],
+  "expressions": [
+    { "pt": "O que vais fazer…?", "es": "¿Qué vas a hacer…?" },
+    { "pt": "Ainda não sei.", "es": "Todavía no lo sé." },
+    { "pt": "se não chover", "es": "si no llueve" },
+    { "pt": "Queres vir connosco?", "es": "¿Quieres venir con nosotros?" },
+    { "pt": "por volta das dez", "es": "sobre las diez" },
+    { "pt": "Vamos buscar-te.", "es": "Te recogemos." },
+    { "pt": "Combinado!", "es": "¡De acuerdo! / ¡Hecho!" }
+  ],
+  "grammarIds": ["contracoes", "negacao-perguntas"],
+  "grammarNotes": [
+    "Contracciones: no sábado, à praia, das dez, no fim de semana.",
+    "Ir + infinitivo para planes: vou fazer, vamos à praia.",
+    "Pronombre detrás del infinitivo: buscar-te."
+  ],
+  "guidedIds": ["c3-01", "c3-02", "c3-03", "c3-04"],
+  "challengeIds": ["c3-05", "c3-06", "c3-07"],
+  "review": "pendiente-nativo"
+}

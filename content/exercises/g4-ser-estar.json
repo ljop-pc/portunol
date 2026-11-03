@@ -1,0 +1,61 @@
+[
+  {
+    "id": "g4-01", "type": "fill", "skill": "gramatica", "topic": "ser-estar",
+    "instruction": "¿Ser o estar?",
+    "sentence": "Eu ___ de Madrid.", "translation": "Soy de Madrid.",
+    "accepted": ["sou"],
+    "expectedErrors": [{ "answers": ["estou"], "category": "gramatica", "feedback": "El origen se expresa con «ser»: «Eu sou de Madrid»." }],
+    "explanation": "Origen y nacionalidad → ser."
+  },
+  {
+    "id": "g4-02", "type": "fill", "skill": "gramatica", "topic": "ser-estar",
+    "instruction": "¿Ser o estar?",
+    "sentence": "Hoje ___ muito cansado.", "translation": "Hoy estoy muy cansado.",
+    "accepted": ["estou"],
+    "expectedErrors": [{ "answers": ["sou"], "category": "gramatica", "feedback": "Un estado temporal se expresa con «estar»: «Hoje estou cansado»." }],
+    "explanation": "Estado temporal → estar."
+  },
+  {
+    "id": "g4-03", "type": "translate", "skill": "produccion", "topic": "ser-estar",
+    "instruction": "Traduce al portugués de Portugal.",
+    "es": "Estoy trabajando.",
+    "accepted": ["Estou a trabalhar", "Eu estou a trabalhar"],
+    "expectedErrors": [{ "answers": ["Estou trabalhando", "Eu estou trabalhando"], "category": "variante-br", "feedback": "Se entiende, pero el gerundio es la forma de Brasil. En Portugal: «Estou a trabalhar»." }],
+    "explanation": "Estar a + infinitivo = estar + gerundio."
+  },
+  {
+    "id": "g4-04", "type": "choice", "skill": "gramatica", "topic": "ser-estar",
+    "instruction": "¿Cómo se pregunta «¿Qué estás haciendo?» en Portugal?",
+    "prompt": "¿Qué estás haciendo?", "promptLang": "es",
+    "options": ["O que estás a fazer?", "O que és a fazer?", "O que estás fazer?"],
+    "answer": 0,
+    "explanation": "Estar a + infinitivo: «estás a fazer». No olvides la «a»."
+  },
+  {
+    "id": "g4-05", "type": "build", "skill": "gramatica", "topic": "ser-estar",
+    "instruction": "Ordena las palabras para preguntar dónde está la estación.",
+    "translation": "¿Dónde está la estación?",
+    "tokens": ["Onde", "fica", "a", "estação", "sou"],
+    "accepted": ["Onde fica a estação"],
+    "explanation": "Para lugares fijos (edificios, calles), en Portugal se usa mucho «ficar»: «Onde fica…?»."
+  },
+  {
+    "id": "g4-06", "type": "fix", "skill": "gramatica", "topic": "ser-estar",
+    "instruction": "Corrige la frase.",
+    "wrong": "A minha mãe está professora.",
+    "accepted": ["A minha mãe é professora"],
+    "explanation": "La profesión se expresa con «ser»."
+  },
+  {
+    "id": "g4-07", "type": "dialogue", "skill": "produccion", "topic": "ser-estar",
+    "instruction": "Responde en la conversación.",
+    "context": [{ "speaker": "Rita", "pt": "Olá, Javier! O que estás a fazer?", "es": "¡Hola, Javier! ¿Qué estás haciendo?" }],
+    "task": "Responde que estás cocinando la cena.",
+    "accepted": ["Estou a cozinhar o jantar", "Estou a fazer o jantar", "Eu estou a cozinhar o jantar", "Eu estou a fazer o jantar", "Olá, estou a cozinhar o jantar", "Olá, estou a fazer o jantar", "Olá Rita, estou a fazer o jantar", "Olá Rita, estou a cozinhar o jantar"],
+    "expectedErrors": [
+      { "answers": ["Estou cozinhando o jantar", "Estou fazendo o jantar", "Estou cozinhando a janta"], "category": "variante-br", "feedback": "En Portugal: «Estou a cozinhar o jantar» (estar a + infinitivo)." },
+      { "answers": ["Estou a cozinhar a cena", "Estou cozinhando a cena", "Estou a fazer a cena"], "category": "vocabulario", "feedback": "¡Falso amigo! «Cena» en portugués significa «escena». La cena es «o jantar»." }
+    ],
+    "explanation": "«Estou a fazer o jantar» es muy natural; «cozinhar» también es correcto."
+  }
+]

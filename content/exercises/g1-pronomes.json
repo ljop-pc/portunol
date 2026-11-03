@@ -1,0 +1,64 @@
+[
+  {
+    "id": "g1-01", "type": "choice", "skill": "gramatica", "topic": "pronomes",
+    "instruction": "Le ofreces más café a tu suegra y quieres ser respetuoso. ¿Qué dices?",
+    "prompt": "Le ofreces más café a tu suegra.", "promptLang": "es",
+    "options": ["A senhora quer mais café?", "Tu queres mais café?", "Vós quereis mais café?"],
+    "answer": 0,
+    "explanation": "Con personas a las que tratas con respeto se usa «o senhor / a senhora» con el verbo en 3.ª persona. También valdría simplemente «Quer mais café?». «Tu» sería demasiado informal salvo que ella te lo haya pedido."
+  },
+  {
+    "id": "g1-02", "type": "fill", "skill": "gramatica", "topic": "pronomes",
+    "instruction": "Completa la presentación.",
+    "sentence": "___-me Javier.", "translation": "Me llamo Javier.", "hint": "verbo chamar-se",
+    "accepted": ["Chamo"],
+    "expectedErrors": [
+      { "answers": ["me chamo", "llamo"], "category": "interferencia-es", "feedback": "El pronombre ya está escrito detrás del verbo (-me). Solo falta el verbo: «Chamo»." }
+    ],
+    "explanation": "En portugués europeo el pronombre va detrás del verbo con guion: «Chamo-me Javier»."
+  },
+  {
+    "id": "g1-03", "type": "build", "skill": "gramatica", "topic": "pronomes",
+    "instruction": "Ordena las palabras para preguntar el nombre a un amigo.",
+    "translation": "¿Cómo te llamas?",
+    "tokens": ["Como", "te", "chamas", "me"],
+    "accepted": ["Como te chamas"],
+    "explanation": "Aquí «te» va delante del verbo porque la pregunta empieza con «como». Las palabras interrogativas atraen el pronombre hacia delante."
+  },
+  {
+    "id": "g1-04", "type": "translate", "skill": "produccion", "topic": "pronomes",
+    "instruction": "Traduce al portugués de Portugal.",
+    "es": "Me llamo Ana.",
+    "accepted": ["Chamo-me Ana", "Eu chamo-me Ana", "O meu nome é Ana", "Sou a Ana", "Eu sou a Ana"],
+    "expectedErrors": [
+      { "answers": ["Me chamo Ana", "Eu me chamo Ana"], "category": "variante-br", "feedback": "Se entiende, pero es la colocación de Brasil. En Portugal el pronombre va detrás: «Chamo-me Ana»." }
+    ],
+    "explanation": "«Chamo-me Ana» es la forma más directa. «Sou a Ana» es muy natural al presentarse."
+  },
+  {
+    "id": "g1-05", "type": "fix", "skill": "gramatica", "topic": "pronomes",
+    "instruction": "Esta frase suena a Brasil. Corrígela para Portugal.",
+    "wrong": "Me chamo Luís.",
+    "accepted": ["Chamo-me Luís", "Eu chamo-me Luís"],
+    "explanation": "En portugués europeo la frase no empieza con «me»: el pronombre va detrás del verbo, unido con guion."
+  },
+  {
+    "id": "g1-06", "type": "choice", "skill": "gramatica", "topic": "pronomes",
+    "instruction": "Quieres preguntar a dos amigos: «¿Venís a cenar?»",
+    "prompt": "¿Venís a cenar?", "promptLang": "es",
+    "options": ["Vocês vêm jantar?", "Vós vindes jantar?", "Tu vens jantar?"],
+    "answer": 0,
+    "explanation": "«Vocês» es el plural de «tu» y de «o senhor»: sirve para vosotros y para ustedes. El verbo va en 3.ª persona del plural (vêm)."
+  },
+  {
+    "id": "g1-07", "type": "dialogue", "skill": "produccion", "topic": "pronomes",
+    "instruction": "Responde en la conversación.",
+    "context": [{ "speaker": "Marta", "pt": "Olá! Eu sou a Marta. E tu, como te chamas?", "es": "¡Hola! Yo soy Marta. Y tú, ¿cómo te llamas?" }],
+    "task": "Responde que te llamas Javier.",
+    "accepted": ["Chamo-me Javier", "Eu chamo-me Javier", "Sou o Javier", "Eu sou o Javier", "O meu nome é Javier", "Sou Javier", "Olá, chamo-me Javier", "Olá, sou o Javier", "Olá Marta, chamo-me Javier", "Olá Marta, sou o Javier"],
+    "expectedErrors": [
+      { "answers": ["Me chamo Javier", "Eu me chamo Javier", "Olá, me chamo Javier"], "category": "variante-br", "feedback": "Correcto en Brasil, pero en Portugal: «Chamo-me Javier»." }
+    ],
+    "explanation": "Para presentarte: «Chamo-me Javier» o «Sou o Javier» (con artículo delante del nombre, muy común en Portugal)."
+  }
+]

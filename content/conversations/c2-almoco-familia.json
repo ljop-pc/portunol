@@ -1,0 +1,41 @@
+{
+  "id": "almoco-familia",
+  "order": 2,
+  "title": "Comida familiar en casa de la suegra",
+  "context": "Domingo. Comes en casa de tu suegra, Fernanda. Ella te tutea con cariño; tú la tratas con respeto.",
+  "goal": "Preguntar qué hay de comer, elogiar la comida y decir que ya has comido suficiente sin quedar mal.",
+  "characters": [
+    { "name": "Fernanda", "role": "tu suegra" },
+    { "name": "Javier", "role": "tú" }
+  ],
+  "turns": [
+    { "speaker": "Fernanda", "pt": "O almoço está pronto! Venham para a mesa.", "es": "¡La comida está lista! Venid a la mesa.", "note": "«O almoço» es la comida del mediodía. «Venham» = venid / vengan (vocês)." },
+    { "speaker": "Javier", "pt": "Cheira muito bem! O que há para o almoço?", "es": "¡Huele muy bien! ¿Qué hay de comer?", "alternatives": ["Que bem que cheira! O que é o almoço?", "O que temos hoje?"], "note": "«O que é o almoço?» también se oye mucho en conversación familiar." },
+    { "speaker": "Fernanda", "pt": "Bacalhau com natas. E de sobremesa há arroz-doce.", "es": "Bacalao con nata. Y de postre hay arroz con leche.", "note": "«Sobremesa» = postre (falso amigo)." },
+    { "speaker": "Javier", "pt": "Adoro bacalhau com natas!", "es": "¡Me encanta el bacalao con nata!" },
+    { "speaker": "Fernanda", "pt": "Serve-te à vontade, Javier.", "es": "Sírvete lo que quieras, Javier.", "note": "«À vontade» = con total confianza, sin cortarse." },
+    { "speaker": "Fernanda", "pt": "Queres mais um bocadinho?", "es": "¿Quieres un poquito más?" },
+    { "speaker": "Javier", "pt": "Não, obrigado, já chega. Estava delicioso.", "es": "No, gracias, ya es suficiente. Estaba buenísimo.", "alternatives": ["Já chega, obrigado. Estava ótimo.", "Não, obrigado, estou satisfeito. Estava delicioso."], "note": "Elogiar la comida al rechazar más es la forma educada de hacerlo." },
+    { "speaker": "Fernanda", "pt": "Então guarda espaço para a sobremesa!", "es": "¡Pues deja sitio para el postre!" },
+    { "speaker": "Javier", "pt": "Para o arroz-doce há sempre espaço!", "es": "¡Para el arroz con leche siempre hay sitio!" }
+  ],
+  "expressions": [
+    { "pt": "Está pronto.", "es": "Está listo." },
+    { "pt": "Cheira muito bem!", "es": "¡Huele muy bien!" },
+    { "pt": "O que há para o almoço / jantar?", "es": "¿Qué hay de comer / cenar?" },
+    { "pt": "de sobremesa", "es": "de postre" },
+    { "pt": "à vontade", "es": "con confianza, lo que quieras" },
+    { "pt": "Já chega.", "es": "Ya es suficiente." },
+    { "pt": "Estava delicioso.", "es": "Estaba buenísimo." }
+  ],
+  "grammarIds": ["ter-haver", "negacao-perguntas"],
+  "grammarNotes": [
+    "«Há» = hay: «O que há para o almoço?», «há arroz-doce».",
+    "«Venham» es el imperativo de «vir» para «vocês».",
+    "«Serve-te»: imperativo con pronombre detrás (servir-se)."
+  ],
+  "guidedIds": ["c2-01", "c2-02", "c2-03", "c2-04"],
+  "challengeIds": ["c2-05", "c2-06", "c2-07"],
+  "review": "pendiente-nativo",
+  "reviewNotes": ["Confirmar la naturalidad de «O que é o almoço?» frente a «O que há para o almoço?» en distintas regiones."]
+}

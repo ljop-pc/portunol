@@ -1,0 +1,70 @@
+[
+  {
+    "id": "g2-01", "type": "choice", "skill": "gramatica", "topic": "artigos-genero",
+    "instruction": "¿Qué frase es correcta?",
+    "prompt": "La leche está fría.", "promptLang": "es",
+    "options": ["O leite está frio.", "A leite está fria.", "O leite está fria."],
+    "answer": 0,
+    "explanation": "«Leite» es masculino en portugués: o leite, frio."
+  },
+  {
+    "id": "g2-02", "type": "fill", "skill": "gramatica", "topic": "artigos-genero",
+    "instruction": "Completa con el artículo indefinido.",
+    "sentence": "Queres ___ café?", "translation": "¿Quieres un café?",
+    "accepted": ["um"],
+    "expectedErrors": [{ "answers": ["un"], "category": "interferencia-es", "feedback": "En portugués es «um» (con m)." }],
+    "explanation": "Artículos indefinidos: um, uma, uns, umas."
+  },
+  {
+    "id": "g2-03", "type": "fill", "skill": "gramatica", "topic": "artigos-genero",
+    "instruction": "Completa con el artículo definido.",
+    "sentence": "___ viagem foi ótima.", "translation": "El viaje fue estupendo.",
+    "accepted": ["A"],
+    "expectedErrors": [{ "answers": ["O"], "category": "interferencia-es", "feedback": "En español «viaje» es masculino, pero «viagem» es femenino: a viagem." }],
+    "explanation": "Las palabras en -agem son femeninas: a viagem, a mensagem, a garagem."
+  },
+  {
+    "id": "g2-04", "type": "choice", "skill": "gramatica", "topic": "artigos-genero",
+    "instruction": "¿Cuál es el plural de «o pão»?",
+    "prompt": "o pão → os …", "promptLang": "pt",
+    "options": ["pães", "pãos", "pões"],
+    "answer": 0,
+    "explanation": "Pão → pães. Las palabras en -ão tienen tres plurales posibles (-ãos, -ães, -ões) y hay que aprenderlos con cada palabra."
+  },
+  {
+    "id": "g2-05", "type": "fill", "skill": "gramatica", "topic": "artigos-genero",
+    "instruction": "Escribe el plural de «cão» (perro).",
+    "sentence": "Tenho dois ___.", "translation": "Tengo dos perros.",
+    "accepted": ["cães"],
+    "expectedErrors": [
+      { "answers": ["cãos", "cões"], "category": "gramatica", "feedback": "El plural de «cão» es «cães», igual que pão → pães." },
+      { "answers": ["perros"], "category": "vocabulario", "feedback": "«Perro» en portugués es «cão» (en Brasil, «cachorro»). Plural: cães." }
+    ],
+    "explanation": "Cão → cães."
+  },
+  {
+    "id": "g2-06", "type": "translate", "skill": "produccion", "topic": "artigos-genero",
+    "instruction": "Traduce al portugués de Portugal.",
+    "es": "Mi casa es pequeña.",
+    "accepted": ["A minha casa é pequena"],
+    "expectedErrors": [
+      { "answers": ["Minha casa é pequena"], "category": "poco-natural", "acceptable": true, "feedback": "Correcto, pero en Portugal lo habitual es poner artículo delante del posesivo: «A minha casa é pequena»." }
+    ],
+    "explanation": "Con posesivos, en Portugal se usa el artículo: a minha casa, o meu carro."
+  },
+  {
+    "id": "g2-07", "type": "fix", "skill": "gramatica", "topic": "artigos-genero",
+    "instruction": "Corrige el error de género.",
+    "wrong": "A sal está na mesa.",
+    "accepted": ["O sal está na mesa"],
+    "explanation": "«Sal» es masculino en portugués: o sal."
+  },
+  {
+    "id": "g2-08", "type": "build", "skill": "gramatica", "topic": "artigos-genero",
+    "instruction": "Ordena las palabras.",
+    "translation": "Los hoteles son caros.",
+    "tokens": ["Os", "hotéis", "são", "caros", "hoteles"],
+    "accepted": ["Os hotéis são caros"],
+    "explanation": "Hotel → hotéis: las palabras en -l forman el plural en -is."
+  }
+]

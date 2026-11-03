@@ -1,0 +1,37 @@
+{
+  "id": "cumprimentar",
+  "order": 1,
+  "title": "Saludar y preguntar cómo está alguien",
+  "context": "Llegas a casa de tu familia política en Portugal. Te abre la puerta tu cuñada, Rita. Os tuteáis.",
+  "goal": "Saludar, responder a «Tudo bem?», contar cómo ha ido el viaje y aceptar algo de beber.",
+  "characters": [
+    { "name": "Rita", "role": "tu cuñada" },
+    { "name": "Javier", "role": "tú" }
+  ],
+  "turns": [
+    { "speaker": "Rita", "pt": "Olá, Javier! Tudo bem?", "es": "¡Hola, Javier! ¿Qué tal? (lit. ¿Todo bien?)", "alternatives": ["Então, como estás?", "Olá! Como estás?"] },
+    { "speaker": "Javier", "pt": "Olá, Rita! Tudo bem, obrigado. E contigo?", "es": "¡Hola, Rita! Todo bien, gracias. ¿Y tú?", "alternatives": ["Tudo, obrigado. E tu?", "Estou bem, obrigado. E tu?"], "note": "«E contigo?» (lit. «¿y contigo?») es una forma muy habitual de devolver la pregunta." },
+    { "speaker": "Rita", "pt": "Tudo ótimo. Então, como correu a viagem?", "es": "Todo estupendo. Bueno, ¿qué tal el viaje?", "alternatives": ["Que tal a viagem?", "Fizeste boa viagem?"], "note": "«Correr» se usa para preguntar cómo ha ido algo: «Como correu o dia?»." },
+    { "speaker": "Javier", "pt": "Correu bem, mas estou um bocadinho cansado.", "es": "Fue bien, pero estoy un poquito cansado.", "alternatives": ["Correu bem, mas estou um pouco cansado."], "note": "«Um bocadinho» = un poquito. Muy típico de Portugal." },
+    { "speaker": "Rita", "pt": "Imagino. Queres beber alguma coisa? Um café, uma água?", "es": "Me imagino. ¿Quieres beber algo? ¿Un café, un agua?" },
+    { "speaker": "Javier", "pt": "Um copo de água, se faz favor.", "es": "Un vaso de agua, por favor.", "alternatives": ["Uma água, por favor.", "Queria um copo de água, se faz favor."], "note": "«Se faz favor» es una forma muy portuguesa de decir «por favor». «Copo» = vaso (falso amigo)." },
+    { "speaker": "Rita", "pt": "Claro, já te trago.", "es": "Claro, ahora mismo te lo traigo.", "note": "«Já» aquí significa «ahora mismo / enseguida»." },
+    { "speaker": "Javier", "pt": "Obrigado!", "es": "¡Gracias!" }
+  ],
+  "expressions": [
+    { "pt": "Tudo bem?", "es": "¿Qué tal? / ¿Todo bien?", "register": "informal" },
+    { "pt": "E contigo?", "es": "¿Y tú?", "register": "informal" },
+    { "pt": "Como correu…?", "es": "¿Qué tal fue…?" },
+    { "pt": "um bocadinho", "es": "un poquito" },
+    { "pt": "se faz favor", "es": "por favor" },
+    { "pt": "Já te trago.", "es": "Enseguida te lo traigo." }
+  ],
+  "grammarIds": ["pronomes", "ser-estar"],
+  "grammarNotes": [
+    "Tuteo entre cuñados: «queres», «contigo», «te trago».",
+    "«Estou cansado» (estar + estado temporal)."
+  ],
+  "guidedIds": ["c1-01", "c1-02", "c1-03", "c1-04"],
+  "challengeIds": ["c1-05", "c1-06", "c1-07"],
+  "review": "pendiente-nativo"
+}
