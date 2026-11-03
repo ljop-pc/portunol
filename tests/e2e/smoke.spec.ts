@@ -139,6 +139,7 @@ test("vocabulario: sesión generada y falsos amigos", async ({ page }) => {
 });
 
 test("todas las páginas cargan sin errores ni scroll horizontal", async ({ page }) => {
+  test.setTimeout(180_000); // ~35 páginas; contra la web publicada va por red
   const errors = collectErrors(page);
   const routes = [
     "/",
