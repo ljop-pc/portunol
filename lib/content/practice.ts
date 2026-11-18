@@ -67,6 +67,16 @@ export function vocabExercises(entries: VocabEntry[], pool: VocabEntry[]): Sessi
         instruction: "Escribe en portugués de Portugal.",
         es: v.es,
         accepted: [v.pt, bare].filter((x, j, a) => a.indexOf(x) === j),
+        expectedErrors: v.ptBr
+          ? [
+              {
+                answers: v.ptBr.split(/\s*\/\s*/).flatMap((b) => [b, stripArticle(b)]),
+                category: "variante-br" as const,
+                feedback: `«${v.ptBr}» es la forma de Brasil. En Portugal se dice «${v.pt}».`,
+                acceptable: false,
+              },
+            ]
+          : [],
       };
     }
     if (mode === "pt2es") {

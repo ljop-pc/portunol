@@ -1,0 +1,113 @@
+[
+  {
+    "id": "g8-01", "type": "choice", "skill": "vocabulario", "topic": "numeros-horas",
+    "instruction": "¿Cómo se escribe 16 en Portugal?",
+    "prompt": "16", "promptLang": "es",
+    "options": ["dezasseis", "dezesseis", "dieciseis"],
+    "answer": 0,
+    "explanation": "En Portugal: dezasseis, dezassete, dezanove. «Dezesseis» es la forma de Brasil."
+  },
+  {
+    "id": "g8-02", "type": "fill", "skill": "gramatica", "topic": "numeros-horas",
+    "instruction": "Escribe el número 2 en la forma correcta.",
+    "sentence": "Tenho ___ filhas.", "translation": "Tengo dos hijas.", "hint": "2",
+    "accepted": ["duas"],
+    "expectedErrors": [{ "answers": ["dois", "2", "dos"], "category": "gramatica", "feedback": "«Filhas» es femenino, así que el 2 también: «duas filhas»." }],
+    "explanation": "Um/uma y dois/duas concuerdan en género con el sustantivo."
+  },
+  {
+    "id": "g8-03", "type": "fill", "skill": "gramatica", "topic": "numeros-horas",
+    "instruction": "Escribe la hora (3:30).",
+    "sentence": "São ___ e meia.", "translation": "Son las tres y media.", "hint": "3",
+    "accepted": ["três"],
+    "expectedErrors": [{ "answers": ["3"], "category": "ortografia", "feedback": "Escríbelo con letras: «três»." }],
+    "explanation": "São três e meia. Para la hora no se usa artículo."
+  },
+  {
+    "id": "g8-04", "type": "translate", "skill": "produccion", "topic": "numeros-horas",
+    "instruction": "Traduce al portugués de Portugal.",
+    "es": "Son las dos y cuarto.",
+    "accepted": ["São duas e um quarto", "São duas e quinze", "São duas horas e um quarto", "São duas horas e quinze"],
+    "expectedErrors": [
+      { "answers": ["São dois e um quarto", "São dois e quinze", "São dois horas e um quarto"], "category": "gramatica", "feedback": "«Hora» es femenino: «São duas e um quarto»." },
+      { "answers": ["São as duas e um quarto", "São as duas e quinze", "Son as duas e um quarto"], "category": "interferencia-es", "feedback": "En portugués la hora no lleva artículo: «São duas e um quarto»." }
+    ],
+    "explanation": "«E um quarto» = y cuarto. «E quinze» también es correcto."
+  },
+  {
+    "id": "g8-05", "type": "choice", "skill": "vocabulario", "topic": "numeros-horas",
+    "instruction": "¿Qué día es «segunda-feira»?",
+    "prompt": "segunda-feira", "promptLang": "pt",
+    "options": ["lunes", "martes", "el segundo día del mes"],
+    "answer": 0,
+    "explanation": "La semana portuguesa cuenta desde el domingo: segunda (lunes), terça (martes), quarta (miércoles), quinta (jueves), sexta (viernes)."
+  },
+  {
+    "id": "g8-06", "type": "choice", "skill": "vocabulario", "topic": "numeros-horas",
+    "instruction": "¿Y «sexta-feira»?",
+    "prompt": "sexta-feira", "promptLang": "pt",
+    "options": ["viernes", "sábado", "jueves"],
+    "answer": 0,
+    "explanation": "Sexta-feira = viernes. Truco: cuenta desde el domingo como día 1; segunda es el 2.º día (lunes)… y sexta, el 6.º (viernes)."
+  },
+  {
+    "id": "g8-07", "type": "translate", "skill": "produccion", "topic": "numeros-horas",
+    "instruction": "Traduce al portugués.",
+    "es": "Cuesta tres euros con cincuenta.",
+    "accepted": ["Custa três euros e cinquenta", "Custa três e cinquenta", "Custa três euros e cinquenta cêntimos", "São três euros e cinquenta", "São três e cinquenta"],
+    "expectedErrors": [
+      { "answers": ["Custa três euros com cinquenta", "Custa três com cinquenta"], "category": "interferencia-es", "feedback": "En portugués euros y céntimos se unen con «e», no con «com»: «três euros e cinquenta»." },
+      { "answers": ["Custa três euros e cinquenta centavos"], "category": "variante-br", "feedback": "«Centavos» es de Brasil; en Portugal, «cêntimos»." }
+    ],
+    "explanation": "Lo más natural es «Custa três e cinquenta»."
+  },
+  {
+    "id": "g8-08", "type": "fill", "skill": "gramatica", "topic": "numeros-horas",
+    "instruction": "Escribe 200 en la forma correcta.",
+    "sentence": "Havia ___ pessoas no casamento.", "translation": "Había doscientas personas en la boda.", "hint": "200",
+    "accepted": ["duzentas"],
+    "expectedErrors": [
+      { "answers": ["duzentos"], "category": "gramatica", "feedback": "«Pessoas» es femenino: las centenas concuerdan → «duzentas pessoas»." },
+      { "answers": ["doscientas", "200"], "category": "interferencia-es", "feedback": "200 = duzentos / duzentas." }
+    ],
+    "explanation": "Duzentos, trezentos… quinhentos concuerdan en género: duzentas pessoas, quinhentas casas."
+  },
+  {
+    "id": "g8-09", "type": "build", "skill": "gramatica", "topic": "numeros-horas",
+    "instruction": "Ordena las palabras.",
+    "translation": "La reunión es a las nueve y media.",
+    "tokens": ["A", "reunião", "é", "às", "nove", "e", "meia", "las"],
+    "accepted": ["A reunião é às nove e meia"],
+    "explanation": "«Às» (a + as) delante de la hora: às nove, às dez. Pero «à uma» (a la una)."
+  },
+  {
+    "id": "g8-10", "type": "dialogue", "skill": "produccion", "topic": "numeros-horas",
+    "instruction": "Responde en la conversación.",
+    "context": [{ "speaker": "Miguel", "pt": "Desculpa, que horas são?", "es": "Perdona, ¿qué hora es?" }],
+    "task": "Responde que es la una menos cuarto.",
+    "accepted": ["É uma menos um quarto", "É uma hora menos um quarto", "É um quarto para a uma", "São doze e quarenta e cinco", "É meio-dia e quarenta e cinco"],
+    "expectedErrors": [
+      { "answers": ["São uma menos um quarto", "São a uma menos um quarto"], "category": "gramatica", "feedback": "Con la una se usa el singular: «É uma menos um quarto»." },
+      { "answers": ["É a uma menos um quarto", "É la una menos cuarto"], "category": "interferencia-es", "feedback": "Sin artículo: «É uma menos um quarto»." }
+    ],
+    "explanation": "É uma (hora) → singular. São duas, são três… → plural."
+  },
+  {
+    "id": "g8-11", "type": "fix", "skill": "vocabulario", "topic": "numeros-horas",
+    "instruction": "Esta frase usa una forma de Brasil. Corrígela para Portugal.",
+    "wrong": "Hoje é dia dezenove.",
+    "accepted": ["Hoje é dia dezanove"],
+    "explanation": "En Portugal: dezanove (19), dezasseis (16), dezassete (17)."
+  },
+  {
+    "id": "g8-12", "type": "dialogue", "skill": "produccion", "topic": "numeros-horas",
+    "instruction": "Responde en la conversación.",
+    "context": [{ "speaker": "Rita", "pt": "Quando fazes anos?", "es": "¿Cuándo es tu cumpleaños?" }],
+    "task": "Responde que el veinte de mayo.",
+    "accepted": ["A vinte de maio", "No dia vinte de maio", "Faço anos a vinte de maio", "Faço anos no dia vinte de maio", "É a vinte de maio", "Em vinte de maio", "Vinte de maio", "Dia vinte de maio"],
+    "expectedErrors": [
+      { "answers": ["O vinte de maio", "Faço anos o vinte de maio", "É o vinte de maio"], "category": "interferencia-es", "feedback": "Para las fechas, en Portugal se usa «a» o «no dia»: «a vinte de maio» / «no dia vinte de maio»." }
+    ],
+    "explanation": "«Fazer anos» = cumplir años. Fechas: «a vinte de maio» o «no dia vinte de maio»."
+  }
+]

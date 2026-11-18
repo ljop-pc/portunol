@@ -200,6 +200,7 @@ export const PosSchema = z.enum([
   "expresión",
   "interjección",
   "preposición",
+  "numeral",
 ]);
 
 export const VocabEntryInputSchema = z.object({

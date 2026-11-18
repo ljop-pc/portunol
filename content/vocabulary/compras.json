@@ -1,5 +1,5 @@
 {
-  "topic": "compras", "order": 9, "title": "Compras",
+  "topic": "compras", "order": 11, "title": "Compras",
   "description": "Tiendas, precios, pagos y ropa.",
   "entries": [
     { "pt": "as compras", "es": "las compras; la compra", "pos": "sustantivo", "gender": "f", "exPt": "Vou às compras.", "exEs": "Voy de compras." },

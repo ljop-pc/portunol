@@ -1,5 +1,5 @@
 {
-  "topic": "casa", "order": 2, "title": "Casa y vida doméstica",
+  "topic": "casa", "order": 4, "title": "Casa y vida doméstica",
   "description": "Habitaciones, muebles, electrodomésticos y tareas de casa.",
   "entries": [
     { "pt": "a casa", "es": "la casa", "pos": "sustantivo", "gender": "f", "exPt": "Estou em casa.", "exEs": "Estoy en casa.", "note": "«Em casa» / «para casa» sin artículo cuando es tu casa." },

@@ -1,5 +1,5 @@
 {
-  "topic": "emocoes", "order": 11, "title": "Emociones y opiniones",
+  "topic": "emocoes", "order": 13, "title": "Emociones y opiniones",
   "description": "Cómo te sientes, qué opinas y cómo reaccionas.",
   "entries": [
     { "pt": "contente", "es": "contento", "pos": "adjetivo", "exPt": "Estou muito contente por te ver.", "exEs": "Estoy muy contento de verte." },

@@ -1,5 +1,5 @@
 {
-  "topic": "rotinas", "order": 8, "title": "Actividades y rutinas",
+  "topic": "rotinas", "order": 10, "title": "Actividades y rutinas",
   "description": "Tu día a día: levantarte, trabajar, moverte y descansar.",
   "entries": [
     { "pt": "acordar", "es": "despertar(se)", "pos": "verbo", "exPt": "Acordo às sete.", "exEs": "Me despierto a las siete.", "note": "Falso amigo: no significa «acordar»." },

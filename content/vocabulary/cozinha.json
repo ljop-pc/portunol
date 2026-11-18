@@ -1,5 +1,5 @@
 {
-  "topic": "cozinha", "order": 4, "title": "Cocinar",
+  "topic": "cozinha", "order": 6, "title": "Cocinar",
   "description": "Verbos de cocina, utensilios y lenguaje de recetas.",
   "entries": [
     { "pt": "cozinhar", "es": "cocinar", "pos": "verbo", "exPt": "Adoro cozinhar para a família.", "exEs": "Me encanta cocinar para la familia." },

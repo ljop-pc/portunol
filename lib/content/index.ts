@@ -31,12 +31,15 @@ import exGrammar4 from "@/content/exercises/g4-ser-estar.json";
 import exGrammar5 from "@/content/exercises/g5-ter-haver.json";
 import exGrammar6 from "@/content/exercises/g6-contracoes.json";
 import exGrammar7 from "@/content/exercises/g7-negacao-perguntas.json";
+import exGrammar8 from "@/content/exercises/g8-numeros-horas.json";
 import exConversations from "@/content/exercises/conversas.json";
 
 import conv1 from "@/content/conversations/c1-cumprimentar.json";
 import conv2 from "@/content/conversations/c2-almoco-familia.json";
 import conv3 from "@/content/conversations/c3-fim-de-semana.json";
 
+import vNumeros from "@/content/vocabulary/numeros.json";
+import vHorasDatas from "@/content/vocabulary/horas-datas.json";
 import vFamilia from "@/content/vocabulary/familia.json";
 import vCasa from "@/content/vocabulary/casa.json";
 import vComida from "@/content/vocabulary/comida.json";
@@ -84,6 +87,7 @@ const exerciseFiles: [string, unknown][] = [
   ["g5-ter-haver", exGrammar5],
   ["g6-contracoes", exGrammar6],
   ["g7-negacao-perguntas", exGrammar7],
+  ["g8-numeros-horas", exGrammar8],
   ["conversas", exConversations],
 ];
 export const exercises: Exercise[] = exerciseFiles.flatMap(([f, d]) => parse(ExerciseFileSchema, d, `exercises/${f}.json`));
@@ -100,6 +104,8 @@ export const conversations: Conversation[] = (
   .sort((a, b) => a.order - b.order);
 
 const vocabFiles: [string, unknown][] = [
+  ["numeros", vNumeros],
+  ["horas-datas", vHorasDatas],
   ["familia", vFamilia],
   ["casa", vCasa],
   ["comida", vComida],

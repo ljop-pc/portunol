@@ -11,14 +11,14 @@ español, vocabulario real, falsos amigos y conversaciones de la vida cotidiana.
 
 | Sección | Contenido |
 |---|---|
-| **Aprender** | 7 lecciones guiadas: objetivo → explicación → ejemplos → contraste con el español → ejercicios → resumen |
-| **Gramática** | 7 fichas consultables libremente (conjugaciones, tablas, ejemplos, errores típicos, ejercicio corto) |
-| **Vocabulario** | 421 palabras y expresiones en 12 temas, con ejemplo, notas y diferencias con Brasil; buscador; práctica generada que prioriza lo que fallas |
+| **Aprender** | 8 lecciones guiadas: objetivo → explicación → ejemplos → contraste con el español → ejercicios → resumen |
+| **Gramática** | 8 fichas consultables libremente (conjugaciones, tablas, ejemplos, errores típicos, ejercicio corto) |
+| **Vocabulario** | 515 palabras y expresiones en 14 temas (incluye números, horas, días y meses), con ejemplo, notas y diferencias con Brasil; buscador; práctica generada que prioriza lo que fallas |
 | **Ojo con esta palabra** | 27 falsos amigos y trampas (esquisito, apelido, propina, todavia…) con su test |
 | **Conversación** | 3 escenarios completos (saludo, comida familiar, planes) con diálogo, alternativas, práctica guiada y reto final |
 | **Mi progreso** | lecciones, competencias por separado, errores recurrentes, palabras a repasar, tiempo de práctica, ajustes, exportar/importar/reiniciar |
 
-- **74 ejercicios redactados** de 7 tipos (comprensión, completar, construir la frase,
+- **86 ejercicios redactados** de 7 tipos (comprensión, completar, construir la frase,
   traducción, detectar el error, diálogo, producción libre) + ejercicios de
   vocabulario generados automáticamente.
 - **Corrección explicada**: acepta varias respuestas válidas, tolera tildes con aviso

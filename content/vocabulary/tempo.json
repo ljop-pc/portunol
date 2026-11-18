@@ -1,5 +1,5 @@
 {
-  "topic": "tempo", "order": 7, "title": "El tiempo y las estaciones",
+  "topic": "tempo", "order": 9, "title": "El tiempo y las estaciones",
   "description": "Hablar del tiempo: el tema de conversación universal.",
   "entries": [
     { "pt": "o tempo", "es": "el tiempo", "pos": "sustantivo", "gender": "m", "exPt": "Como está o tempo aí?", "exEs": "¿Qué tiempo hace ahí?" },

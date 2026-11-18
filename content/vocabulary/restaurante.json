@@ -1,5 +1,5 @@
 {
-  "topic": "restaurante", "order": 5, "title": "Restaurantes y cafés",
+  "topic": "restaurante", "order": 7, "title": "Restaurantes y cafés",
   "description": "Pedir, preguntar y pagar en un restaurante o una pastelería.",
   "entries": [
     { "pt": "a ementa", "es": "la carta, el menú", "pos": "sustantivo", "gender": "f", "exPt": "Pode trazer a ementa?", "exEs": "¿Puede traer la carta?", "ptBr": "o cardápio" },

@@ -14,6 +14,7 @@ const POS_SHORT: Record<string, string> = {
   expresión: "expr.",
   interjección: "interj.",
   preposición: "prep.",
+  numeral: "núm.",
 };
 
 export function masteryBadge(m: ItemMastery | undefined) {
