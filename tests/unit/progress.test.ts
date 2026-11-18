@@ -42,7 +42,20 @@ describe("progreso", () => {
     a.update((s) => setLessonStep(s, "l1-apresentar-se", 9, true));
     const b = createLocalStore(storage); // nueva sesión
     expect(b.get().lessons["l1-apresentar-se"].status).toBe("completada");
-    expect(JSON.parse(storage.getItem(STORAGE_KEY)!).schemaVersion).toBe(1);
+    expect(JSON.parse(storage.getItem(STORAGE_KEY)!).schemaVersion).toBe(2);
+  });
+
+  it("migra el progreso de la versión 1 sin perder nada", () => {
+    const storage = new MemoryStorage();
+    const v1 = { ...emptyState(), schemaVersion: 1, lessons: { l1: { status: "completada", step: 5, updatedAt: "x" } } } as Record<string, unknown>;
+    delete v1.patterns;
+    delete v1.review;
+    storage.setItem(STORAGE_KEY, JSON.stringify(v1));
+    const s = createLocalStore(storage).get();
+    expect(s.schemaVersion).toBe(2);
+    expect(s.lessons.l1.status).toBe("completada");
+    expect(s.patterns).toEqual({});
+    expect(s.review.sessions).toBe(0);
   });
 
   it("reinicia el progreso", () => {

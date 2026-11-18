@@ -46,66 +46,77 @@ function distractors(entry: VocabEntry, pool: VocabEntry[], key: "es" | "pt", n 
   return out;
 }
 
+export type VocabMode = "pt2es" | "es2pt" | "type";
+
+/** Se puede pedir escrita (sin barras, paréntesis ni expresiones largas). */
+export function isTypable(v: VocabEntry): boolean {
+  return !/[\/…()?]/.test(v.pt) && v.difficulty === 1 && v.pos !== "expresión";
+}
+
 export function vocabExercises(entries: VocabEntry[], pool: VocabEntry[]): SessionItem[] {
-  return entries.map((v, i): SessionItem => {
-    const base = {
-      skill: "vocabulario" as const,
-      topic: `vocab:${v.topic}`,
-      itemId: v.id,
-      expectedErrors: [],
-      review: v.review,
-      explanation: `${v.pt} = ${v.es}. Ejemplo: «${v.exPt}» (${v.exEs})${v.note ? ` · ${v.note}` : ""}${v.ptBr ? ` · En Brasil: ${v.ptBr}.` : ""}`,
+  return entries.map((v, i) => vocabExercise(v, pool, isTypable(v) && i % 3 === 2 ? "type" : i % 2 === 0 ? "pt2es" : "es2pt"));
+}
+
+/** Un ejercicio de vocabulario en el formato pedido (reconocer, elegir o escribir). */
+export function vocabExercise(v: VocabEntry, pool: VocabEntry[], requested: VocabMode): SessionItem {
+  const base = {
+    skill: "vocabulario" as const,
+    topic: `vocab:${v.topic}`,
+    itemId: v.id,
+    expectedErrors: [],
+    review: v.review,
+    explanation: `${v.pt} = ${v.es}. Ejemplo: «${v.exPt}» (${v.exEs})${v.note ? ` · ${v.note}` : ""}${v.ptBr ? ` · En Brasil: ${v.ptBr}.` : ""}`,
+  };
+  const mode: VocabMode = requested === "type" && !isTypable(v) ? "es2pt" : requested;
+  if (mode === "type") {
+    const bare = stripArticle(v.pt);
+    return {
+      ...base,
+      id: `${v.id}#type`,
+      type: "translate",
+      instruction: "Escribe en portugués de Portugal.",
+      es: v.es,
+      accepted: [v.pt, bare].filter((x, j, a) => a.indexOf(x) === j),
+      expectedErrors: v.ptBr
+        ? [
+            {
+              answers: v.ptBr.split(/\s*\/\s*/).flatMap((b) => [b, stripArticle(b)]),
+              category: "variante-br" as const,
+              feedback: `«${v.ptBr}» es la forma de Brasil. En Portugal se dice «${v.pt}».`,
+              acceptable: false,
+            },
+          ]
+        : [],
     };
-    const typable = !/[\/…()]/.test(v.pt) && v.difficulty === 1 && v.pos !== "expresión";
-    const mode = typable && i % 3 === 2 ? "type" : i % 2 === 0 ? "pt2es" : "es2pt";
-    if (mode === "type") {
-      const bare = stripArticle(v.pt);
-      return {
-        ...base,
-        id: `${v.id}#type`,
-        type: "translate",
-        instruction: "Escribe en portugués de Portugal.",
-        es: v.es,
-        accepted: [v.pt, bare].filter((x, j, a) => a.indexOf(x) === j),
-        expectedErrors: v.ptBr
-          ? [
-              {
-                answers: v.ptBr.split(/\s*\/\s*/).flatMap((b) => [b, stripArticle(b)]),
-                category: "variante-br" as const,
-                feedback: `«${v.ptBr}» es la forma de Brasil. En Portugal se dice «${v.pt}».`,
-                acceptable: false,
-              },
-            ]
-          : [],
-      };
-    }
-    if (mode === "pt2es") {
-      const options = [v.es, ...distractors(v, pool, "es")];
-      return { ...base, id: `${v.id}#pt2es`, type: "choice", instruction: "¿Qué significa?", prompt: v.pt, promptLang: "pt", options, answer: 0 };
-    }
-    const options = [v.pt, ...distractors(v, pool, "pt")];
-    return { ...base, id: `${v.id}#es2pt`, type: "choice", instruction: "¿Cómo se dice en portugués?", prompt: v.es, promptLang: "es", options, answer: 0 };
-  });
+  }
+  if (mode === "pt2es") {
+    const options = [v.es, ...distractors(v, pool, "es")];
+    return { ...base, id: `${v.id}#pt2es`, type: "choice", instruction: "¿Qué significa?", prompt: v.pt, promptLang: "pt", options, answer: 0 };
+  }
+  const options = [v.pt, ...distractors(v, pool, "pt")];
+  return { ...base, id: `${v.id}#es2pt`, type: "choice", instruction: "¿Cómo se dice en portugués?", prompt: v.es, promptLang: "es", options, answer: 0 };
 }
 
 export function falseFriendExercises(list: FalseFriend[], all: FalseFriend[]): SessionItem[] {
-  return list.map((f): SessionItem => {
-    const others = shuffle(all.filter((o) => o.id !== f.id)).slice(0, 1).map((o) => o.meaning);
-    const options = [f.meaning, `«${f.looksLike}» (como en español)`, ...others];
-    return {
-      id: `ff:${f.id}`,
-      itemId: `ff:${f.id}`,
-      type: "choice",
-      skill: "vocabulario",
-      topic: "vocab:ojo",
-      instruction: "¡Ojo! ¿Qué significa en portugués de Portugal?",
-      prompt: f.pt,
-      promptLang: "pt",
-      options,
-      answer: 0,
-      expectedErrors: [],
-      review: f.review,
-      explanation: `«${f.pt}» significa ${f.meaning}. Para decir lo que en español entendemos por «${f.looksLike}»: ${f.esFalseMeaningInPt}. Ejemplo: «${f.exPt}» (${f.exEs})`,
-    };
-  });
+  return list.map((f) => falseFriendExercise(f, all));
+}
+
+export function falseFriendExercise(f: FalseFriend, all: FalseFriend[]): SessionItem {
+  const others = shuffle(all.filter((o) => o.id !== f.id)).slice(0, 1).map((o) => o.meaning);
+  const options = [f.meaning, `«${f.looksLike}» (como en español)`, ...others];
+  return {
+    id: `ff:${f.id}`,
+    itemId: `ff:${f.id}`,
+    type: "choice",
+    skill: "vocabulario",
+    topic: "vocab:ojo",
+    instruction: "¡Ojo! ¿Qué significa en portugués de Portugal?",
+    prompt: f.pt,
+    promptLang: "pt",
+    options,
+    answer: 0,
+    expectedErrors: [],
+    review: f.review,
+    explanation: `«${f.pt}» significa ${f.meaning}. Para decir lo que en español entendemos por «${f.looksLike}»: ${f.esFalseMeaningInPt}. Ejemplo: «${f.exPt}» (${f.exEs})`,
+  };
 }

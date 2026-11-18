@@ -2,6 +2,8 @@
 import { grammarTopics, lessons } from "@/lib/content";
 import { useHydrated, useProgress } from "@/lib/progress/react";
 import { Badge, LinkCard, PageHeader, SectionTitle } from "@/components/ui/primitives";
+import { grammarItemIds } from "@/lib/review/daily";
+import { LEVEL_LABEL, levelCounts, overallLevel } from "@/lib/review/mastery";
 
 /** Temas previstos del temario que todavía no tienen ficha. */
 const UPCOMING = [
@@ -22,6 +24,14 @@ export function GrammarIndex() {
     const l = lessons.find((x) => x.grammarId === id);
     return hydrated && l && progress.lessons[l.id]?.status === "completada";
   };
+  const badgeFor = (id: string) => {
+    if (!hydrated) return undefined;
+    if (progress.patterns[id]?.status === "activo") return <Badge tone="warn">punto débil</Badge>;
+    const level = overallLevel(levelCounts(grammarItemIds(id), progress.items));
+    if (level === "nuevo") return studied(id) ? <Badge tone="ok">estudiada</Badge> : undefined;
+    const tone = level === "dominado" ? "ok" : level === "consolidado" ? "brand" : "neutral";
+    return <Badge tone={tone}>{LEVEL_LABEL[level].toLowerCase()}</Badge>;
+  };
   return (
     <div>
       <PageHeader title="Gramática" subtitle="Consulta cualquier ficha cuando quieras. El orden recomendado sigue las lecciones." />
@@ -37,7 +47,7 @@ export function GrammarIndex() {
                     href={`/gramatica/${g.id}/`}
                     title={g.title}
                     subtitle={g.summary}
-                    right={studied(g.id) ? <Badge tone="ok">estudiada</Badge> : undefined}
+                    right={badgeFor(g.id)}
                   />
                 </li>
               ))}

@@ -5,7 +5,7 @@ import { IconChat, IconGrammar, IconLearn, IconProgress, IconVocab } from "./ico
 import { useIsFocused } from "./focus";
 
 const TABS = [
-  { href: "/", label: "Aprender", Icon: IconLearn, match: (p: string) => p === "/" || p.startsWith("/aprender") },
+  { href: "/", label: "Aprender", Icon: IconLearn, match: (p: string) => p === "/" || p.startsWith("/aprender") || p.startsWith("/repaso") },
   { href: "/gramatica/", label: "Gramática", Icon: IconGrammar, match: (p: string) => p.startsWith("/gramatica") },
   { href: "/vocabulario/", label: "Vocabulario", Icon: IconVocab, match: (p: string) => p.startsWith("/vocabulario") },
   { href: "/conversacion/", label: "Conversación", Icon: IconChat, match: (p: string) => p.startsWith("/conversacion") },

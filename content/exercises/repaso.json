@@ -1,0 +1,311 @@
+[
+  {
+    "id": "r1-01", "type": "fix", "skill": "gramatica", "topic": "pronomes",
+    "instruction": "Esta frase suena a Brasil. Corrígela para Portugal.",
+    "wrong": "Me levanto às sete.",
+    "accepted": ["Levanto-me às sete", "Eu levanto-me às sete"],
+    "explanation": "En Portugal la frase no empieza con el pronombre: «Levanto-me às sete»."
+  },
+  {
+    "id": "r1-02", "type": "choice", "skill": "gramatica", "topic": "pronomes",
+    "instruction": "Le ofreces más vino a tu suegro, con respeto. ¿Qué dices?",
+    "prompt": "¿Quiere más vino?", "promptLang": "es",
+    "options": ["O senhor quer mais vinho?", "Tu queres mais vinho?", "Vós quereis mais vinho?"],
+    "answer": 0,
+    "explanation": "«O senhor / a senhora» + verbo en 3.ª persona. También valdría «Quer mais vinho?»."
+  },
+  {
+    "id": "r1-03", "type": "translate", "skill": "produccion", "topic": "pronomes",
+    "instruction": "Traduce al portugués de Portugal.",
+    "es": "Me llamo Luis, ¿y tú?",
+    "accepted": ["Chamo-me Luís. E tu?", "Chamo-me Luís, e tu?", "Chamo-me Luis. E tu?", "Chamo-me Luis, e tu?", "Chamo-me Luís. E tu, como te chamas?", "Sou o Luís. E tu?"],
+    "expectedErrors": [
+      { "answers": ["Me chamo Luís. E tu?", "Me chamo Luis, e tu?", "Me chamo Luís. E você?"], "category": "variante-br", "feedback": "Colocación de Brasil. En Portugal: «Chamo-me Luís»." }
+    ],
+    "explanation": "«Chamo-me Luís. E tu?»"
+  },
+  {
+    "id": "r1-04", "type": "fill", "skill": "gramatica", "topic": "pronomes",
+    "instruction": "Completa con el pronombre.",
+    "sentence": "Como ___ chama a sua mãe?", "translation": "¿Cómo se llama su madre?",
+    "accepted": ["se"],
+    "explanation": "Tras una palabra interrogativa («como»), el pronombre va delante del verbo: «Como se chama…?»."
+  },
+
+  {
+    "id": "r2-01", "type": "choice", "skill": "gramatica", "topic": "artigos-genero",
+    "instruction": "¿Qué frase es correcta?",
+    "prompt": "El viaje fue largo.", "promptLang": "es",
+    "options": ["A viagem foi longa.", "O viagem foi longo.", "A viagem foi larga."],
+    "answer": 0,
+    "explanation": "«Viagem» es femenino. Y ojo: «largo» en portugués es «ancho»; un viaje largo es «longo»."
+  },
+  {
+    "id": "r2-02", "type": "fill", "skill": "gramatica", "topic": "artigos-genero",
+    "instruction": "Completa con el artículo.",
+    "sentence": "Passa-me ___ sal, por favor.", "translation": "Pásame la sal, por favor.",
+    "accepted": ["o"],
+    "expectedErrors": [{ "answers": ["a"], "category": "interferencia-es", "feedback": "«Sal» es masculino en portugués: o sal." }],
+    "explanation": "O sal, o leite, o mel: masculinos en portugués."
+  },
+  {
+    "id": "r2-03", "type": "fill", "skill": "gramatica", "topic": "artigos-genero",
+    "instruction": "Escribe el plural de «limão».",
+    "sentence": "Comprei três ___.", "translation": "He comprado tres limones.",
+    "accepted": ["limões"],
+    "expectedErrors": [{ "answers": ["limãos", "limães", "limones"], "category": "gramatica", "feedback": "Limão → limões (como avião → aviões)." }],
+    "explanation": "Las palabras en -ão tienen tres plurales posibles: mãos, pães, limões."
+  },
+  {
+    "id": "r2-04", "type": "translate", "skill": "produccion", "topic": "artigos-genero",
+    "instruction": "Traduce al portugués de Portugal.",
+    "es": "Mi coche es blanco.",
+    "accepted": ["O meu carro é branco"],
+    "expectedErrors": [
+      { "answers": ["Meu carro é branco"], "category": "poco-natural", "acceptable": true, "feedback": "Correcto, pero en Portugal lo habitual es «O meu carro»." },
+      { "answers": ["O meu coche é branco", "Meu coche é branco"], "category": "vocabulario", "feedback": "«Coche» en portugués es «carro»." }
+    ],
+    "explanation": "Posesivo con artículo: o meu carro, a minha casa."
+  },
+
+  {
+    "id": "r3-01", "type": "fill", "skill": "gramatica", "topic": "presente-regular",
+    "instruction": "Conjuga «morar» para «vocês».",
+    "sentence": "Vocês ___ aqui perto?", "translation": "¿Vivís aquí cerca?", "hint": "morar",
+    "accepted": ["moram"],
+    "expectedErrors": [{ "answers": ["morais", "moráis"], "category": "interferencia-es", "feedback": "«Vocês» va con la 3.ª persona del plural: moram." }],
+    "explanation": "Vocês moram = vosotros vivís / ustedes viven."
+  },
+  {
+    "id": "r3-02", "type": "translate", "skill": "produccion", "topic": "presente-regular",
+    "instruction": "Traduce al portugués.",
+    "es": "No me gusta el pescado.",
+    "accepted": ["Não gosto de peixe", "Eu não gosto de peixe", "Não gosto do peixe", "Eu não gosto do peixe"],
+    "expectedErrors": [
+      { "answers": ["Não me gusta o peixe", "Não me gosta o peixe", "Não me gosta peixe"], "category": "interferencia-es", "feedback": "En portugués la persona es el sujeto: «Não gosto de peixe»." },
+      { "answers": ["Não gosto o peixe", "Eu não gosto o peixe"], "category": "gramatica", "feedback": "«Gostar» siempre lleva «de»: «Não gosto de peixe»." }
+    ],
+    "explanation": "Não gosto de… = no me gusta…"
+  },
+  {
+    "id": "r3-03", "type": "fill", "skill": "gramatica", "topic": "presente-regular",
+    "instruction": "Conjuga «abrir».",
+    "sentence": "Eu ___ a janela?", "translation": "¿Abro la ventana?", "hint": "abrir",
+    "accepted": ["abro"],
+    "explanation": "Eu abro, tu abres, ele abre."
+  },
+  {
+    "id": "r3-04", "type": "dialogue", "skill": "produccion", "topic": "presente-regular",
+    "instruction": "Responde en la conversación.",
+    "context": [{ "speaker": "Rita", "pt": "Gostas de fado?", "es": "¿Te gusta el fado?" }],
+    "task": "Responde que sí, mucho.",
+    "accepted": ["Gosto muito", "Sim, gosto muito", "Gosto muito de fado", "Sim, gosto muito de fado", "Adoro", "Adoro fado", "Sim, adoro", "Gosto, gosto muito"],
+    "expectedErrors": [{ "answers": ["Sim, me gusta muito", "Me gusta muito", "Sim, me gosta muito"], "category": "interferencia-es", "feedback": "Lo natural es repetir el verbo: «Gosto muito!»." }],
+    "explanation": "«Gosto muito!» — en Portugal se responde repitiendo el verbo."
+  },
+
+  {
+    "id": "r4-01", "type": "fill", "skill": "gramatica", "topic": "ser-estar",
+    "instruction": "Completa (ubicación de un lugar fijo).",
+    "sentence": "O museu ___ perto da estação.", "translation": "El museo está cerca de la estación.",
+    "accepted": ["fica", "é"],
+    "expectedErrors": [{ "answers": ["está"], "category": "poco-natural", "acceptable": true, "feedback": "Se entiende y se usa, pero para lugares fijos es muy habitual «fica»: «O museu fica perto da estação»." }],
+    "explanation": "Lugares fijos: «ficar» (o «ser»)."
+  },
+  {
+    "id": "r4-02", "type": "choice", "skill": "gramatica", "topic": "ser-estar",
+    "instruction": "¿Qué verbo va aquí?",
+    "prompt": "A Inês ___ enfermeira.", "promptLang": "pt",
+    "options": ["é", "está", "fica"],
+    "answer": 0,
+    "explanation": "Profesión → ser: «A Inês é enfermeira»."
+  },
+  {
+    "id": "r4-03", "type": "translate", "skill": "produccion", "topic": "ser-estar",
+    "instruction": "Traduce al portugués de Portugal.",
+    "es": "Estamos comiendo.",
+    "accepted": ["Estamos a comer", "Nós estamos a comer", "Estamos a almoçar", "Estamos a jantar"],
+    "expectedErrors": [{ "answers": ["Estamos comendo", "Nós estamos comendo"], "category": "variante-br", "feedback": "Gerundio = Brasil. En Portugal: «Estamos a comer»." }],
+    "explanation": "Estar a + infinitivo."
+  },
+  {
+    "id": "r4-04", "type": "fill", "skill": "gramatica", "topic": "ser-estar",
+    "instruction": "¿Ser o estar?",
+    "sentence": "Cuidado, a sopa ___ muito quente!", "translation": "¡Cuidado, la sopa está muy caliente!",
+    "accepted": ["está"],
+    "expectedErrors": [{ "answers": ["é"], "category": "gramatica", "feedback": "Es un estado del momento: «está quente»." }],
+    "explanation": "Estado temporal → estar."
+  },
+  {
+    "id": "r4-05", "type": "dialogue", "skill": "produccion", "topic": "ser-estar",
+    "instruction": "Responde en la conversación.",
+    "context": [{ "speaker": "Miguel", "pt": "Onde estás?", "es": "¿Dónde estás?" }],
+    "task": "Di que estás en casa viendo la tele.",
+    "accepted": ["Estou em casa a ver televisão", "Estou em casa a ver a televisão", "Estou em casa a ver TV", "Estou a ver televisão em casa", "Estou em casa a ver a TV"],
+    "expectedErrors": [
+      { "answers": ["Estou em casa vendo televisão", "Estou em casa vendo TV"], "category": "variante-br", "feedback": "En Portugal: «a ver televisão» (estar a + infinitivo)." },
+      { "answers": ["Estou na casa a ver televisão"], "category": "gramatica", "feedback": "Tu propia casa va sin artículo: «em casa»." }
+    ],
+    "explanation": "«Estou em casa a ver televisão.»"
+  },
+
+  {
+    "id": "r5-01", "type": "fill", "skill": "gramatica", "topic": "ter-haver",
+    "instruction": "Completa (hay…).",
+    "sentence": "___ muito trânsito hoje.", "translation": "Hay mucho tráfico hoy.",
+    "accepted": ["Há"],
+    "expectedErrors": [{ "answers": ["Tem"], "category": "variante-br", "feedback": "En Portugal, «hay» = «há»." }],
+    "explanation": "Há = hay."
+  },
+  {
+    "id": "r5-02", "type": "translate", "skill": "produccion", "topic": "ter-haver",
+    "instruction": "Traduce al portugués.",
+    "es": "Tengo que irme.",
+    "accepted": ["Tenho de ir", "Tenho de ir embora", "Tenho de me ir embora", "Tenho de ir-me embora", "Tenho que ir", "Tenho que ir embora", "Tenho que me ir embora"],
+    "expectedErrors": [{ "answers": ["Tengo que ir", "Tenho ir embora"], "category": "gramatica", "feedback": "Tener que = «ter de» (o «ter que»): «Tenho de ir embora»." }],
+    "explanation": "«Ir embora» = irse, marcharse."
+  },
+  {
+    "id": "r5-03", "type": "fill", "skill": "gramatica", "topic": "ter-haver",
+    "instruction": "Conjuga «ter».",
+    "sentence": "Nós ___ dois carros.", "translation": "Tenemos dos coches.", "hint": "ter",
+    "accepted": ["temos"],
+    "expectedErrors": [{ "answers": ["tenemos"], "category": "interferencia-es", "feedback": "Nós temos." }],
+    "explanation": "tenho, tens, tem, temos, têm."
+  },
+  {
+    "id": "r5-04", "type": "translate", "skill": "produccion", "topic": "ter-haver",
+    "instruction": "Traduce al portugués de Portugal.",
+    "es": "Hace una semana.",
+    "accepted": ["Há uma semana"],
+    "expectedErrors": [
+      { "answers": ["Faz uma semana"], "category": "variante-br", "feedback": "«Faz» se usa en Brasil; en Portugal: «há uma semana»." },
+      { "answers": ["Hace uma semana", "Hace una semana"], "category": "interferencia-es", "feedback": "Hace + tiempo = «há» + tiempo." }
+    ],
+    "explanation": "Há + tiempo = hace + tiempo."
+  },
+
+  {
+    "id": "r6-01", "type": "fill", "skill": "gramatica", "topic": "contracoes",
+    "instruction": "Completa (a + a).",
+    "sentence": "Vou ___ farmácia.", "translation": "Voy a la farmacia.",
+    "accepted": ["à"],
+    "expectedErrors": [{ "answers": ["a a", "a la"], "category": "gramatica", "feedback": "A + a = «à»." }],
+    "explanation": "A + a = à."
+  },
+  {
+    "id": "r6-02", "type": "fill", "skill": "gramatica", "topic": "contracoes",
+    "instruction": "Completa (de + o).",
+    "sentence": "Este livro é ___ Pedro.", "translation": "Este libro es de Pedro.",
+    "accepted": ["do"],
+    "expectedErrors": [{ "answers": ["de", "de o"], "category": "gramatica", "feedback": "Delante del nombre va artículo (o Pedro), así que de + o = «do»." }],
+    "explanation": "De + o = do. Con nombres de persona se usa artículo: o Pedro → do Pedro."
+  },
+  {
+    "id": "r6-03", "type": "fill", "skill": "gramatica", "topic": "contracoes",
+    "instruction": "Completa (em + o).",
+    "sentence": "Moramos ___ centro.", "translation": "Vivimos en el centro.",
+    "accepted": ["no"],
+    "expectedErrors": [{ "answers": ["em o", "en el"], "category": "gramatica", "feedback": "Em + o = «no»." }],
+    "explanation": "Em + o = no."
+  },
+  {
+    "id": "r6-04", "type": "translate", "skill": "produccion", "topic": "contracoes",
+    "instruction": "Traduce al portugués.",
+    "es": "Pasamos por la playa.",
+    "accepted": ["Passamos pela praia", "Nós passamos pela praia"],
+    "expectedErrors": [{ "answers": ["Passamos por a praia", "Passamos pela playa"], "category": "gramatica", "feedback": "Por + a = «pela»: «Passamos pela praia»." }],
+    "explanation": "Por + a = pela."
+  },
+  {
+    "id": "r6-05", "type": "choice", "skill": "gramatica", "topic": "contracoes",
+    "instruction": "¿Qué frase suena natural en Portugal?",
+    "prompt": "Ella trabaja en una escuela.", "promptLang": "es",
+    "options": ["Ela trabalha numa escola.", "Ela trabalha em uma escola.", "Ela trabalha na uma escola."],
+    "answer": 0,
+    "explanation": "Em + uma = numa. «Em uma» se oye en Brasil."
+  },
+
+  {
+    "id": "r7-01", "type": "build", "skill": "gramatica", "topic": "negacao-perguntas",
+    "instruction": "Ordena las palabras.",
+    "translation": "¿Qué quieres comer?",
+    "tokens": ["O", "que", "é", "que", "queres", "comer", "quê"],
+    "accepted": ["O que é que queres comer"],
+    "explanation": "«O que é que…?» es muy habitual en Portugal."
+  },
+  {
+    "id": "r7-02", "type": "translate", "skill": "produccion", "topic": "negacao-perguntas",
+    "instruction": "Traduce al portugués de Portugal.",
+    "es": "No entiendo nada.",
+    "accepted": ["Não percebo nada", "Eu não percebo nada", "Não entendo nada"],
+    "expectedErrors": [{ "answers": ["No entendo nada", "Não entiendo nada"], "category": "interferencia-es", "feedback": "«No» = «não». Y en Portugal lo más habitual: «Não percebo nada»." }],
+    "explanation": "«Perceber» = entender, en Portugal."
+  },
+  {
+    "id": "r7-03", "type": "fill", "skill": "gramatica", "topic": "negacao-perguntas",
+    "instruction": "Completa la pregunta (¿por qué…?).",
+    "sentence": "___ é que não vens?", "translation": "¿Por qué no vienes?",
+    "accepted": ["Porque"],
+    "expectedErrors": [
+      { "answers": ["Por que"], "category": "variante-br", "feedback": "En Portugal se escribe junto: «Porque é que…?»." },
+      { "answers": ["Porquê"], "category": "gramatica", "feedback": "«Porquê» va al final o solo. Al principio: «Porque é que…?»." }
+    ],
+    "explanation": "Porque é que…? (al principio) · Porquê? (al final)."
+  },
+  {
+    "id": "r7-04", "type": "choice", "skill": "comprension", "topic": "negacao-perguntas",
+    "instruction": "Tu suegra te ofrece más comida y ya no puedes más. ¿Qué dices?",
+    "prompt": "Queres mais um bocadinho?", "promptLang": "pt",
+    "options": ["Não, obrigado, já chega.", "Sim, gracias.", "Não, de nada."],
+    "answer": 0,
+    "explanation": "«Já chega» = ya es suficiente. «De nada» es la respuesta a «obrigado»."
+  },
+
+  {
+    "id": "r8-01", "type": "fill", "skill": "gramatica", "topic": "numeros-horas",
+    "instruction": "Escribe el 2 en la forma correcta.",
+    "sentence": "São ___ horas.", "translation": "Son las dos.", "hint": "2",
+    "accepted": ["duas"],
+    "expectedErrors": [{ "answers": ["dois", "dos", "2"], "category": "gramatica", "feedback": "«Hora» es femenino: duas horas." }],
+    "explanation": "Duas horas."
+  },
+  {
+    "id": "r8-02", "type": "fill", "skill": "vocabulario", "topic": "numeros-horas",
+    "instruction": "Escribe el número 17.",
+    "sentence": "O meu sobrinho tem ___ anos.", "translation": "Mi sobrino tiene diecisiete años.", "hint": "17",
+    "accepted": ["dezassete"],
+    "expectedErrors": [
+      { "answers": ["dezessete"], "category": "variante-br", "feedback": "Ortografía de Brasil. En Portugal: «dezassete»." },
+      { "answers": ["diecisiete", "17"], "category": "interferencia-es", "feedback": "17 = dezassete." }
+    ],
+    "explanation": "dezasseis, dezassete, dezoito, dezanove."
+  },
+  {
+    "id": "r8-03", "type": "choice", "skill": "vocabulario", "topic": "numeros-horas",
+    "instruction": "¿Qué día es «quinta-feira»?",
+    "prompt": "quinta-feira", "promptLang": "pt",
+    "options": ["jueves", "viernes", "el quinto día del mes"],
+    "answer": 0,
+    "explanation": "Domingo es el día 1; quinta-feira es el 5.º día: jueves."
+  },
+  {
+    "id": "r8-04", "type": "translate", "skill": "produccion", "topic": "numeros-horas",
+    "instruction": "Traduce al portugués.",
+    "es": "Es la una y media.",
+    "accepted": ["É uma e meia", "É uma hora e meia", "É uma e trinta"],
+    "expectedErrors": [
+      { "answers": ["São uma e meia"], "category": "gramatica", "feedback": "Con la una, singular: «É uma e meia»." },
+      { "answers": ["É a uma e meia"], "category": "interferencia-es", "feedback": "Sin artículo: «É uma e meia»." }
+    ],
+    "explanation": "É uma (singular) · São duas, três… (plural)."
+  },
+  {
+    "id": "r8-05", "type": "fill", "skill": "gramatica", "topic": "numeros-horas",
+    "instruction": "Completa (a + as).",
+    "sentence": "O jantar é ___ nove.", "translation": "La cena es a las nueve.",
+    "accepted": ["às"],
+    "expectedErrors": [{ "answers": ["a las", "a as"], "category": "gramatica", "feedback": "A + as = «às»." }],
+    "explanation": "às oito, às nove… pero «à uma»."
+  }
+]

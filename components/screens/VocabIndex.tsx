@@ -6,6 +6,7 @@ import { stripAccents } from "@/lib/correction";
 import { useHydrated, useProgress } from "@/lib/progress/react";
 import { LinkCard, PageHeader, SectionTitle } from "@/components/ui/primitives";
 import { VocabCard } from "@/components/content/VocabCard";
+import { levelCounts } from "@/lib/review/mastery";
 
 const fold = (s: string) => stripAccents(s.toLowerCase());
 
@@ -18,7 +19,14 @@ export function VocabIndex() {
     if (f.length < 2) return [];
     return vocabulary.filter((v) => fold(v.pt).includes(f) || fold(v.es).includes(f)).slice(0, 40);
   }, [q]);
-  const learned = (ids: string[]) => (hydrated ? ids.filter((id) => (progress.items[id]?.streak ?? 0) >= 1).length : 0);
+  const vocabSubtitle = (ids: string[]) => {
+    if (!hydrated) return `${ids.length} palabras`;
+    const c = levelCounts(ids, progress.items);
+    const parts = [`${ids.length} palabras`];
+    if (c.dominado + c.consolidado > 0) parts.push(`${c.dominado + c.consolidado} asentadas`);
+    if (c.aprendiendo > 0) parts.push(`${c.aprendiendo} aprendiendo`);
+    return parts.join(" · ");
+  };
 
   return (
     <div>
@@ -62,7 +70,7 @@ export function VocabIndex() {
             <LinkCard
               href={`/vocabulario/${t.topic}/`}
               title={t.title}
-              subtitle={`${t.entries.length} palabras${hydrated ? ` · ${learned(t.entries.map((e) => e.id))} practicadas` : ""}`}
+              subtitle={vocabSubtitle(t.entries.map((e) => e.id))}
             />
           </li>
         ))}

@@ -1,8 +1,9 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { CATEGORY_LABELS } from "@/lib/correction";
-import { recordAttempt } from "@/lib/progress/store";
-import { updateProgress } from "@/lib/progress/react";
+import { getStore, updateProgress } from "@/lib/progress/react";
+import { registerAnswer } from "@/lib/review/daily";
+import { grammarById } from "@/lib/content";
 import { Button, ProgressBar } from "@/components/ui/primitives";
 import { IconAlert, IconCheck, IconClose } from "@/components/ui/icons";
 import { useFocusMode } from "@/components/ui/focus";
@@ -34,6 +35,8 @@ export function ExerciseSession({
   useFocusMode();
   const [index, setIndex] = useState(0);
   const [result, setResult] = useState<AnswerResult | null>(null);
+  /** Tema en el que se acaba de detectar un patrón de error (para avisar). */
+  const [newPattern, setNewPattern] = useState<string | null>(null);
   const [results, setResults] = useState<SessionSummary["results"]>([]);
   const [done, setDone] = useState(false);
   const startedAt = useRef(0);
@@ -48,8 +51,9 @@ export function ExerciseSession({
   const onSubmit = (r: AnswerResult) => {
     setResult(r);
     setResults((rs) => [...rs, { item, result: r }]);
+    const before = getStore().get().patterns[item.topic];
     updateProgress((s) =>
-      recordAttempt(s, {
+      registerAnswer(s, {
         exerciseId: item.itemId ?? item.id,
         topic: item.topic,
         skill: item.skill,
@@ -60,6 +64,8 @@ export function ExerciseSession({
         elapsedMs: Date.now() - startedAt.current,
       }),
     );
+    const after = getStore().get().patterns[item.topic];
+    setNewPattern(after?.status === "activo" && (!before || before.status !== "activo") ? item.topic : null);
     requestAnimationFrame(() => document.getElementById("feedback")?.scrollIntoView({ behavior: "smooth", block: "nearest" }));
   };
 
@@ -140,6 +146,12 @@ export function ExerciseSession({
       <h2 className="mb-5 mt-1 text-[24px] font-bold leading-[1.15] tracking-[-0.03em]">{item.instruction}</h2>
       <ExerciseView key={item.id + index} exercise={item} locked={!!result} onSubmit={onSubmit} hideTranslations={hideTranslations} />
       {result && <Feedback item={item} result={result} />}
+      {result && newPattern && (
+        <div role="status" className="mt-3 rounded-2xl bg-brand-soft p-4 text-[15px] text-brand">
+          <p className="font-semibold">Punto débil detectado: {grammarById.get(newPattern)?.title}</p>
+          <p className="mt-1">Has fallado varias veces este tema. Lo reforzaremos en tu «Repaso de hoy» con una explicación breve y ejemplos nuevos.</p>
+        </div>
+      )}
       {result && (
         <Button className="mt-4 w-full" onClick={next}>
           {index + 1 >= items.length ? "Ver resultado" : "Continuar"}

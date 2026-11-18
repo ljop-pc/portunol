@@ -10,7 +10,7 @@ import type { ErrorCategory, Skill } from "@/lib/content/schema";
 import { updateMastery, type ItemMastery } from "@/lib/srs/scheduler";
 
 export const STORAGE_KEY = "pdb:progress";
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 2;
 const MAX_ATTEMPTS = 2000;
 /** Tiempo máximo que se cuenta por ejercicio (evita contar la app abierta sin usar). */
 const MAX_MS_PER_EXERCISE = 2 * 60 * 1000;
@@ -40,6 +40,26 @@ export interface LessonProgress {
   completedAt?: string;
 }
 
+/** Patrón de error detectado en un tema (Fase 2). Uno por tema. */
+export interface PatternRecord {
+  topic: string;
+  /** Categoría de error más frecuente en el tema cuando se detectó. */
+  category: ErrorCategory;
+  detectedAt: string;
+  status: "activo" | "superado";
+  resolvedAt?: string;
+  /** Fallos que llevaron a detectarlo. */
+  failures: number;
+  /** Última vez que se mostró la micro-explicación. */
+  tipSeenAt?: string;
+}
+
+export interface ReviewLog {
+  /** Fecha local (AAAA-MM-DD) del último «Repaso de hoy» completado. */
+  lastDate?: string;
+  sessions: number;
+}
+
 export interface ProgressState {
   schemaVersion: number;
   createdAt: string;
@@ -50,6 +70,8 @@ export interface ProgressState {
   errors: Record<string, ErrorRecord>;
   practiceMs: number;
   settings: { audioRate: number; showTranslations: "siempre" | "al-tocar" };
+  patterns: Record<string, PatternRecord>;
+  review: ReviewLog;
 }
 
 export function emptyState(now = new Date()): ProgressState {
@@ -63,19 +85,29 @@ export function emptyState(now = new Date()): ProgressState {
     errors: {},
     practiceMs: 0,
     settings: { audioRate: 0.9, showTranslations: "al-tocar" },
+    patterns: {},
+    review: { sessions: 0 },
   };
 }
 
-/** Migraciones entre versiones del esquema. Hoy solo existe la v1. */
+export const SUPPORTED_VERSIONS = [1, 2];
+
+/**
+ * Migraciones entre versiones del esquema.
+ * v1 → v2: se añaden `patterns` y `review` (Fase 2); el resto se conserva.
+ */
 export function migrate(raw: unknown): ProgressState {
   if (!raw || typeof raw !== "object") return emptyState();
   const data = raw as Partial<ProgressState>;
-  if (data.schemaVersion !== SCHEMA_VERSION) return emptyState();
+  if (!SUPPORTED_VERSIONS.includes(data.schemaVersion ?? -1)) return emptyState();
   const base = emptyState();
   return {
     ...base,
     ...data,
+    schemaVersion: SCHEMA_VERSION,
     settings: { ...base.settings, ...(data.settings ?? {}) },
+    patterns: data.patterns ?? {},
+    review: { ...base.review, ...(data.review ?? {}) },
   } as ProgressState;
 }
 
@@ -213,7 +245,7 @@ export function createLocalStore(storage: Storage | undefined): ProgressStore {
     exportJson: () => JSON.stringify(state, null, 2),
     importJson(json) {
       const raw = JSON.parse(json);
-      if (!raw || raw.schemaVersion !== SCHEMA_VERSION) {
+      if (!raw || !SUPPORTED_VERSIONS.includes(raw.schemaVersion)) {
         throw new Error("El archivo no es una copia de progreso válida de esta aplicación.");
       }
       set(migrate(raw));

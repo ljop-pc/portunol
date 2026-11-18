@@ -33,6 +33,7 @@ import exGrammar6 from "@/content/exercises/g6-contracoes.json";
 import exGrammar7 from "@/content/exercises/g7-negacao-perguntas.json";
 import exGrammar8 from "@/content/exercises/g8-numeros-horas.json";
 import exConversations from "@/content/exercises/conversas.json";
+import exRepaso from "@/content/exercises/repaso.json";
 
 import conv1 from "@/content/conversations/c1-cumprimentar.json";
 import conv2 from "@/content/conversations/c2-almoco-familia.json";
@@ -89,6 +90,7 @@ const exerciseFiles: [string, unknown][] = [
   ["g7-negacao-perguntas", exGrammar7],
   ["g8-numeros-horas", exGrammar8],
   ["conversas", exConversations],
+  ["repaso", exRepaso],
 ];
 export const exercises: Exercise[] = exerciseFiles.flatMap(([f, d]) => parse(ExerciseFileSchema, d, `exercises/${f}.json`));
 export const exerciseById = new Map(exercises.map((e) => [e.id, e]));

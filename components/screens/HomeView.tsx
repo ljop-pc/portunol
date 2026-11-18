@@ -6,6 +6,7 @@ import { getStore } from "@/lib/progress/react";
 import { Badge, LinkCard, SectionTitle } from "@/components/ui/primitives";
 import { IconCheck } from "@/components/ui/icons";
 import { InstallHint } from "./InstallHint";
+import { ReviewCard } from "@/components/review/ReviewCard";
 
 export function HomeView() {
   const progress = useProgress();
@@ -32,6 +33,8 @@ export function HomeView() {
           Este navegador no permite guardar datos (¿modo privado?). Tu progreso se perderá al cerrar la página.
         </div>
       )}
+
+      {hydrated && <ReviewCard progress={progress} />}
 
       {hydrated && current && (
         <Link

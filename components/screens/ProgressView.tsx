@@ -1,7 +1,10 @@
 "use client";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { conversations, falseFriends, grammarTopics, lessons, topicHref, topicLabel, vocabTopicById, vocabulary } from "@/lib/content";
+import { conversations, falseFriends, grammarById, grammarTopics, lessons, topicHref, topicLabel, vocabTopicById, vocabTopics, vocabulary } from "@/lib/content";
+import { grammarItemIds } from "@/lib/review/daily";
+import { levelCounts } from "@/lib/review/mastery";
+import { LevelBar, LevelLegend } from "@/components/review/LevelBar";
 import type { Skill } from "@/lib/content/schema";
 import { CATEGORY_LABELS } from "@/lib/correction";
 import { getStore, updateProgress, useHydrated, useProgress } from "@/lib/progress/react";
@@ -38,6 +41,8 @@ export function ProgressView() {
   const toReview = vocabIds.filter((id) => p.items[id] && p.items[id].streak === 0);
   const studiedTopics = grammarTopics.filter((g) => p.attempts.some((a) => a.topic === g.id));
   const errors = Object.values(p.errors).sort((a, b) => b.count - a.count).slice(0, 6);
+  const patterns = Object.values(p.patterns).sort((a, b) => (a.status === b.status ? b.failures - a.failures : a.status === "activo" ? -1 : 1));
+  const fmtDate = (iso: string) => new Date(iso).toLocaleDateString("es-ES", { day: "numeric", month: "short" });
   const recent = (skill: Skill) => p.attempts.filter((a) => a.skill === skill).slice(-30);
 
   const exportData = () => {
@@ -112,6 +117,59 @@ export function ProgressView() {
           </li>
         </ul>
         <p className="mt-4 text-xs text-ink-2">Porcentaje de aciertos en tus últimos 30 ejercicios de cada tipo.</p>
+      </Card>
+
+      <SectionTitle>Puntos débiles</SectionTitle>
+      {patterns.length === 0 ? (
+        <p className="rounded-2xl bg-surface-2 p-4 text-[15px] text-ink-2">
+          Ninguno detectado. Si fallas varias veces el mismo tema, aparecerá aquí y el repaso diario lo reforzará.
+        </p>
+      ) : (
+        <ul className="space-y-2">
+          {patterns.map((pt) => (
+            <li key={pt.topic}>
+              <Link href={`/gramatica/${pt.topic}/`} className="flex items-center gap-3 rounded-2xl bg-surface p-4 shadow-card">
+                <div className="min-w-0 flex-1">
+                  <p className="font-semibold tracking-[-0.02em]">{grammarById.get(pt.topic)?.title}</p>
+                  <p className="text-[14px] text-ink-2">
+                    {CATEGORY_LABELS[pt.category]} · detectado el {fmtDate(pt.detectedAt)}
+                    {pt.resolvedAt ? ` · superado el ${fmtDate(pt.resolvedAt)}` : ""}
+                  </p>
+                </div>
+                <span
+                  className={`shrink-0 rounded-full px-2.5 py-0.5 text-[12px] font-semibold ${
+                    pt.status === "activo" ? "bg-warn-soft text-warn" : "bg-ok-soft text-ok"
+                  }`}
+                >
+                  {pt.status === "activo" ? "en refuerzo" : "superado"}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <SectionTitle>Dominio por tema</SectionTitle>
+      <Card>
+        <LevelLegend />
+        <p className="mt-5 text-[13px] font-semibold uppercase tracking-[0.06em] text-ink-2">Gramática</p>
+        <ul className="mt-3 space-y-4">
+          {grammarTopics.map((g) => (
+            <li key={g.id}>
+              <p className="mb-1.5 text-[15px] font-medium">{g.title}</p>
+              <LevelBar counts={levelCounts(grammarItemIds(g.id), p.items)} label={g.title} />
+            </li>
+          ))}
+        </ul>
+        <p className="mt-6 text-[13px] font-semibold uppercase tracking-[0.06em] text-ink-2">Vocabulario</p>
+        <ul className="mt-3 space-y-4">
+          {vocabTopics.map((t) => (
+            <li key={t.topic}>
+              <p className="mb-1.5 text-[15px] font-medium">{t.title}</p>
+              <LevelBar counts={levelCounts(t.entries.map((e) => e.id), p.items)} label={t.title} />
+            </li>
+          ))}
+        </ul>
       </Card>
 
       <SectionTitle>Errores recurrentes</SectionTitle>

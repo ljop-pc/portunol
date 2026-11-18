@@ -4,7 +4,8 @@ Aplicación web (PWA, pensada para iPhone) para que un hispanohablante aprenda a
 **entender y hablar portugués europeo (PT-PT)**: gramática explicada desde el
 español, vocabulario real, falsos amigos y conversaciones de la vida cotidiana.
 
-> Estado: **Fase 1 (prototipo funcional)**. Ver [`docs/PLAN_FASE_1.md`](docs/PLAN_FASE_1.md)
+> Estado: **Fase 2 (aprendizaje adaptativo)**. Ver [`docs/FASE_2.md`](docs/FASE_2.md),
+> [`docs/PLAN_FASE_1.md`](docs/PLAN_FASE_1.md)
 > y la especificación completa en [`docs/ESPECIFICACION.md`](docs/ESPECIFICACION.md).
 
 ## Qué incluye la Fase 1
@@ -16,9 +17,10 @@ español, vocabulario real, falsos amigos y conversaciones de la vida cotidiana.
 | **Vocabulario** | 515 palabras y expresiones en 14 temas (incluye números, horas, días y meses), con ejemplo, notas y diferencias con Brasil; buscador; práctica generada que prioriza lo que fallas |
 | **Ojo con esta palabra** | 27 falsos amigos y trampas (esquisito, apelido, propina, todavia…) con su test |
 | **Conversación** | 3 escenarios completos (saludo, comida familiar, planes) con diálogo, alternativas, práctica guiada y reto final |
-| **Mi progreso** | lecciones, competencias por separado, errores recurrentes, palabras a repasar, tiempo de práctica, ajustes, exportar/importar/reiniciar |
+| **Repaso de hoy** | sesión diaria adaptada a tus errores: refuerzo de puntos débiles con micro-explicación y ejemplos nuevos, fallos recientes, repetición espaciada y palabras nuevas |
+| **Mi progreso** | lecciones, competencias por separado, puntos débiles (activos/superados), dominio por tema, errores recurrentes, palabras a repasar, tiempo de práctica, ajustes, exportar/importar/reiniciar |
 
-- **86 ejercicios redactados** de 7 tipos (comprensión, completar, construir la frase,
+- **122 ejercicios redactados** (86 de lecciones y conversaciones + 36 de repaso) de 7 tipos (comprensión, completar, construir la frase,
   traducción, detectar el error, diálogo, producción libre) + ejercicios de
   vocabulario generados automáticamente.
 - **Corrección explicada**: acepta varias respuestas válidas, tolera tildes con aviso
@@ -70,6 +72,7 @@ lib/content   esquemas Zod + carga/validación + generación de prácticas
 lib/correction motor de corrección determinista
 lib/progress  ProgressStore (localStorage, versionado, exportable)
 lib/srs       repetición espaciada (separada de la UI)
+lib/review    repaso diario, patrones de error y niveles de dominio (Fase 2)
 lib/audio     capa de audio intercambiable (nativo → sintético pt-PT → sin audio)
 tests/        unit (Vitest) y e2e (Playwright, iPhone)
 ```
