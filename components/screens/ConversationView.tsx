@@ -48,7 +48,10 @@ export function ConversationView({ conversationId }: { conversationId: string })
         return;
       }
       setPlayingAll(i);
-      play({ text: c.turns[i].pt }, { rate: progress.settings.audioRate, onEnd: () => setTimeout(() => step(i + 1), 450) });
+      play(
+        { text: c.turns[i].pt },
+        { rate: progress.settings.audioRate, onEnd: () => setTimeout(() => step(i + 1), 450), onFail: () => (cancelled.current = true) },
+      );
     };
     step(0);
   };

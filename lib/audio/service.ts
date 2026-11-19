@@ -100,6 +100,24 @@ export function sourceFor(ref: AudioRef, s: AudioStatus = status): AudioSource {
 export interface PlayOptions {
   rate?: number;
   onEnd?: () => void;
+  /** No se ha podido reproducir (error del sistema o no empezó a sonar). */
+  onFail?: () => void;
+}
+
+/**
+ * Safari (iOS) puede descartar una frase antes de reproducirla si nadie
+ * guarda una referencia: la conservamos aquí mientras suena.
+ */
+let current: SpeechSynthesisUtterance | null = null;
+
+/** Vuelve a pedir la voz al sistema: en iOS la referencia guardada puede caducar. */
+function freshPtVoice(): SpeechSynthesisVoice | null {
+  const voices = window.speechSynthesis.getVoices();
+  if (ptVoice) {
+    const same = voices.find((v) => v.voiceURI === ptVoice!.voiceURI && isEuropeanPortuguese(v.lang));
+    if (same) return same;
+  }
+  return voices.find((v) => isEuropeanPortuguese(v.lang)) ?? ptVoice;
 }
 
 export function play(ref: AudioRef, opts: PlayOptions = {}): AudioSource {
@@ -108,24 +126,61 @@ export function play(ref: AudioRef, opts: PlayOptions = {}): AudioSource {
     const audio = new Audio(ref.file);
     audio.playbackRate = opts.rate ?? 1;
     audio.onended = () => opts.onEnd?.();
-    void audio.play();
+    audio.play().catch(() => {
+      opts.onEnd?.();
+      opts.onFail?.();
+    });
     return source;
   }
-  if (source === "synthetic-pt-PT" && ptVoice) {
+  if (source === "synthetic-pt-PT") {
     const synth = window.speechSynthesis;
-    synth.cancel();
+    const voice = freshPtVoice();
+    if (!voice) return "none";
+    // En Safari, cancel() seguido de speak() en el mismo instante hace que la
+    // nueva frase se pierda: solo se cancela si de verdad hay algo sonando.
+    if (synth.speaking || synth.pending) synth.cancel();
     const u = new SpeechSynthesisUtterance(ref.text);
-    u.voice = ptVoice;
+    u.voice = voice;
     u.lang = "pt-PT";
     u.rate = opts.rate ?? 0.9;
-    u.onend = () => opts.onEnd?.();
-    u.onerror = () => opts.onEnd?.();
+    let started = false;
+    let finished = false;
+    const finish = (failed: boolean) => {
+      if (finished) return;
+      finished = true;
+      if (current === u) current = null;
+      opts.onEnd?.();
+      if (failed) opts.onFail?.();
+    };
+    u.onstart = () => {
+      started = true;
+    };
+    u.onend = () => finish(false);
+    u.onerror = (e) => finish(e.error !== "interrupted" && e.error !== "canceled");
+    current = u;
     synth.speak(u);
+    // iOS a veces deja la síntesis «en pausa»: se reactiva.
+    if (synth.paused) synth.resume();
+    // Si en unos segundos no ha empezado a sonar, se avisa en lugar de fallar en silencio.
+    window.setTimeout(() => {
+      if (!started && !finished) {
+        synth.resume();
+        window.setTimeout(() => {
+          if (!started && !finished) {
+            synth.cancel();
+            finish(true);
+          }
+        }, 1500);
+      }
+    }, 1500);
     return source;
   }
   return "none";
 }
 
 export function stop() {
-  if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.cancel();
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+  const synth = window.speechSynthesis;
+  if (synth.speaking || synth.pending) synth.cancel();
+  current = null;
 }

@@ -13,6 +13,7 @@ export function AudioButton({ text, file, slow = false, size = "md" }: AudioRef 
   const { settings } = useProgress();
   const [playing, setPlaying] = useState<"normal" | "slow" | null>(null);
   const [showInfo, setShowInfo] = useState(false);
+  const [failed, setFailed] = useState(false);
   const source = sourceFor({ text, file }, status);
   const dim = size === "sm" ? "h-9 w-9" : "h-11 w-11";
 
@@ -42,12 +43,16 @@ export function AudioButton({ text, file, slow = false, size = "md" }: AudioRef 
 
   const doPlay = (mode: "normal" | "slow") => {
     setPlaying(mode);
-    play({ text, file }, { rate: mode === "slow" ? 0.6 : settings.audioRate, onEnd: () => setPlaying(null) });
+    setFailed(false);
+    play(
+      { text, file },
+      { rate: mode === "slow" ? 0.6 : settings.audioRate, onEnd: () => setPlaying(null), onFail: () => setFailed(true) },
+    );
   };
   const label = source === "native" ? "Escuchar (grabación nativa)" : "Escuchar (voz sintética PT-PT)";
 
   return (
-    <span className="inline-flex shrink-0 items-center">
+    <span className="relative inline-flex shrink-0 items-center">
       <button
         type="button"
         onClick={() => doPlay("normal")}
@@ -70,6 +75,14 @@ export function AudioButton({ text, file, slow = false, size = "md" }: AudioRef 
         >
           lento
         </button>
+      )}
+      {failed && (
+        <span role="alert" className="absolute right-0 top-full z-30 mt-1 w-60 rounded-xl bg-surface p-3 text-xs text-ink-2 shadow-lg">
+          No se ha podido reproducir. Comprueba que el iPhone no está en silencio y que el volumen está alto, y vuelve a tocar.
+          <button type="button" className="mt-1 block font-semibold text-brand" onClick={() => setFailed(false)}>
+            Cerrar
+          </button>
+        </span>
       )}
     </span>
   );

@@ -240,9 +240,15 @@ export function ProgressView() {
       <SectionTitle>Audio</SectionTitle>
       <Card>
         {audio.syntheticAvailable ? (
+          <>
           <p className="text-[15px]">
             Voz sintética de portugués europeo detectada: <strong>{audio.voiceName}</strong>. Es una voz del sistema, no una grabación nativa.
           </p>
+          <p className="mt-2 text-[14px] text-ink-2">
+            ¿No oyes nada? En iPhone la voz del sistema puede no sonar con el modo silencio activado: desactívalo (interruptor lateral o
+            Centro de control) y sube el volumen.
+          </p>
+          </>
         ) : (
           <div className="text-[15px]">
             <p>No se ha detectado una voz de portugués de Portugal en este dispositivo, así que la app no reproduce audio (no usamos voces de Brasil).</p>
